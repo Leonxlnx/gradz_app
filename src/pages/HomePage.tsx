@@ -4,6 +4,7 @@ import GlassNavigation from '../components/GlassNavigation';
 import HappyDecorations from '../components/HappyDecorations';
 import KineticMarquee from '../components/KineticMarquee';
 import KindnessGenerator from '../components/KindnessGenerator';
+import WisdomCards from '../components/WisdomCards';
 import PhilosophyScroll from '../components/PhilosophyScroll';
 import VoicesSection from '../components/VoicesSection';
 import ProofOfHumanity from '../components/ProofOfHumanity';
@@ -21,20 +22,34 @@ export default function HomePage() {
 
       <div className="relative z-10 bg-cream" style={{ marginTop: '100vh' }}>
         <KineticMarquee />
+
+        {/* Wisdom Section */}
+        <section id="about">
+          <WisdomCards />
+        </section>
+
+        {/* Daily Kindness */}
         <section id="how">
           <KindnessGenerator />
         </section>
-        <PhilosophyScroll />
-        <section id="about">
-          <VoicesSection />
-        </section>
-        <ProofOfHumanity />
+
+        {/* Impact Stats */}
         <section id="impact">
           <ModernImpact />
         </section>
+
+        {/* Community Messages */}
         <section id="community">
           <ModernMessages />
         </section>
+
+        {/* Philosophy & Voices */}
+        <PhilosophyScroll />
+        <VoicesSection />
+
+        {/* Proof of Humanity */}
+        <ProofOfHumanity />
+
         <Footer />
       </div>
     </div>
