@@ -1,9 +1,7 @@
 import { GoogleGenAI, Type } from "@google/genai";
 
-// Initialize the client.
-// Note: In a real production app, you'd often proxy this through a backend to protect the key,
-// but for this frontend demo we use the env var directly as requested.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY || "";
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 export interface KindnessTask {
   title: string;
@@ -14,6 +12,10 @@ export interface KindnessTask {
 
 export const generateKindnessTask = async (): Promise<KindnessTask> => {
   try {
+    if (!ai) {
+      throw new Error("API key not configured");
+    }
+
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents: "Generate a unique, serious, and impactful act of kindness for a stranger or friend. It should be actionable today.",
