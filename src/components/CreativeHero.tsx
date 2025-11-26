@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
 export default function CreativeHero() {
@@ -7,6 +7,18 @@ export default function CreativeHero() {
   const polaroid1Ref = useRef<HTMLDivElement>(null);
   const polaroid2Ref = useRef<HTMLDivElement>(null);
   const stickerRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 20;
+      const y = (e.clientY / window.innerHeight - 0.5) * 20;
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -73,50 +85,66 @@ export default function CreativeHero() {
       className="fixed inset-0 w-full h-screen flex items-center justify-center z-0 overflow-hidden"
       style={{ height: '100dvh' }}
     >
-      {/* Enhanced background with subtle pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cream via-white to-matcha/10"></div>
-      <div className="absolute inset-0" style={{
-        backgroundImage: `radial-gradient(circle at 2px 2px, rgba(20, 51, 40, 0.03) 1px, transparent 0)`,
-        backgroundSize: '40px 40px'
-      }}></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-stone/30 via-white/50 to-stone/20"></div>
 
-      <div className="relative w-full max-w-7xl px-6">
-        {/* Enhanced polaroid 1 */}
-        <div ref={polaroid1Ref} className="absolute top-[15%] left-[8%] w-48 md:w-64 lg:w-80 transform -rotate-12 hover:scale-105 hover:-rotate-6 transition-all duration-500 cursor-pointer shadow-2xl hover:shadow-3xl">
-          <div className="bg-white p-5 rounded-2xl border-2" style={{ borderColor: '#143328' }}>
+      <div className="relative w-full h-full max-w-[1600px] mx-auto px-6">
+        <div
+          ref={polaroid1Ref}
+          className="absolute top-[18%] left-[5%] w-64 md:w-72 lg:w-80 transform -rotate-12 hover:scale-105 hover:-rotate-6 transition-all duration-500 cursor-pointer shadow-2xl z-10"
+        >
+          <div className="bg-white p-4 rounded-lg">
             <img
               src="https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Friends together spreading joy"
-              className="w-full aspect-square object-cover rounded-lg"
+              className="w-full aspect-square object-cover"
             />
-            <p className="mt-4 font-hand text-center text-xl" style={{ color: '#143328' }}>spread joy daily</p>
           </div>
         </div>
 
-        <div ref={titleRef} className="text-center relative z-10 max-w-5xl mx-auto">
-          <h1 className="text-6xl md:text-7xl lg:text-9xl font-serif font-bold leading-[0.9]" style={{ color: '#143328' }}>
-            Make Earth <span className="text-7xl md:text-8xl lg:text-[10rem] font-hand inline-block" style={{ color: '#E89F71' }}>Softer</span> Again.
+        <div
+          ref={titleRef}
+          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20"
+          style={{
+            transform: `translate(calc(-50% + ${mousePosition.x}px), calc(-50% + ${mousePosition.y}px))`,
+            transition: 'transform 0.3s ease-out'
+          }}
+        >
+          <h1 className="text-center whitespace-nowrap">
+            <span className="block text-7xl md:text-8xl lg:text-9xl font-serif font-bold leading-[0.85]" style={{ color: '#143328' }}>
+              Make Earth
+            </span>
+            <span className="block text-8xl md:text-9xl lg:text-[11rem] font-hand -rotate-1 my-2" style={{ color: '#E89F71' }}>
+              Softer
+            </span>
+            <span className="block text-7xl md:text-8xl lg:text-9xl font-serif font-bold leading-[0.85]" style={{ color: '#143328' }}>
+              Again.
+            </span>
           </h1>
         </div>
 
-        {/* Enhanced polaroid 2 */}
-        <div ref={polaroid2Ref} className="absolute bottom-[10%] right-[8%] w-48 md:w-64 lg:w-80 transform rotate-12 hover:scale-105 hover:rotate-6 transition-all duration-500 cursor-pointer shadow-2xl hover:shadow-3xl">
-          <div className="bg-white p-5 rounded-2xl border-2" style={{ borderColor: '#143328' }}>
+        <div
+          ref={polaroid2Ref}
+          className="absolute bottom-[12%] right-[5%] w-64 md:w-72 lg:w-80 transform rotate-12 hover:scale-105 hover:rotate-6 transition-all duration-500 cursor-pointer shadow-2xl z-10"
+        >
+          <div className="bg-white p-4 rounded-lg">
             <img
               src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Capturing moments of kindness"
-              className="w-full aspect-square object-cover rounded-lg"
+              className="w-full aspect-square object-cover"
             />
-            <p className="mt-4 font-hand text-center text-xl" style={{ color: '#143328' }}>kindness matters</p>
           </div>
         </div>
 
-        {/* Enhanced sticker */}
-        <div ref={stickerRef} className="absolute bottom-[15%] left-[15%] px-10 py-4 rounded-full shadow-xl border-2 rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-300 cursor-pointer" style={{ backgroundColor: '#E89F71', borderColor: '#143328' }}>
-          <span className="font-hand text-xl font-bold" style={{ color: '#143328' }}>GOOD VIBES ONLY</span>
+        <div
+          ref={stickerRef}
+          className="absolute bottom-[18%] right-[28%] px-8 py-3 rounded-full shadow-xl rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-300 cursor-pointer z-30"
+          style={{ backgroundColor: '#E89F71' }}
+        >
+          <span className="font-hand text-lg md:text-xl font-bold whitespace-nowrap" style={{ color: '#143328' }}>
+            GOOD VIBES ONLY
+          </span>
         </div>
       </div>
-
     </div>
   );
 }
