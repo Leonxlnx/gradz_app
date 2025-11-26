@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 export const FluidBackground = () => {
@@ -7,40 +7,35 @@ export const FluidBackground = () => {
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Scene Setup
     const scene = new THREE.Scene();
-    // Match the app background exactly so it feels transparent
     scene.background = new THREE.Color('#FDFCF8');
 
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
     camera.position.z = 1;
 
-    const renderer = new THREE.WebGLRenderer({ 
-      alpha: true, 
+    const renderer = new THREE.WebGLRenderer({
+      alpha: true,
       antialias: true,
       powerPreference: "high-performance"
     });
-    
+
     const width = containerRef.current.clientWidth;
     const height = containerRef.current.clientHeight;
     renderer.setSize(width, height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    
+
     containerRef.current.appendChild(renderer.domElement);
 
-    // Uniforms - NEW PALETTE: Monochromatic Textures (Cream, White, Stone)
     const uniforms = {
       uTime: { value: 0 },
       uResolution: { value: new THREE.Vector2(width, height) },
       uMouse: { value: new THREE.Vector2(0.5, 0.5) },
-      // Subtle variations of the background color for a "Liquid Paper" effect
-      uColor1: { value: new THREE.Color('#FDFCF8') }, // Base Cream
-      uColor2: { value: new THREE.Color('#F4F4F0') }, // Slightly darker cream
-      uColor3: { value: new THREE.Color('#FFFFFF') }, // Pure White Highlight
-      uColor4: { value: new THREE.Color('#EFEFEA') }, // Very subtle stone shadow
+      uColor1: { value: new THREE.Color('#FDFCF8') },
+      uColor2: { value: new THREE.Color('#F4F4F0') },
+      uColor3: { value: new THREE.Color('#FFFFFF') },
+      uColor4: { value: new THREE.Color('#EFEFEA') },
     };
 
-    // Vertex Shader
     const vertexShader = `
       varying vec2 vUv;
       void main() {
@@ -49,7 +44,6 @@ export const FluidBackground = () => {
       }
     `;
 
-    // Fragment Shader - Domain Warping for "Crazy" Fluidity but Calm Colors
     const fragmentShader = `
       uniform float uTime;
       uniform vec2 uResolution;
@@ -61,7 +55,6 @@ export const FluidBackground = () => {
 
       varying vec2 vUv;
 
-      // Simplex Noise function
       vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }
 
       float snoise(vec2 v){
@@ -94,16 +87,11 @@ export const FluidBackground = () => {
         vec2 st = gl_FragCoord.xy / uResolution.xy;
         st.x *= uResolution.x / uResolution.y;
 
-        // Interaction
         float mouseDist = distance(st, uMouse);
         float mouseInfluence = smoothstep(0.6, 0.0, mouseDist) * 0.15;
 
-        // Faster time for more "life"
-        float t = uTime * 0.2; 
+        float t = uTime * 0.2;
 
-        // Domain Warping Logic (The "Crazy" Part)
-        // We distort the coordinate space 'st' multiple times to create swirling liquid
-        
         vec2 q = vec2(0.);
         q.x = snoise(st + vec2(0.0, t * 0.5));
         q.y = snoise(st + vec2(1.0, t * 0.5));
@@ -114,21 +102,10 @@ export const FluidBackground = () => {
 
         float f = snoise(st + r);
 
-        // Color Mixing based on the warped values
-        // Since colors are very similar, this creates texture/depth rather than hue shifts
-        
-        vec3 color = uColor1; // Base
-
-        // Add depth with Color 2 (Darker Cream)
+        vec3 color = uColor1;
         color = mix(color, uColor2, clamp(length(q), 0.0, 1.0));
-
-        // Add highlights with Color 3 (White)
         color = mix(color, uColor3, clamp(length(r.x), 0.0, 1.0));
-        
-        // Add shadows with Color 4 (Stone)
         color = mix(color, uColor4, clamp(f, 0.0, 1.0));
-
-        // Final brightness adjust to keep it clean
         color = color * 1.02;
 
         gl_FragColor = vec4(color, 1.0);
@@ -145,7 +122,6 @@ export const FluidBackground = () => {
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
-    // Resize Observer
     const resizeObserver = new ResizeObserver((entries) => {
         for (let entry of entries) {
             const width = entry.contentRect.width;
@@ -161,7 +137,7 @@ export const FluidBackground = () => {
     const handleMouseMove = (e: MouseEvent) => {
        const x = (e.clientX / window.innerWidth) * (window.innerWidth / window.innerHeight);
        const y = 1.0 - (e.clientY / window.innerHeight);
-       uniforms.uMouse.value.x = x; 
+       uniforms.uMouse.value.x = x;
        uniforms.uMouse.value.y = y;
     };
     window.addEventListener('mousemove', handleMouseMove);

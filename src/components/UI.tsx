@@ -1,14 +1,14 @@
-import React from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 import { ArrowRight, QuoteIcon } from './Icons';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'peach' | 'outline' | 'white' | 'glass' | 'black';
   withIcon?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ({ variant = 'primary', className = '', children, withIcon, ...props }) => {
+export const Button = ({ variant = 'primary', className = '', children, withIcon, ...props }: ButtonProps) => {
   const baseStyles = "group relative px-8 py-4 rounded-full font-bold text-sm tracking-wide transition-all duration-300 flex items-center gap-2 justify-center transform active:scale-95 font-sans border border-transparent overflow-hidden";
-  
+
   const variants = {
     primary: "bg-gradz-green text-white hover:bg-gradz-green/90 shadow-xl shadow-gradz-green/20 hover:shadow-2xl hover:-translate-y-1",
     black: "bg-gradz-charcoal text-white hover:bg-black shadow-xl hover:shadow-2xl hover:-translate-y-1",
@@ -20,8 +20,8 @@ export const Button: React.FC<ButtonProps> = ({ variant = 'primary', className =
   };
 
   return (
-    <button 
-      className={`${baseStyles} ${variants[variant]} ${className}`} 
+    <button
+      className={`${baseStyles} ${variants[variant]} ${className}`}
       {...props}
     >
       <span className="relative z-10 flex items-center gap-2">
@@ -32,19 +32,19 @@ export const Button: React.FC<ButtonProps> = ({ variant = 'primary', className =
   );
 };
 
-export const Sticker: React.FC<{ children: React.ReactNode; className?: string; rotate?: string; color?: string }> = ({ children, className = '', rotate='rotate-0', color='bg-gradz-butter' }) => (
+export const Sticker = ({ children, className = '', rotate='rotate-0', color='bg-gradz-butter' }: { children: ReactNode; className?: string; rotate?: string; color?: string }) => (
   <div className={`inline-flex items-center justify-center ${color} text-gradz-charcoal rounded-full px-5 py-3 font-bold text-xs uppercase tracking-widest border-2 border-gradz-charcoal shadow-[3px_3px_0px_0px_rgba(45,42,38,1)] transform ${rotate} hover:scale-110 transition-transform duration-300 ${className} z-20 font-sans select-none cursor-default`}>
     {children}
   </div>
 );
 
-export const BigHeading: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
+export const BigHeading = ({ children, className = '' }: { children: ReactNode; className?: string }) => (
   <h1 className={`font-serif font-variation-settings-bold tracking-tight ${className}`}>
     {children}
   </h1>
 );
 
-export const Card: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => (
+export const Card = ({ children, className = '' }: { children: ReactNode; className?: string }) => (
   <div className={`rounded-[2.5rem] bg-white border border-gradz-stone shadow-xl p-8 ${className}`}>
     {children}
   </div>
@@ -58,7 +58,7 @@ export const Badge = ({ text, color = 'peach' }: { text: string, color?: 'peach'
     lilac: 'bg-gradz-lilac text-gradz-charcoal border-gradz-charcoal',
     blue: 'bg-gradz-blue text-gradz-charcoal border-gradz-charcoal',
   };
-  
+
   return (
     <span className={`px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider border ${colors[color]} shadow-sm font-sans inline-block`}>
       {text}
@@ -101,7 +101,7 @@ export const QuoteCard = ({ quote, author }: { quote: string, author: string }) 
     </div>
 );
 
-export const StickyNote: React.FC<{ children: React.ReactNode, color?: string, rotate?: string, className?: string }> = ({ children, color = "bg-gradz-butter", rotate = "rotate-2", className = "" }) => (
+export const StickyNote = ({ children, color = "bg-gradz-butter", rotate = "rotate-2", className = "" }: { children: ReactNode, color?: string, rotate?: string, className?: string }) => (
     <div className={`p-8 shadow-xl ${color} ${rotate} ${className} relative transition-transform duration-300 hover:scale-105 hover:z-10`}>
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-white/30 backdrop-blur-sm transform -rotate-1"></div>
         {children}

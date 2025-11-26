@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, BigHeading, Badge, Tape } from './UI';
 import { generateKindnessTask, KindnessTask } from '../services/geminiService';
 import { Sparkle, Flower, Heart, ScribbleLoop } from './Icons';
 
-export const KindnessGenerator: React.FC = () => {
+const KindnessGenerator = () => {
   const [task, setTask] = useState<KindnessTask | null>(null);
   const [loading, setLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
@@ -22,27 +22,25 @@ export const KindnessGenerator: React.FC = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto relative">
-      {/* Decorative Blobs behind the card */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-gradz-matcha/20 rounded-full blur-3xl opacity-50 -z-10 animate-pulse"></div>
+    <div className="w-full max-w-7xl mx-auto relative py-12 overflow-x-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradz-matcha/20 rounded-full blur-3xl opacity-50 -z-10 animate-pulse"></div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-center">
-        {/* Text Side */}
-        <div className="lg:col-span-5 text-center lg:text-left space-y-6 relative">
-            <ScribbleLoop className="absolute -top-10 -left-10 w-32 h-32 text-gradz-peach opacity-50 animate-float-delayed hidden lg:block" />
-           <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border-2 border-gradz-stone shadow-[4px_4px_0px_0px_#E8E6E1]">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center px-6">
+        <div className="lg:col-span-5 text-left space-y-5 relative pl-0 md:pl-8 lg:pl-16">
+            <ScribbleLoop className="absolute -top-8 -left-6 w-24 h-24 text-gradz-peach opacity-50 animate-float-delayed hidden lg:block" />
+           <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border-2 border-gradz-stone shadow-lg">
               <Flower className="w-5 h-5 text-gradz-peach animate-spin-slow" />
               <span className="text-sm font-bold text-gradz-charcoal/80 font-sans">Daily Practice Engine</span>
            </div>
-           <BigHeading className="text-6xl md:text-7xl lg:text-8xl text-gradz-green leading-[0.85]">
+           <BigHeading className="text-5xl md:text-6xl lg:text-7xl text-gradz-green leading-[0.9]">
              Flex Your <br/>
-             <span className="italic font-hand text-6xl md:text-8xl text-gradz-peach relative inline-block transform -rotate-2 mt-2">
+             <span className="italic font-hand text-5xl md:text-7xl text-gradz-peach relative inline-block transform -rotate-2 mt-1">
                 Heart Muscle
-                <span className="absolute -bottom-4 left-0 w-full h-4 bg-gradz-matcha/40 -z-10 rounded-full blur-sm"></span>
+                <span className="absolute -bottom-3 left-0 w-full h-3 bg-gradz-matcha/40 -z-10 rounded-full blur-sm"></span>
              </span>
            </BigHeading>
-           <p className="text-xl text-gradz-charcoal/80 leading-relaxed font-sans">
-             We train our bodies and our minds. But what about our empathy? 
+           <p className="text-lg text-gradz-charcoal/80 leading-relaxed font-sans max-w-md">
+             We train our bodies and our minds. But what about our empathy?
              Use the engine to receive a bespoke act of kindness designed to brighten someone's day.
            </p>
         </div>
@@ -53,7 +51,7 @@ export const KindnessGenerator: React.FC = () => {
              <Tape className="-top-4 left-1/2 -translate-x-1/2 rotate-2" />
              <div className="relative bg-white rounded-[3rem] p-3 shadow-2xl shadow-gradz-green/10 border border-gradz-stone">
                 <div className="bg-gradz-cream rounded-[2.5rem] p-8 md:p-12 min-h-[450px] flex flex-col justify-center items-center relative overflow-hidden border-2 border-dashed border-gradz-stone/50">
-                
+
                 {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-[0.04] bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]"></div>
 
@@ -116,7 +114,7 @@ export const KindnessGenerator: React.FC = () => {
                    </div>
                 )}
              </div>
-             
+
              {/* Decorative elements on the card itself */}
              <div className="absolute -bottom-6 -right-6 w-20 h-20 bg-gradz-peach rounded-full flex items-center justify-center shadow-xl animate-bounce border-4 border-white z-20">
                 <span className="font-hand font-bold text-xl -rotate-12">Free!</span>
@@ -125,6 +123,8 @@ export const KindnessGenerator: React.FC = () => {
         </div>
       </div>
     </div>
-   </div> 
+   </div>
   );
 };
+
+export default KindnessGenerator;
