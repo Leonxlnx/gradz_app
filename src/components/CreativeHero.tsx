@@ -93,23 +93,10 @@ export default function CreativeHero() {
           </div>
         </div>
 
-        {/* Enhanced title section */}
         <div ref={titleRef} className="text-center relative z-10 max-w-5xl mx-auto">
-          <h1 className="text-6xl md:text-7xl lg:text-9xl font-serif font-bold leading-tight mb-4" style={{ color: '#143328' }}>
-            Make Earth
+          <h1 className="text-6xl md:text-7xl lg:text-9xl font-serif font-bold leading-[0.9]" style={{ color: '#143328' }}>
+            Make Earth <span className="text-7xl md:text-8xl lg:text-[10rem] font-hand inline-block" style={{ color: '#E89F71' }}>Softer</span> Again.
           </h1>
-          <div className="my-6 md:my-8">
-            <h1 className="text-7xl md:text-8xl lg:text-[10rem] font-hand -rotate-2 inline-block px-6 py-2 relative" style={{ color: '#E89F71' }}>
-              Softer
-              <div className="absolute -bottom-2 left-0 right-0 h-1" style={{ backgroundColor: '#E89F71', opacity: 0.3, transform: 'rotate(-1deg)' }}></div>
-            </h1>
-          </div>
-          <h1 className="text-6xl md:text-7xl lg:text-9xl font-serif font-bold leading-tight" style={{ color: '#143328' }}>
-            Again.
-          </h1>
-          <p className="mt-8 text-xl md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed" style={{ color: '#143328' }}>
-            Join a global movement of kindness, one small act at a time.
-          </p>
         </div>
 
         {/* Enhanced polaroid 2 */}
@@ -130,12 +117,6 @@ export default function CreativeHero() {
         </div>
       </div>
 
-      {/* Enhanced scroll indicator */}
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-8 h-14 rounded-full border-2 flex items-start justify-center p-2 shadow-lg" style={{ borderColor: '#143328' }}>
-          <div className="w-2 h-4 rounded-full animate-pulse" style={{ backgroundColor: '#143328' }}></div>
-        </div>
-      </div>
     </div>
   );
 }

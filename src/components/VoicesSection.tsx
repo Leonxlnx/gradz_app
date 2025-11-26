@@ -73,13 +73,31 @@ export default function VoicesSection() {
   return (
     <div ref={containerRef} className="relative h-screen overflow-hidden bg-gradient-to-br from-cream via-matcha/10 to-peach/10">
       <div className="sticky top-0 h-screen flex items-center">
-        <div className="absolute top-12 left-12 z-20 bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 border-forest/20 shadow-lg">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-2" style={{ color: '#143328' }}>
-            Voices of Reason
+        <div className="absolute top-12 left-16 md:left-24 lg:left-32 z-20 max-w-md">
+          <div className="mb-6 inline-block">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border-2" style={{ backgroundColor: '#D4A5C4', borderColor: '#143328' }}>
+              <span className="text-xs font-bold uppercase tracking-wider" style={{ color: '#143328' }}>VOICES OF REASON</span>
+            </div>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 leading-tight" style={{ color: '#143328' }}>
+            Wisdom
           </h2>
-          <p className="text-base font-hand font-semibold" style={{ color: '#E89F71' }}>
-            Words that move us forward
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-hand mb-4" style={{ color: '#E89F71' }}>
+            From The
+          </h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 leading-tight" style={{ color: '#143328' }}>
+            Greats.
+          </h2>
+          <p className="text-base md:text-lg font-medium leading-relaxed max-w-sm" style={{ color: '#143328' }}>
+            A collection of sticky notes to remind you that kindness isn't soft—it's the hardest, most necessary thing we do.
           </p>
+          <div className="mt-8 flex items-center gap-3">
+            <span className="text-sm font-bold uppercase tracking-wider" style={{ color: '#143328' }}>SCROLL</span>
+            <div className="flex gap-1">
+              <div className="w-8 h-0.5" style={{ backgroundColor: '#143328' }}></div>
+              <div className="w-4 h-0.5" style={{ backgroundColor: '#143328', opacity: 0.5 }}></div>
+            </div>
+          </div>
         </div>
 
         <div

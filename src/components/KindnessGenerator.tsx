@@ -22,26 +22,24 @@ const KindnessGenerator = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto relative">
-      {/* Decorative Blobs behind the card */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-gradz-matcha/20 rounded-full blur-3xl opacity-50 -z-10 animate-pulse"></div>
+    <div className="w-full max-w-7xl mx-auto relative py-12 overflow-x-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradz-matcha/20 rounded-full blur-3xl opacity-50 -z-10 animate-pulse"></div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-center">
-        {/* Text Side */}
-        <div className="lg:col-span-5 text-center lg:text-left space-y-6 relative">
-            <ScribbleLoop className="absolute -top-10 -left-10 w-32 h-32 text-gradz-peach opacity-50 animate-float-delayed hidden lg:block" />
-           <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border-2 border-gradz-stone shadow-[4px_4px_0px_0px_#E8E6E1]">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center px-6">
+        <div className="lg:col-span-5 text-left space-y-5 relative pl-0 md:pl-8 lg:pl-16">
+            <ScribbleLoop className="absolute -top-8 -left-6 w-24 h-24 text-gradz-peach opacity-50 animate-float-delayed hidden lg:block" />
+           <div className="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-full border-2 border-gradz-stone shadow-lg">
               <Flower className="w-5 h-5 text-gradz-peach animate-spin-slow" />
               <span className="text-sm font-bold text-gradz-charcoal/80 font-sans">Daily Practice Engine</span>
            </div>
-           <BigHeading className="text-6xl md:text-7xl lg:text-8xl text-gradz-green leading-[0.85]">
+           <BigHeading className="text-5xl md:text-6xl lg:text-7xl text-gradz-green leading-[0.9]">
              Flex Your <br/>
-             <span className="italic font-hand text-6xl md:text-8xl text-gradz-peach relative inline-block transform -rotate-2 mt-2">
+             <span className="italic font-hand text-5xl md:text-7xl text-gradz-peach relative inline-block transform -rotate-2 mt-1">
                 Heart Muscle
-                <span className="absolute -bottom-4 left-0 w-full h-4 bg-gradz-matcha/40 -z-10 rounded-full blur-sm"></span>
+                <span className="absolute -bottom-3 left-0 w-full h-3 bg-gradz-matcha/40 -z-10 rounded-full blur-sm"></span>
              </span>
            </BigHeading>
-           <p className="text-xl text-gradz-charcoal/80 leading-relaxed font-sans">
+           <p className="text-lg text-gradz-charcoal/80 leading-relaxed font-sans max-w-md">
              We train our bodies and our minds. But what about our empathy?
              Use the engine to receive a bespoke act of kindness designed to brighten someone's day.
            </p>

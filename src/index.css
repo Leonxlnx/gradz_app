@@ -5,9 +5,11 @@
 @tailwind utilities;
 
 @layer base {
-  body {
+  html, body {
     @apply font-sans text-forest bg-cream;
     position: relative;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   body::before {
