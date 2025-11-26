@@ -1,1 +1,0 @@
-gradz_app
