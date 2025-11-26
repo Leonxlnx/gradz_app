@@ -19,14 +19,14 @@ export default function GlassNavigation() {
         Skip to main content
       </a>
 
-      <nav role="navigation" aria-label="Main navigation" className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-6xl">
-        <div className="rounded-full px-8 py-5 shadow-2xl border-2" style={{ background: 'rgba(253, 252, 248, 0.8)', backdropFilter: 'blur(30px)', borderColor: 'rgba(20, 51, 40, 0.1)' }}>
+      <nav role="navigation" aria-label="Main navigation" className="fixed top-3 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-5xl">
+        <div className="rounded-full px-4 py-2.5 shadow-xl border" style={{ background: 'rgba(253, 252, 248, 0.85)', backdropFilter: 'blur(20px)', borderColor: 'rgba(20, 51, 40, 0.08)' }}>
           <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-3 hover:scale-105 transition-transform duration-300">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg" style={{ backgroundColor: '#143328' }}>
-                <div className="w-7 h-7 rounded-full border-3" style={{ borderColor: '#FDFCF8' }}></div>
+            <Link to="/" className="flex items-center gap-2 hover:scale-105 transition-transform duration-300">
+              <div className="w-8 h-8 rounded-full flex items-center justify-center shadow-md" style={{ backgroundColor: '#143328' }}>
+                <div className="w-5 h-5 rounded-full border-2" style={{ borderColor: '#FDFCF8' }}></div>
               </div>
-              <span className="text-2xl md:text-3xl font-serif font-bold" style={{ color: '#143328' }}>Gradz.</span>
+              <span className="text-lg md:text-xl font-serif font-bold" style={{ color: '#143328' }}>Gradz.</span>
             </Link>
 
             <button
@@ -42,40 +42,40 @@ export default function GlassNavigation() {
               )}
             </button>
 
-            <div className="hidden md:flex items-center gap-3 rounded-full px-5 py-3 border-2 shadow-inner" style={{ background: 'rgba(20, 51, 40, 0.05)', borderColor: 'rgba(20, 51, 40, 0.1)' }}>
+            <div className="hidden md:flex items-center gap-1 rounded-full px-2 py-1.5 border shadow-inner" style={{ background: 'rgba(20, 51, 40, 0.04)', borderColor: 'rgba(20, 51, 40, 0.08)' }}>
               <button
                 onClick={() => scrollToSection('home')}
-                className="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 hover:scale-105"
+                className="px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 hover:scale-105"
                 style={{ backgroundColor: '#143328', color: '#FDFCF8' }}
               >
                 HOME
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 hover:bg-matcha/30"
+                className="px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 hover:bg-matcha/30"
                 style={{ color: '#143328' }}
               >
                 MISSION
               </button>
               <button
                 onClick={() => scrollToSection('community')}
-                className="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 hover:bg-peach/30"
+                className="px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 hover:bg-peach/30"
                 style={{ color: '#143328' }}
               >
                 STORIES
               </button>
               <button
                 onClick={() => scrollToSection('impact')}
-                className="px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 hover:bg-butter/30"
+                className="px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 hover:bg-butter/30"
                 style={{ color: '#143328' }}
               >
-                COMMUNITY
+                IMPACT
               </button>
             </div>
 
             <Link
               to="/signup"
-              className="hidden md:block px-8 py-3.5 rounded-full text-sm font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-2"
+              className="hidden md:block px-5 py-2 rounded-full text-xs font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 border"
               style={{ backgroundColor: '#143328', color: '#FDFCF8', borderColor: '#143328' }}
             >
               Join Club

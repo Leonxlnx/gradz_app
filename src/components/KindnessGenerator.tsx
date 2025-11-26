@@ -3,7 +3,7 @@ import { Button, BigHeading, Badge, Tape } from './UI';
 import { generateKindnessTask, KindnessTask } from '../services/geminiService';
 import { Sparkle, Flower, Heart, ScribbleLoop } from './Icons';
 
-export const KindnessGenerator = () => {
+const KindnessGenerator = () => {
   const [task, setTask] = useState<KindnessTask | null>(null);
   const [loading, setLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
@@ -128,3 +128,5 @@ export const KindnessGenerator = () => {
    </div>
   );
 };
+
+export default KindnessGenerator;

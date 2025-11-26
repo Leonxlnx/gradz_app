@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MessageCircle, Plus, Quote } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -17,27 +16,65 @@ interface Message {
 
 const colors = ['bg-matcha/40', 'bg-peach/40', 'bg-lilac/40', 'bg-butter/40'];
 
+// Mock messages data - simulating database
+const mockMessages: Message[] = [
+  {
+    id: '1',
+    to_name: 'Mom',
+    message: 'Thank you for always believing in me, even when I doubted myself. Your unwavering support shaped who I am today.',
+    from_name: 'Sarah',
+    created_at: '2024-01-15'
+  },
+  {
+    id: '2',
+    to_name: 'Mr. Johnson',
+    message: 'Your patience and dedication as my teacher changed my life. You saw potential in me that I did not see in myself.',
+    from_name: 'Alex M.',
+    created_at: '2024-01-14'
+  },
+  {
+    id: '3',
+    to_name: 'Best Friend',
+    message: 'You were there during my darkest days. Your friendship is a light that never dims.',
+    from_name: 'Jamie',
+    created_at: '2024-01-13'
+  },
+  {
+    id: '4',
+    to_name: 'Stranger at the café',
+    message: 'You smiled at me when I was having the worst day. That small gesture meant everything.',
+    from_name: 'Anonymous',
+    created_at: '2024-01-12'
+  },
+  {
+    id: '5',
+    to_name: 'My Neighbor',
+    message: 'Thank you for helping me carry groceries every week. Your kindness makes our community better.',
+    from_name: 'Elena R.',
+    created_at: '2024-01-11'
+  },
+  {
+    id: '6',
+    to_name: 'The World',
+    message: 'Let\'s make kindness contagious. One small act at a time.',
+    from_name: 'The Gradz Team',
+    created_at: '2024-01-10'
+  }
+];
+
 export default function ModernMessages() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function loadMessages() {
-      const { data, error } = await supabase
-        .from('kindness_messages')
-        .select('*')
-        .eq('is_public', true)
-        .order('created_at', { ascending: false })
-        .limit(6);
-
-      if (!error && data) {
-        setMessages(data);
-      }
+    // Simulate loading delay for better UX
+    const timer = setTimeout(() => {
+      setMessages(mockMessages);
       setLoading(false);
-    }
+    }, 600);
 
-    loadMessages();
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
