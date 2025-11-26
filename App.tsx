@@ -632,9 +632,32 @@ function App() {
           <>
             {/* HERO SECTION */}
             <section ref={heroRef} className="relative min-h-screen flex items-center justify-center pt-20 px-4 overflow-hidden">
-              
-              {/* --- NEW THREE.JS FLUID BACKGROUND --- */}
+
+              {/* THREE.JS FLUID BACKGROUND */}
               <FluidBackground />
+
+              {/* POLAROID HERO */}
+              <div className="absolute inset-0 w-full h-screen flex items-center justify-center z-0 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-stone/30 via-white/50 to-stone/20"></div>
+
+                <div className="relative w-full h-full max-w-[1600px] mx-auto px-6">
+                  <div className="hero-float absolute top-[18%] left-[5%] w-64 md:w-72 lg:w-80 transform -rotate-12 hover:scale-105 hover:-rotate-6 transition-all duration-500 cursor-pointer shadow-2xl z-10">
+                    <div className="bg-white p-4 rounded-lg">
+                      <img src="https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Friends together spreading joy" className="w-full aspect-square object-cover" />
+                    </div>
+                  </div>
+
+                  <div className="hero-float absolute bottom-[12%] right-[5%] w-64 md:w-72 lg:w-80 transform rotate-12 hover:scale-105 hover:rotate-6 transition-all duration-500 cursor-pointer shadow-2xl z-10">
+                    <div className="bg-white p-4 rounded-lg">
+                      <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Capturing moments of kindness" className="w-full aspect-square object-cover" />
+                    </div>
+                  </div>
+
+                  <div className="hero-float absolute bottom-[18%] right-[28%] px-8 py-3 rounded-full shadow-xl rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-300 cursor-pointer z-30" style={{ backgroundColor: '#E89F71' }}>
+                    <span className="font-hand text-lg md:text-xl font-bold whitespace-nowrap" style={{ color: '#143328' }}>GOOD VIBES ONLY</span>
+                  </div>
+                </div>
+              </div>
 
               <div className="container mx-auto relative z-10 flex flex-col items-center text-center">
                 
@@ -657,52 +680,6 @@ function App() {
                     </div>
                 </div>
 
-                {/* Floating Assets (Parallax + Animation) */}
-                
-                {/* Existing Polaroids */}
-                <div className="hero-float absolute top-[15%] left-[5%] md:left-[10%] z-30 hidden lg:block pointer-events-none" data-speed="1.2">
-                    <Polaroid 
-                        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=600" 
-                        alt="Friends" 
-                        rotate="-rotate-12"
-                        className="w-56"
-                    />
-                </div>
-                <div className="hero-float absolute bottom-[20%] right-[5%] md:right-[10%] z-30 hidden lg:block pointer-events-none" data-speed="0.8">
-                    <Polaroid 
-                        src="https://images.unsplash.com/photo-1516724562728-afc824a36e84?auto=format&fit=crop&q=80&w=600" 
-                        alt="Peace" 
-                        rotate="rotate-6"
-                        className="w-64"
-                    />
-                </div>
-                 <div className="hero-float absolute top-[25%] right-[15%] z-0 hidden lg:block pointer-events-none opacity-50 blur-[1px]" data-speed="0.5">
-                    <Polaroid 
-                        src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=600" 
-                        alt="Nature" 
-                        rotate="rotate-12"
-                        className="w-40"
-                    />
-                </div>
-
-                {/* NEW: Animated Icons */}
-                <div className="hero-float absolute top-[20%] left-[20%] z-0 opacity-60 animate-spin-slow hidden md:block" data-speed="0.4">
-                    <Sun className="w-24 h-24 text-gradz-butter" />
-                </div>
-
-                <div className="hero-float absolute bottom-[30%] left-[10%] z-0 opacity-40 animate-bounce hidden md:block" data-speed="0.6" style={{animationDuration: '3s'}}>
-                    <Squiggle className="w-32 h-12 text-gradz-lilac" />
-                </div>
-
-                <div className="hero-float absolute top-[15%] right-[25%] z-0 opacity-50 animate-float hidden md:block" data-speed="0.3">
-                    <Flower className="w-16 h-16 text-gradz-matcha" />
-                </div>
-                
-                <div className="hero-float absolute bottom-[15%] right-[20%] z-20 hidden md:block" data-speed="0.7">
-                     <Sticker rotate="-rotate-6" color="bg-gradz-peach">
-                        Good Vibes Only
-                     </Sticker>
-                </div>
 
 
                 <div className="relative z-40 flex flex-col md:flex-row gap-5 mt-8 opacity-0 animate-fade-in-up" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>
