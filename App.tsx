@@ -11,7 +11,7 @@ import { FluidBackground } from './components/FluidBackground';
 // Register GSAP Plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-type View = 'home' | 'mission' | 'stories' | 'community' | 'legal' | 'careers';
+type View = 'home' | 'mission' | 'stories' | 'community' | 'join-club';
 
 // --- Happy Decorations Component (Global Left Side Only) ---
 const HappyDecorations = () => (
@@ -520,6 +520,148 @@ const ViewCommunity = () => (
     </div>
 );
 
+const ViewJoinClub = () => (
+    <div className="min-h-screen bg-gradient-to-br from-gradz-cream via-white to-gradz-matcha/10 pt-40 pb-20 relative overflow-hidden">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-gradz-peach/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradz-blue/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+
+        <div className="container mx-auto px-6 relative z-10">
+            <div className="max-w-4xl mx-auto text-center mb-20 animate-fade-in-up">
+                <Badge text="Welcome to the Movement" color="matcha" />
+                <h1 className="text-6xl md:text-9xl font-serif text-gradz-green mt-6 mb-8 leading-[0.9]">
+                    Join The <br/>
+                    <span className="font-hand text-gradz-peach italic">Kindness</span> <br/>
+                    Club
+                </h1>
+                <p className="text-xl md:text-2xl text-gradz-charcoal/70 leading-relaxed max-w-2xl mx-auto">
+                    Download our app and get daily kindness challenges, track your impact,
+                    and connect with millions of people making Earth softer.
+                </p>
+            </div>
+
+            <div className="max-w-5xl mx-auto bg-white rounded-[3rem] p-8 md:p-16 shadow-2xl border border-gradz-stone/20 mb-12 transform hover:scale-[1.02] transition-transform duration-500">
+                <div className="text-center mb-12">
+                    <div className="inline-block p-6 bg-gradz-green rounded-3xl mb-6">
+                        <Logo className="w-20 h-20 text-gradz-matcha" />
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-serif text-gradz-green mb-4">Get Gradz Now</h2>
+                    <p className="text-lg text-gradz-charcoal/60">Available on all platforms</p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                    <a
+                        href="https://play.google.com/store"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group bg-gradient-to-br from-gradz-matcha to-gradz-green p-8 rounded-[2rem] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                    >
+                        <div className="flex flex-col items-center text-center">
+                            <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <svg className="w-12 h-12" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35z" fill="#00D9FF"/>
+                                    <path d="M16.81 15.12l-3.12-3.12-9.85 9.85c.05.05.11.1.16.14.31.25.69.39 1.09.39.35 0 .69-.1.98-.29l10.74-6.97z" fill="#FFCE00"/>
+                                    <path d="M20.16 10.62l-3.35-1.73-3.12 3.12 3.12 3.12 3.35-1.73c.5-.26.84-.76.84-1.39s-.34-1.13-.84-1.39z" fill="#FF3A44"/>
+                                    <path d="M13.69 12L3.84 2.15C4.15 2.05 4.47 2 4.8 2c.4 0 .78.14 1.09.39l10.74 6.97 3.35 1.73z" fill="#00F076"/>
+                                </svg>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-2">Google Play</h3>
+                            <p className="text-white/80 text-sm">Download from Play Store</p>
+                            <div className="mt-4 px-6 py-2 bg-white/20 rounded-full text-white text-sm font-bold">
+                                Get it now
+                            </div>
+                        </div>
+                    </a>
+
+                    <a
+                        href="#apk-download"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            alert('APK Download: In production, this would download the gradz.apk file directly. Demo mode active.');
+                        }}
+                        className="group bg-gradient-to-br from-gradz-orange to-gradz-peach p-8 rounded-[2rem] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                    >
+                        <div className="flex flex-col items-center text-center">
+                            <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <svg className="w-12 h-12 text-gradz-orange" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2L4 7v10c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V7l-8-5zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V7.5l7-3.5v8.99z"/>
+                                </svg>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-2">APK Direct</h3>
+                            <p className="text-white/80 text-sm">Direct APK Download</p>
+                            <div className="mt-4 px-6 py-2 bg-white/20 rounded-full text-white text-sm font-bold">
+                                Download APK
+                            </div>
+                        </div>
+                    </a>
+
+                    <a
+                        href="https://apps.apple.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group bg-gradient-to-br from-gradz-blue to-gradz-lilac p-8 rounded-[2rem] hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                    >
+                        <div className="flex flex-col items-center text-center">
+                            <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                                <svg className="w-12 h-12 text-gradz-charcoal" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                                </svg>
+                            </div>
+                            <h3 className="text-2xl font-bold text-white mb-2">App Store</h3>
+                            <p className="text-white/80 text-sm">Download for iOS</p>
+                            <div className="mt-4 px-6 py-2 bg-white/20 rounded-full text-white text-sm font-bold">
+                                Get it now
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div className="mt-12 pt-12 border-t border-gradz-stone/20">
+                    <div className="grid md:grid-cols-3 gap-8 text-center">
+                        <div>
+                            <div className="text-4xl font-serif text-gradz-green mb-2">1M+</div>
+                            <p className="text-gradz-charcoal/60 text-sm uppercase tracking-widest">Active Members</p>
+                        </div>
+                        <div>
+                            <div className="text-4xl font-serif text-gradz-green mb-2">10M+</div>
+                            <p className="text-gradz-charcoal/60 text-sm uppercase tracking-widest">Acts Generated</p>
+                        </div>
+                        <div>
+                            <div className="text-4xl font-serif text-gradz-green mb-2">4.9★</div>
+                            <p className="text-gradz-charcoal/60 text-sm uppercase tracking-widest">Average Rating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="max-w-3xl mx-auto text-center">
+                <h3 className="text-3xl font-serif text-gradz-green mb-6">What You'll Get</h3>
+                <div className="grid md:grid-cols-2 gap-6 text-left">
+                    <div className="bg-white/60 p-6 rounded-2xl backdrop-blur-sm border border-gradz-stone/20">
+                        <Sparkle className="w-8 h-8 text-gradz-matcha mb-3" />
+                        <h4 className="font-bold text-gradz-green mb-2">Daily Challenges</h4>
+                        <p className="text-gradz-charcoal/70 text-sm">New AI-generated kindness tasks every day</p>
+                    </div>
+                    <div className="bg-white/60 p-6 rounded-2xl backdrop-blur-sm border border-gradz-stone/20">
+                        <Heart className="w-8 h-8 text-gradz-peach mb-3" />
+                        <h4 className="font-bold text-gradz-green mb-2">Impact Tracking</h4>
+                        <p className="text-gradz-charcoal/70 text-sm">See your ripple effect in real-time</p>
+                    </div>
+                    <div className="bg-white/60 p-6 rounded-2xl backdrop-blur-sm border border-gradz-stone/20">
+                        <Peace className="w-8 h-8 text-gradz-blue mb-3" />
+                        <h4 className="font-bold text-gradz-green mb-2">Global Community</h4>
+                        <p className="text-gradz-charcoal/70 text-sm">Connect with kindness warriors worldwide</p>
+                    </div>
+                    <div className="bg-white/60 p-6 rounded-2xl backdrop-blur-sm border border-gradz-stone/20">
+                        <Star className="w-8 h-8 text-gradz-butter mb-3" />
+                        <h4 className="font-bold text-gradz-green mb-2">Rewards & Badges</h4>
+                        <p className="text-gradz-charcoal/70 text-sm">Unlock achievements as you grow</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
 function App() {
   const [activeView, setActiveView] = useState<View>('home');
   const [scrolled, setScrolled] = useState(false);
@@ -604,7 +746,7 @@ function App() {
 
             {/* Actions */}
             <div className="hidden md:flex items-center gap-4">
-               <Button onClick={() => document.getElementById('footer')?.scrollIntoView({behavior: 'smooth'})} variant="black" className="!px-6 !py-2.5 !text-xs !h-auto">
+               <Button onClick={() => navigateTo('join-club')} variant="black" className="!px-6 !py-2.5 !text-xs !h-auto">
                   Join Club
                </Button>
             </div>
@@ -718,6 +860,7 @@ function App() {
         {activeView === 'mission' && <ViewMission />}
         {activeView === 'stories' && <ViewStories />}
         {activeView === 'community' && <ViewCommunity />}
+        {activeView === 'join-club' && <ViewJoinClub />}
 
       </main>
 
@@ -746,7 +889,7 @@ function App() {
                   {/* Newsletter Mockup */}
                   <div className="bg-white/5 p-1 rounded-full flex max-w-md border border-white/10 focus-within:border-gradz-matcha transition-colors">
                       <input type="email" placeholder="Get daily kindness prompts..." className="bg-transparent flex-grow px-6 py-3 outline-none text-white placeholder:text-white/30 text-sm" />
-                      <button className="bg-gradz-matcha text-gradz-green px-6 py-3 rounded-full font-bold text-sm hover:bg-white transition-colors">Join</button>
+                      <button onClick={() => navigateTo('join-club')} className="bg-gradz-matcha text-gradz-green px-6 py-3 rounded-full font-bold text-sm hover:bg-white transition-colors">Join</button>
                   </div>
                </div>
                
