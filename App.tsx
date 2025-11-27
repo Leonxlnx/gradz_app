@@ -7,11 +7,12 @@ import { Logo, Sunburst, Sparkle, Flower, Squiggle, ArrowRight, Peace, ScribbleU
 import { Button, BigHeading, Sticker, Badge, Tape, Polaroid, PhotoGridItem, QuoteCard, StickyNote } from './components/UI';
 import { KindnessGenerator } from './components/KindnessGenerator';
 import { FluidBackground } from './components/FluidBackground';
+import { subscribeToNewsletter } from './services/supabaseClient';
 
 // Register GSAP Plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-type View = 'home' | 'mission' | 'stories' | 'community' | 'join-club';
+type View = 'home' | 'mission' | 'stories' | 'community' | 'join-club' | 'newsletter-confirm';
 
 // --- Happy Decorations Component (Global Left Side Only) ---
 const HappyDecorations = () => (
@@ -529,23 +530,18 @@ const ViewJoinClub = () => (
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-                <a
-                    href="https://play.google.com/store"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group bg-black p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                >
+                <div className="relative bg-gray-100 p-10 rounded-3xl opacity-60 cursor-not-allowed">
+                    <div className="absolute top-4 right-4 bg-gray-400 text-white text-xs px-3 py-1 rounded-full font-bold">Coming Soon</div>
                     <div className="flex flex-col items-center text-center">
-                        <svg className="w-16 h-16 mb-6" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12l-9.85 9.85c-.5-.24-.84-.76-.84-1.35z" fill="#00D9FF"/>
-                            <path d="M16.81 15.12l-3.12-3.12-9.85 9.85c.05.05.11.1.16.14.31.25.69.39 1.09.39.35 0 .69-.1.98-.29l10.74-6.97z" fill="#FFCE00"/>
-                            <path d="M20.16 10.62l-3.35-1.73-3.12 3.12 3.12 3.12 3.35-1.73c.5-.26.84-.76.84-1.39s-.34-1.13-.84-1.39z" fill="#FF3A44"/>
-                            <path d="M13.69 12L3.84 2.15C4.15 2.05 4.47 2 4.8 2c.4 0 .78.14 1.09.39l10.74 6.97 3.35 1.73z" fill="#00F076"/>
-                        </svg>
-                        <h3 className="text-xl font-bold text-white mb-2">Google Play</h3>
-                        <p className="text-white/60 text-sm">Android</p>
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                            alt="Google Play"
+                            className="h-14 mb-6 opacity-60"
+                        />
+                        <h3 className="text-xl font-bold text-gray-500 mb-2">Google Play</h3>
+                        <p className="text-gray-400 text-sm">Android</p>
                     </div>
-                </a>
+                </div>
 
                 <a
                     href="#apk-download"
@@ -567,21 +563,43 @@ const ViewJoinClub = () => (
                     </div>
                 </a>
 
-                <a
-                    href="https://apps.apple.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group bg-black p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                >
+                <div className="relative bg-gray-100 p-10 rounded-3xl opacity-60 cursor-not-allowed">
+                    <div className="absolute top-4 right-4 bg-gray-400 text-white text-xs px-3 py-1 rounded-full font-bold">Coming Soon</div>
                     <div className="flex flex-col items-center text-center">
-                        <svg className="w-16 h-16 text-white mb-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
-                        </svg>
-                        <h3 className="text-xl font-bold text-white mb-2">App Store</h3>
-                        <p className="text-white/60 text-sm">iOS</p>
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                            alt="App Store"
+                            className="h-14 mb-6 opacity-60"
+                        />
+                        <h3 className="text-xl font-bold text-gray-500 mb-2">App Store</h3>
+                        <p className="text-gray-400 text-sm">iOS</p>
                     </div>
-                </a>
+                </div>
             </div>
+        </div>
+    </div>
+);
+
+const ViewNewsletterConfirm = () => (
+    <div className="min-h-screen bg-white flex items-center justify-center py-20 px-4">
+        <div className="max-w-2xl w-full text-center">
+            <div className="mb-12">
+                <div className="inline-flex items-center justify-center w-24 h-24 bg-gradz-matcha rounded-full mb-8">
+                    <svg className="w-12 h-12 text-gradz-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
+                    </svg>
+                </div>
+                <h1 className="text-5xl md:text-6xl font-serif text-gradz-green mb-6">Check Your Email</h1>
+                <p className="text-xl text-gradz-charcoal/70 leading-relaxed max-w-lg mx-auto mb-8">
+                    We've sent you a confirmation email. Please check your inbox and confirm your subscription to start receiving kindness updates from Gradz.
+                </p>
+                <div className="text-sm text-gradz-charcoal/50">
+                    Didn't receive it? Check your spam folder or try subscribing again.
+                </div>
+            </div>
+            <Button onClick={() => window.location.href = '/'} variant="black">
+                Back to Home
+            </Button>
         </div>
     </div>
 );
@@ -590,7 +608,9 @@ function App() {
   const [activeView, setActiveView] = useState<View>('home');
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterLoading, setNewsletterLoading] = useState(false);
+
   const heroRef = useRef<HTMLDivElement>(null);
   const xTo = useRef<any>(null);
   const yTo = useRef<any>(null);
@@ -626,6 +646,26 @@ function App() {
     setActiveView(view);
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail || newsletterLoading) return;
+
+    setNewsletterLoading(true);
+    try {
+      await subscribeToNewsletter(newsletterEmail);
+      navigateTo('newsletter-confirm');
+      setNewsletterEmail('');
+    } catch (error: any) {
+      if (error.message === 'Email already subscribed') {
+        alert('This email is already subscribed to our newsletter!');
+      } else {
+        alert('Failed to subscribe. Please try again.');
+      }
+    } finally {
+      setNewsletterLoading(false);
+    }
   };
 
   return (
@@ -785,6 +825,7 @@ function App() {
         {activeView === 'stories' && <ViewStories />}
         {activeView === 'community' && <ViewCommunity />}
         {activeView === 'join-club' && <ViewJoinClub />}
+        {activeView === 'newsletter-confirm' && <ViewNewsletterConfirm />}
 
       </main>
 
@@ -810,11 +851,25 @@ function App() {
                   <h2 className="text-4xl font-serif mb-6 leading-tight">The world is harsh.<br/>You don't have to be.</h2>
                   <p className="text-gradz-matcha/60 text-lg mb-8">A project dedicated to the serious business of being nice.</p>
                   
-                  {/* Newsletter Mockup */}
-                  <div className="bg-white/5 p-1 rounded-full flex max-w-md border border-white/10 focus-within:border-gradz-matcha transition-colors">
-                      <input type="email" placeholder="Get daily kindness prompts..." className="bg-transparent flex-grow px-6 py-3 outline-none text-white placeholder:text-white/30 text-sm" />
-                      <button onClick={() => navigateTo('join-club')} className="bg-gradz-matcha text-gradz-green px-6 py-3 rounded-full font-bold text-sm hover:bg-white transition-colors">Join</button>
-                  </div>
+                  {/* Newsletter Form */}
+                  <form onSubmit={handleNewsletterSubmit} className="bg-white/5 p-1 rounded-full flex max-w-md border border-white/10 focus-within:border-gradz-matcha transition-colors">
+                      <input
+                        type="email"
+                        placeholder="Get daily kindness prompts..."
+                        className="bg-transparent flex-grow px-6 py-3 outline-none text-white placeholder:text-white/30 text-sm"
+                        value={newsletterEmail}
+                        onChange={(e) => setNewsletterEmail(e.target.value)}
+                        required
+                        disabled={newsletterLoading}
+                      />
+                      <button
+                        type="submit"
+                        className="bg-gradz-matcha text-gradz-green px-6 py-3 rounded-full font-bold text-sm hover:bg-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        disabled={newsletterLoading}
+                      >
+                        {newsletterLoading ? 'Joining...' : 'Join'}
+                      </button>
+                  </form>
                </div>
                
                {/* Links Columns */}
