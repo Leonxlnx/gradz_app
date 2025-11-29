@@ -763,10 +763,6 @@ function App() {
                   <div className="hero-float absolute bottom-[18%] right-[28%] px-8 py-3 rounded-full shadow-xl rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-300 cursor-pointer z-30" style={{ backgroundColor: '#E89F71' }}>
                     <span className="font-hand text-lg md:text-xl font-bold whitespace-nowrap" style={{ color: '#143328' }}>GOOD VIBES ONLY</span>
                   </div>
-
-                  <div className="hero-float absolute top-[25%] left-[28%] w-20 h-20 md:w-24 md:h-24 bg-white rounded-full p-4 shadow-2xl hover:scale-110 transition-all duration-300 cursor-pointer z-20 animate-float">
-                    <img src="/favicon_gradz.png" alt="Gradz Icon" className="w-full h-full object-contain" />
-                  </div>
                 </div>
               </div>
 
