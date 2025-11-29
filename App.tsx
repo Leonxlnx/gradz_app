@@ -673,29 +673,35 @@ function App() {
       {/* --- Navigation --- */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-2' : 'py-6'}`}>
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-          <nav className={`relative flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border border-gradz-stone/50' : 'bg-transparent border border-transparent'}`}>
+            <nav className={`relative flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border border-gradz-stone/50' : 'bg-transparent border border-transparent'}`}>
             
-            {/* Logo */}
-            <div onClick={() => navigateTo('home')} className="flex items-center gap-2 cursor-pointer group z-50 relative">
-              <img src="/logo_gradz.png" alt="Gradz" className="w-20 h-8 md:w-24 md:h-10 object-contain transition-transform duration-500 group-hover:scale-110" /> 
+            {/* Logo Section */}
+            {/* Wir geben dem Wrapper Breite (w-...) damit Platz da ist, aber keine Höhe, die das Menü sprengt */}
+            <div onClick={() => navigateTo('home')} className="relative z-50 cursor-pointer group w-[200px] md:w-[240px] flex items-center h-10">
+              <img
+                src="/logo_gradz.png"
+                alt="Gradz"
+                // "absolute" sorgt dafür, dass das Logo über den Rand ragen darf, ohne die Nav-Höhe zu ändern
+                className="absolute top-1/2 left-0 -translate-y-1/2 w-[200px] h-[80px] md:w-[240px] md:h-[100px] object-contain transition-transform duration-500 group-hover:scale-110 origin-left"
+              />
             </div>
-
+          
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-1 bg-white/40 p-1.5 rounded-full backdrop-blur-sm border border-white/50 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 shadow-sm">
-               {['home', 'mission', 'stories', 'community'].map((view) => (
-                   <button 
+                {['home', 'mission', 'stories', 'community'].map((view) => (
+                    <button 
                       key={view}
                       onClick={() => navigateTo(view as View)} 
                       className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 ${activeView === view ? 'bg-gradz-green text-white shadow-md transform scale-105' : 'text-gradz-charcoal/60 hover:text-gradz-green hover:bg-white'}`}
-                   >
+                    >
                       {view}
-                   </button>
-               ))}
+                    </button>
+                ))}
             </div>
-
+          
             {/* Mobile Toggle */}
             <button 
-                className="md:hidden z-50 w-10 h-10 flex items-center justify-center bg-gradz-stone/50 rounded-full"
+                className="md:hidden z-50 w-10 h-10 flex items-center justify-center bg-gradz-stone/50 rounded-full ml-auto"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
                 <div className="space-y-1.5">
@@ -704,7 +710,7 @@ function App() {
                     <span className={`block w-6 h-0.5 bg-gradz-charcoal transition-transform ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
                 </div>
             </button>
-
+          
             {/* Actions */}
             <div className="hidden md:flex items-center gap-4">
                <Button onClick={() => navigateTo('join-club')} variant="black" className="!px-6 !py-2.5 !text-xs !h-auto">
@@ -847,10 +853,12 @@ function App() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
                
                {/* Brand Column */}
-               <div className="lg:col-span-4">
-                  <img src="/logo_gradz.png" alt="Gradz" className="h-16 mb-8 object-contain" />
-                  <h2 className="text-4xl font-serif mb-6 leading-tight">The world is harsh.<br/>You don't have to be.</h2>
-                  <p className="text-gradz-matcha/60 text-lg mb-8">A project dedicated to the serious business of being nice.</p>
+<div className="lg:col-span-4">
+   {/* Logo auf h-40 vergrößert (ca. 160px) */}
+   <img src="/logo_gradz.png" alt="Gradz" className="h-40 mb-8 object-contain" />
+   
+   <h2 className="text-4xl font-serif mb-6 leading-tight">The world is harsh.<br/>You don't have to be.</h2>
+   <p className="text-gradz-matcha/60 text-lg mb-8">A project dedicated to the serious business of being nice.</p>
                   
                   {/* Newsletter Form */}
                   <form onSubmit={handleNewsletterSubmit} className="bg-white/5 p-1 rounded-full flex max-w-md border border-white/10 focus-within:border-gradz-matcha transition-colors">
