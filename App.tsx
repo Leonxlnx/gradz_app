@@ -584,10 +584,8 @@ const ViewNewsletterConfirm = () => (
     <div className="min-h-screen bg-white flex items-center justify-center py-20 px-4">
         <div className="max-w-2xl w-full text-center">
             <div className="mb-12">
-                <div className="inline-flex items-center justify-center w-24 h-24 bg-gradz-matcha rounded-full mb-8">
-                    <svg className="w-12 h-12 text-gradz-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
-                    </svg>
+                <div className="inline-flex items-center justify-center w-32 h-32 bg-gradz-matcha rounded-full mb-8 p-4">
+                    <img src="/favicon_gradz.png" alt="Gradz" className="w-full h-full object-contain" />
                 </div>
                 <h1 className="text-5xl md:text-6xl font-serif text-gradz-green mb-6">Check Your Email</h1>
                 <p className="text-xl text-gradz-charcoal/70 leading-relaxed max-w-lg mx-auto mb-8">
@@ -679,8 +677,7 @@ function App() {
             
             {/* Logo */}
             <div onClick={() => navigateTo('home')} className="flex items-center gap-2 cursor-pointer group z-50 relative">
-              <Logo className="w-8 h-8 md:w-10 md:h-10 transition-transform duration-500 group-hover:rotate-[360deg]" />
-              <span className="font-serif text-xl md:text-2xl font-bold text-gradz-green tracking-tight">Gradz.</span>
+              <img src="/logo_gradz.png" alt="Gradz" className="w-20 h-8 md:w-24 md:h-10 object-contain transition-transform duration-500 group-hover:scale-110" />
             </div>
 
             {/* Desktop Menu */}
@@ -761,6 +758,10 @@ function App() {
 
                   <div className="hero-float absolute bottom-[18%] right-[28%] px-8 py-3 rounded-full shadow-xl rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-300 cursor-pointer z-30" style={{ backgroundColor: '#E89F71' }}>
                     <span className="font-hand text-lg md:text-xl font-bold whitespace-nowrap" style={{ color: '#143328' }}>GOOD VIBES ONLY</span>
+                  </div>
+
+                  <div className="hero-float absolute top-[25%] left-[28%] w-20 h-20 md:w-24 md:h-24 bg-white rounded-full p-4 shadow-2xl hover:scale-110 transition-all duration-300 cursor-pointer z-20 animate-float">
+                    <img src="/favicon_gradz.png" alt="Gradz Icon" className="w-full h-full object-contain" />
                   </div>
                 </div>
               </div>
@@ -847,7 +848,7 @@ function App() {
                
                {/* Brand Column */}
                <div className="lg:col-span-4">
-                  <Logo className="w-20 h-20 mb-8 text-gradz-matcha" />
+                  <img src="/logo_gradz.png" alt="Gradz" className="h-16 mb-8 object-contain" />
                   <h2 className="text-4xl font-serif mb-6 leading-tight">The world is harsh.<br/>You don't have to be.</h2>
                   <p className="text-gradz-matcha/60 text-lg mb-8">A project dedicated to the serious business of being nice.</p>
                   
