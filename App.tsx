@@ -668,9 +668,9 @@ function App() {
       <HappyDecorations />
       
       {/* --- Navigation --- */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-2' : 'py-6'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-0.5' : 'py-2'}`}>
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-          <nav className={`relative flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border border-gradz-stone/50' : 'bg-transparent border border-transparent'}`}>
+          <nav className={`relative flex items-center justify-between px-3 py-1.5 rounded-full transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border border-gradz-stone/50' : 'bg-transparent border border-transparent'}`}>
             
             {/* Logo */}
             <div onClick={() => navigateTo('home')} className="flex items-center gap-2 cursor-pointer group z-50 relative">
@@ -828,7 +828,7 @@ function App() {
       </main>
 
       {/* --- PROFESSIONAL FOOTER --- */}
-      <footer id="footer" className="bg-gradz-green pt-24 text-gradz-cream relative overflow-hidden mt-auto">
+      <footer id="footer" className="bg-gradz-green pt-10 text-gradz-cream relative overflow-hidden mt-auto">
          {/* Top Curve */}
          <div className="absolute top-0 left-0 w-full h-12 bg-gradz-cream rounded-b-[3rem] z-10"></div>
          
