@@ -677,11 +677,7 @@ function App() {
             
             {/* Logo */}
             <div onClick={() => navigateTo('home')} className="flex items-center gap-2 cursor-pointer group z-50 relative">
-            <img
-              src="/logo_gradz.png"
-              alt="Gradz"
-              className="w-[200px] h-[80px] md:w-[240px] md:h-[100px] object-contain transition-transform duration-500 group-hover:scale-110"
-            />
+              <img src="/logo_gradz.png" alt="Gradz" className="w-20 h-8 md:w-24 md:h-10 object-contain transition-transform duration-500 group-hover:scale-110" /> 
             </div>
 
             {/* Desktop Menu */}
