@@ -137,6 +137,9 @@ const VoicesHorizontalScroll = () => {
          <div className="absolute top-10 left-10 w-64 h-64 bg-gradz-matcha/20 rounded-full blur-3xl animate-pulse"></div>
          <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradz-peach/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
 
+         <div className="absolute top-12 left-12 z-10">
+             <Badge text="Voices of Reason" color="lilac" />
+         </div>
 
          <div className="h-full flex items-center">
              <div ref={sectionRef} className="flex items-center gap-20 px-20 w-max">
@@ -668,13 +671,13 @@ function App() {
       <HappyDecorations />
       
       {/* --- Navigation --- */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-0.5' : 'py-2'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-2' : 'py-6'}`}>
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-          <nav className={`relative flex items-center justify-between px-3 py-1.5 rounded-full transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border border-gradz-stone/50' : 'bg-transparent border border-transparent'}`}>
+          <nav className={`relative flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border border-gradz-stone/50' : 'bg-transparent border border-transparent'}`}>
             
             {/* Logo */}
             <div onClick={() => navigateTo('home')} className="flex items-center gap-2 cursor-pointer group z-50 relative">
-              <img src="/logo_gradz.png" alt="Gradz" className="w-50 h-20 md:w-60 md:h-25 object-contain transition-transform duration-500 group-hover:scale-110" />
+              <img src="/logo_gradz.png" alt="Gradz" className="w-20 h-8 md:w-24 md:h-10 object-contain transition-transform duration-500 group-hover:scale-110" />
             </div>
 
             {/* Desktop Menu */}
@@ -828,7 +831,7 @@ function App() {
       </main>
 
       {/* --- PROFESSIONAL FOOTER --- */}
-      <footer id="footer" className="bg-gradz-green pt-10 text-gradz-cream relative overflow-hidden mt-auto">
+      <footer id="footer" className="bg-gradz-green pt-24 text-gradz-cream relative overflow-hidden mt-auto">
          {/* Top Curve */}
          <div className="absolute top-0 left-0 w-full h-12 bg-gradz-cream rounded-b-[3rem] z-10"></div>
          
@@ -845,7 +848,7 @@ function App() {
                
                {/* Brand Column */}
                <div className="lg:col-span-4">
-                  <img src="/logo_gradz.png" alt="Gradz" className="h-40 mb-8 object-contain" />
+                  <img src="/logo_gradz.png" alt="Gradz" className="h-16 mb-8 object-contain" />
                   <h2 className="text-4xl font-serif mb-6 leading-tight">The world is harsh.<br/>You don't have to be.</h2>
                   <p className="text-gradz-matcha/60 text-lg mb-8">A project dedicated to the serious business of being nice.</p>
                   
