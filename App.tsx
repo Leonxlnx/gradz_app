@@ -137,9 +137,6 @@ const VoicesHorizontalScroll = () => {
          <div className="absolute top-10 left-10 w-64 h-64 bg-gradz-matcha/20 rounded-full blur-3xl animate-pulse"></div>
          <div className="absolute bottom-10 right-10 w-96 h-96 bg-gradz-peach/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
 
-         <div className="absolute top-12 left-12 z-10">
-             <Badge text="Voices of Reason" color="lilac" />
-         </div>
 
          <div className="h-full flex items-center">
              <div ref={sectionRef} className="flex items-center gap-20 px-20 w-max">
@@ -677,7 +674,7 @@ function App() {
             
             {/* Logo */}
             <div onClick={() => navigateTo('home')} className="flex items-center gap-2 cursor-pointer group z-50 relative">
-              <img src="/logo_gradz.png" alt="Gradz" className="w-20 h-8 md:w-24 md:h-10 object-contain transition-transform duration-500 group-hover:scale-110" />
+              <img src="/logo_gradz.png" alt="Gradz" className="w-50 h-20 md:w-60 md:h-25 object-contain transition-transform duration-500 group-hover:scale-110" />
             </div>
 
             {/* Desktop Menu */}
@@ -848,7 +845,7 @@ function App() {
                
                {/* Brand Column */}
                <div className="lg:col-span-4">
-                  <img src="/logo_gradz.png" alt="Gradz" className="h-16 mb-8 object-contain" />
+                  <img src="/logo_gradz.png" alt="Gradz" className="h-40 mb-8 object-contain" />
                   <h2 className="text-4xl font-serif mb-6 leading-tight">The world is harsh.<br/>You don't have to be.</h2>
                   <p className="text-gradz-matcha/60 text-lg mb-8">A project dedicated to the serious business of being nice.</p>
                   
