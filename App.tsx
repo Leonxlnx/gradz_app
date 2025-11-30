@@ -544,14 +544,8 @@ const ViewJoinClub = () => (
                 </div>
 
                 <a
-                    href="#apk-download"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        const link = document.createElement('a');
-                        link.href = '/gradz.apk';
-                        link.download = 'gradz.apk';
-                        link.click();
-                    }}
+                    href="/gradz.apk"
+                    download="gradz.apk"
                     className="group bg-gradz-green p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
                     <div className="flex flex-col items-center text-center">
