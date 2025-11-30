@@ -544,8 +544,8 @@ const ViewJoinClub = () => (
                 </div>
 
                 <a
-                    href="/gradzmobile.apk"
-                    download="gradzmobile.apk"
+                    href="https://ukxandpzgxeebhkhpkow.supabase.co/storage/v1/object/public/apk-files/gradz%20VERSION%200.apk"
+                    download="gradz-VERSION-0.apk"
                     className="group bg-gradz-green p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
                     <div className="flex flex-col items-center text-center">
