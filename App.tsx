@@ -12,7 +12,7 @@ import { subscribeToNewsletter } from './services/supabaseClient';
 // Register GSAP Plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-type View = 'home' | 'mission' | 'stories' | 'community' | 'join-club' | 'newsletter-confirm' | 'wisdom-quotes' | 'kindness-challenges' | 'mindful-lectures' | 'streak-system' | 'privacy' | 'terms' | 'cookies';
+type View = 'home' | 'mission' | 'stories' | 'community' | 'join-club' | 'newsletter-confirm' | 'wisdom-quotes' | 'kindness-challenges' | 'mindful-lectures' | 'streak-system' | 'privacy' | 'terms' | 'cookies' | 'get-started' | 'mobile-download' | 'web-auth';
 
 // --- Happy Decorations Component (Global Left Side Only) ---
 const HappyDecorations = () => (
@@ -778,10 +778,12 @@ const ViewWisdomQuotes = () => (
 
             <div className="bg-gradz-green text-gradz-cream p-12 rounded-[3rem] text-center">
                 <h2 className="text-3xl md:text-4xl font-serif mb-4">Ready to start your daily practice?</h2>
-                <p className="text-xl opacity-90 mb-8">Download Gradz and receive a new wisdom quote every morning.</p>
-                <Button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} variant="white" className="!text-gradz-green">
-                    Get Started
-                </Button>
+                <p className="text-xl opacity-90 mb-8">Start your kindness journey today.</p>
+                <div className="flex justify-center">
+                    <Button onClick={() => navigateTo('get-started')} variant="white" className="!text-gradz-green">
+                        Get Started
+                    </Button>
+                </div>
             </div>
         </div>
     </div>
@@ -832,10 +834,12 @@ const ViewKindnessChallenges = () => (
 
             <div className="bg-gradz-peach/20 border border-gradz-peach/50 p-12 rounded-[3rem] text-center mt-16">
                 <h2 className="text-3xl md:text-4xl font-serif text-gradz-green mb-4">Challenge yourself daily</h2>
-                <p className="text-xl text-gradz-charcoal/80 mb-8">Track your progress and build a streak with the Gradz app.</p>
-                <Button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} variant="primary">
-                    Download Now
-                </Button>
+                <p className="text-xl text-gradz-charcoal/80 mb-8">Track your progress and build a streak with Gradz.</p>
+                <div className="flex justify-center">
+                    <Button onClick={() => navigateTo('get-started')} variant="primary">
+                        Get Started
+                    </Button>
+                </div>
             </div>
         </div>
     </div>
@@ -918,10 +922,12 @@ const ViewMindfulLectures = () => (
 
             <div className="bg-gradz-blue/20 border border-gradz-blue/30 p-12 rounded-[3rem] text-center mt-16">
                 <h2 className="text-3xl md:text-4xl font-serif text-gradz-green mb-4">Deepen your understanding</h2>
-                <p className="text-xl text-gradz-charcoal/80 mb-8">Access all 50+ lectures in the Gradz app.</p>
-                <Button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} variant="primary">
-                    Get Started
-                </Button>
+                <p className="text-xl text-gradz-charcoal/80 mb-8">Access all 50+ lectures with Gradz.</p>
+                <div className="flex justify-center">
+                    <Button onClick={() => navigateTo('get-started')} variant="primary">
+                        Get Started
+                    </Button>
+                </div>
             </div>
         </div>
     </div>
@@ -992,10 +998,12 @@ const ViewStreakSystem = () => (
 
             <div className="bg-gradz-green text-gradz-cream p-12 rounded-[3rem] text-center">
                 <h2 className="text-3xl md:text-4xl font-serif mb-4">Start your streak today</h2>
-                <p className="text-xl opacity-90 mb-8">Download Gradz and begin building your kindness habit.</p>
-                <Button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} variant="white" className="!text-gradz-green">
-                    Get Started
-                </Button>
+                <p className="text-xl opacity-90 mb-8">Begin building your kindness habit.</p>
+                <div className="flex justify-center">
+                    <Button onClick={() => navigateTo('get-started')} variant="white" className="!text-gradz-green">
+                        Get Started
+                    </Button>
+                </div>
             </div>
         </div>
     </div>
@@ -1236,6 +1244,239 @@ const ViewCookies = () => (
     </div>
 );
 
+const ViewGetStarted = ({ onNavigate }: { onNavigate: (view: View) => void }) => (
+    <div className="min-h-screen bg-gradz-cream flex items-center justify-center py-20 px-4">
+        <div className="max-w-5xl w-full">
+            <div className="text-center mb-16 animate-fade-in-up">
+                <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mb-8">Choose Your Platform</h1>
+                <p className="text-2xl text-gradz-charcoal/70 leading-relaxed max-w-3xl mx-auto">
+                    How would you like to experience Gradz?
+                </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+                {/* Mobile Option */}
+                <div
+                    onClick={() => onNavigate('mobile-download')}
+                    className="group bg-white p-12 rounded-[3rem] shadow-xl border-2 border-gradz-stone hover:border-gradz-green hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                >
+                    <div className="flex flex-col items-center text-center">
+                        <div className="w-24 h-24 bg-gradz-matcha/20 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                            <svg className="w-12 h-12 text-gradz-green" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+                            </svg>
+                        </div>
+                        <h2 className="text-4xl font-serif text-gradz-green mb-4">Mobile App</h2>
+                        <p className="text-xl text-gradz-charcoal/80 mb-6 leading-relaxed">
+                            Download the native app for Android and iOS. Perfect for daily practice on the go.
+                        </p>
+                        <div className="flex items-center gap-2 text-gradz-green font-bold">
+                            <span>Continue</span>
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Web Option */}
+                <div
+                    onClick={() => onNavigate('web-auth')}
+                    className="group bg-white p-12 rounded-[3rem] shadow-xl border-2 border-gradz-stone hover:border-gradz-blue hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                >
+                    <div className="flex flex-col items-center text-center">
+                        <div className="w-24 h-24 bg-gradz-blue/20 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                            <svg className="w-12 h-12 text-gradz-blue" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/>
+                            </svg>
+                        </div>
+                        <h2 className="text-4xl font-serif text-gradz-green mb-4">Web Platform</h2>
+                        <p className="text-xl text-gradz-charcoal/80 mb-6 leading-relaxed">
+                            Access Gradz from any browser. Great for desktop users and seamless sync across devices.
+                        </p>
+                        <div className="flex items-center gap-2 text-gradz-blue font-bold">
+                            <span>Continue</span>
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+);
+
+const ViewMobileDownload = ({ onNavigate }: { onNavigate: (view: View) => void }) => (
+    <div className="container mx-auto px-6 pt-40 pb-20">
+        <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16 animate-fade-in-up">
+                <Badge text="Mobile" color="matcha" />
+                <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mt-6 mb-8">Download Gradz</h1>
+                <p className="text-xl md:text-2xl text-gradz-charcoal/70 leading-relaxed max-w-3xl mx-auto">
+                    Get the native mobile app and start your kindness practice today.
+                </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 mb-16">
+                <div className="relative bg-gray-100 p-10 rounded-3xl opacity-60 cursor-not-allowed">
+                    <div className="absolute top-4 right-4 bg-gray-400 text-white text-xs px-3 py-1 rounded-full font-bold">Coming Soon</div>
+                    <div className="flex flex-col items-center text-center">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                            alt="Google Play"
+                            className="h-14 mb-6 opacity-60"
+                        />
+                        <h3 className="text-xl font-bold text-gray-500 mb-2">Google Play</h3>
+                        <p className="text-gray-400 text-sm">Android App Store</p>
+                    </div>
+                </div>
+
+                <div className="relative bg-gray-100 p-10 rounded-3xl opacity-60 cursor-not-allowed">
+                    <div className="absolute top-4 right-4 bg-gray-400 text-white text-xs px-3 py-1 rounded-full font-bold">Coming Soon</div>
+                    <div className="flex flex-col items-center text-center">
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"
+                            alt="App Store"
+                            className="h-14 mb-6 opacity-60"
+                        />
+                        <h3 className="text-xl font-bold text-gray-500 mb-2">App Store</h3>
+                        <p className="text-gray-400 text-sm">iOS App Store</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="text-center mb-12">
+                <h2 className="text-3xl font-serif text-gradz-green mb-8">Available Now</h2>
+                <div className="max-w-md mx-auto">
+                    <a
+                        href="https://ukxandpzgxeebhkhpkow.supabase.co/storage/v1/object/public/apk-files/gradz%20VERSION%200.apk"
+                        download="gradz-VERSION-0.apk"
+                        className="group bg-gradz-green p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer flex flex-col items-center text-center block"
+                    >
+                        <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                            <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-2">APK Download</h3>
+                        <p className="text-white/80 text-sm mb-4">Direct Install • Android Only</p>
+                        <p className="text-white/60 text-xs max-w-xs">For advanced users. Install APK files manually on Android devices.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div className="bg-gradz-blue/10 border border-gradz-blue/30 p-8 rounded-3xl text-center">
+                <p className="text-gradz-charcoal/80 mb-4">Prefer to use Gradz on the web?</p>
+                <Button onClick={() => onNavigate('web-auth')} variant="primary">
+                    Try Web Version
+                </Button>
+            </div>
+        </div>
+    </div>
+);
+
+const ViewWebAuth = ({ onNavigate }: { onNavigate: (view: View) => void }) => {
+    const [authMode, setAuthMode] = React.useState<'login' | 'signup'>('login');
+
+    return (
+        <div className="min-h-screen bg-gradz-cream flex items-center justify-center py-20 px-4">
+            <div className="max-w-md w-full">
+                <div className="text-center mb-12 animate-fade-in-up">
+                    <img src="/logo_gradz.png" alt="Gradz" className="h-16 mx-auto mb-8" />
+                    <h1 className="text-5xl md:text-6xl font-serif text-gradz-green mb-4">
+                        {authMode === 'login' ? 'Welcome Back' : 'Join Gradz'}
+                    </h1>
+                    <p className="text-xl text-gradz-charcoal/70">
+                        {authMode === 'login' ? 'Continue your kindness journey' : 'Start your kindness journey today'}
+                    </p>
+                </div>
+
+                <div className="bg-white p-10 rounded-[3rem] shadow-xl border border-gradz-stone">
+                    <form className="space-y-6">
+                        {authMode === 'signup' && (
+                            <div>
+                                <label className="block text-sm font-bold text-gradz-charcoal mb-2">Full Name</label>
+                                <input
+                                    type="text"
+                                    className="w-full px-6 py-4 rounded-2xl border-2 border-gradz-stone focus:border-gradz-green outline-none transition-colors text-gradz-charcoal"
+                                    placeholder="Enter your name"
+                                />
+                            </div>
+                        )}
+
+                        <div>
+                            <label className="block text-sm font-bold text-gradz-charcoal mb-2">Email</label>
+                            <input
+                                type="email"
+                                className="w-full px-6 py-4 rounded-2xl border-2 border-gradz-stone focus:border-gradz-green outline-none transition-colors text-gradz-charcoal"
+                                placeholder="your@email.com"
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-bold text-gradz-charcoal mb-2">Password</label>
+                            <input
+                                type="password"
+                                className="w-full px-6 py-4 rounded-2xl border-2 border-gradz-stone focus:border-gradz-green outline-none transition-colors text-gradz-charcoal"
+                                placeholder="••••••••"
+                            />
+                        </div>
+
+                        {authMode === 'login' && (
+                            <div className="flex justify-end">
+                                <button type="button" className="text-sm text-gradz-green hover:underline">
+                                    Forgot password?
+                                </button>
+                            </div>
+                        )}
+
+                        <Button variant="primary" className="w-full !py-4 !text-lg">
+                            {authMode === 'login' ? 'Sign In' : 'Create Account'}
+                        </Button>
+                    </form>
+
+                    <div className="mt-8 text-center">
+                        <p className="text-gradz-charcoal/70">
+                            {authMode === 'login' ? "Don't have an account? " : "Already have an account? "}
+                            <button
+                                onClick={() => setAuthMode(authMode === 'login' ? 'signup' : 'login')}
+                                className="text-gradz-green font-bold hover:underline"
+                            >
+                                {authMode === 'login' ? 'Sign Up' : 'Sign In'}
+                            </button>
+                        </p>
+                    </div>
+
+                    <div className="mt-8 pt-8 border-t border-gradz-stone/30">
+                        <p className="text-sm text-gradz-charcoal/60 text-center mb-4">Or continue with</p>
+                        <div className="grid grid-cols-2 gap-4">
+                            <button className="px-6 py-3 rounded-2xl border-2 border-gradz-stone hover:border-gradz-green transition-colors flex items-center justify-center gap-2 text-gradz-charcoal font-medium">
+                                <svg className="w-5 h-5" viewBox="0 0 24 24">
+                                    <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                    <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                    <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                                    <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                                </svg>
+                                Google
+                            </button>
+                            <button className="px-6 py-3 rounded-2xl border-2 border-gradz-stone hover:border-gradz-green transition-colors flex items-center justify-center gap-2 text-gradz-charcoal font-medium">
+                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+                                </svg>
+                                GitHub
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mt-8 text-center">
+                    <p className="text-sm text-gradz-charcoal/60 mb-4">Prefer the mobile app?</p>
+                    <Button onClick={() => onNavigate('mobile-download')} variant="white" className="border-2 border-gradz-stone">
+                        Download Mobile App
+                    </Button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 function App() {
   const [activeView, setActiveView] = useState<View>('home');
   const [scrolled, setScrolled] = useState(false);
@@ -1472,6 +1713,9 @@ function App() {
         {activeView === 'privacy' && <ViewPrivacy />}
         {activeView === 'terms' && <ViewTerms />}
         {activeView === 'cookies' && <ViewCookies />}
+        {activeView === 'get-started' && <ViewGetStarted onNavigate={navigateTo} />}
+        {activeView === 'mobile-download' && <ViewMobileDownload onNavigate={navigateTo} />}
+        {activeView === 'web-auth' && <ViewWebAuth onNavigate={navigateTo} />}
 
       </main>
 
@@ -1533,11 +1777,11 @@ function App() {
                
                <div className="lg:col-span-2">
                   <h4 className="font-bold text-gradz-peach mb-6 uppercase tracking-widest text-xs">Features</h4>
-                  <ul className="space-y-4 opacity-80 text-sm">
-                      <li><button onClick={() => navigateTo('wisdom-quotes')} className="hover:text-white transition-colors">Daily Wisdom Quotes</button></li>
-                      <li><button onClick={() => navigateTo('kindness-challenges')} className="hover:text-white transition-colors">50+ Kindness Challenges</button></li>
-                      <li><button onClick={() => navigateTo('mindful-lectures')} className="hover:text-white transition-colors">Mindful Lectures</button></li>
-                      <li><button onClick={() => navigateTo('streak-system')} className="hover:text-white transition-colors">Streak System</button></li>
+                  <ul className="space-y-4 opacity-80 text-sm text-left">
+                      <li><button onClick={() => navigateTo('wisdom-quotes')} className="hover:text-white transition-colors text-left">Daily Wisdom Quotes</button></li>
+                      <li><button onClick={() => navigateTo('kindness-challenges')} className="hover:text-white transition-colors text-left">50+ Kindness Challenges</button></li>
+                      <li><button onClick={() => navigateTo('mindful-lectures')} className="hover:text-white transition-colors text-left">Mindful Lectures</button></li>
+                      <li><button onClick={() => navigateTo('streak-system')} className="hover:text-white transition-colors text-left">Streak System</button></li>
                   </ul>
                </div>
 
