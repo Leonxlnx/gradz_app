@@ -290,24 +290,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </section>
       </div>
 
-      <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-[#143328]/10 py-4 px-6">
-        <div className="max-w-4xl mx-auto flex justify-around">
-          <button onClick={() => onNavigate('home')} className="flex flex-col items-center gap-1 text-[#143328]">
-            <HomeIcon className="w-6 h-6" />
-            <span className="text-xs font-bold">Home</span>
-          </button>
-          <button onClick={() => onNavigate('collection')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <CollectionIcon className="w-6 h-6" />
-            <span className="text-xs font-bold">Collection</span>
-          </button>
-          <button onClick={() => onNavigate('health')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <HealthIcon className="w-6 h-6" />
-            <span className="text-xs font-bold">Health</span>
-          </button>
-          <button onClick={() => onNavigate('settings')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <SettingsIcon className="w-6 h-6" />
-            <span className="text-xs font-bold">Settings</span>
-          </button>
+      <nav className="fixed bottom-6 left-6 right-6 z-50">
+        <div className="max-w-md mx-auto bg-white/70 backdrop-blur-xl border border-white/40 rounded-full shadow-2xl px-6 py-4">
+          <div className="flex justify-around items-center">
+            <button onClick={() => onNavigate('home')} className="flex flex-col items-center gap-1 text-[#143328] transition-all duration-300 scale-110">
+              <div className="bg-[#143328] p-3 rounded-full">
+                <HomeIcon className="w-6 h-6 text-white" />
+              </div>
+            </button>
+            <button onClick={() => onNavigate('collection')} className="flex flex-col items-center gap-1 text-[#143328]/50 hover:text-[#143328] transition-all duration-300 hover:scale-110">
+              <CollectionIcon className="w-6 h-6" />
+            </button>
+            <button onClick={() => onNavigate('health')} className="flex flex-col items-center gap-1 text-[#143328]/50 hover:text-[#143328] transition-all duration-300 hover:scale-110">
+              <HealthIcon className="w-6 h-6" />
+            </button>
+            <button onClick={() => onNavigate('settings')} className="flex flex-col items-center gap-1 text-[#143328]/50 hover:text-[#143328] transition-all duration-300 hover:scale-110">
+              <SettingsIcon className="w-6 h-6" />
+            </button>
+          </div>
         </div>
       </nav>
     </div>
