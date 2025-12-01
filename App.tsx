@@ -691,7 +691,8 @@ const ViewJoinClub = () => (
                 <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                     <a
                         href="https://github.com/Leonxlnx/gradz_app/releases/download/v0.5/gradzmobile.apk"
-                        download="gradzmobile.apk"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="group bg-gradz-green p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer relative"
                     >
                         <div className="absolute top-4 right-4 bg-gradz-matcha text-gradz-green text-xs px-3 py-1 rounded-full font-bold">Available Now</div>
@@ -701,6 +702,7 @@ const ViewJoinClub = () => (
                             </svg>
                             <h3 className="text-xl font-bold text-white mb-2">APK Download</h3>
                             <p className="text-white/60 text-sm">Direct Install • Android</p>
+                            <p className="text-white/50 text-xs mt-2">Tap to download gradzmobile.apk</p>
                         </div>
                     </a>
 
@@ -1320,7 +1322,8 @@ const ViewMobileDownload = ({ onNavigate }: { onNavigate: (view: View) => void }
                 <div className="max-w-md mx-auto">
                     <a
                         href="https://github.com/Leonxlnx/gradz_app/releases/download/v0.5/gradzmobile.apk"
-                        download="gradzmobile.apk"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="group bg-gradz-green p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer flex flex-col items-center text-center block"
                     >
                         <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
@@ -1330,7 +1333,7 @@ const ViewMobileDownload = ({ onNavigate }: { onNavigate: (view: View) => void }
                         </div>
                         <h3 className="text-2xl font-bold text-white mb-2">APK Download</h3>
                         <p className="text-white/80 text-sm mb-4">Direct Install • Android Only</p>
-                        <p className="text-white/60 text-xs max-w-xs">For advanced users. Install APK files manually on Android devices.</p>
+                        <p className="text-white/60 text-xs max-w-xs">Tap to download gradzmobile.apk, then install the APK file on your Android device.</p>
                     </a>
                 </div>
             </div>
