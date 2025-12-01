@@ -1246,28 +1246,28 @@ const ViewCookies = () => (
 
 const ViewGetStarted = ({ onNavigate }: { onNavigate: (view: View) => void }) => (
     <div className="min-h-screen bg-gradz-cream flex items-center justify-center py-20 px-4">
-        <div className="max-w-5xl w-full">
-            <div className="text-center mb-16 animate-fade-in-up">
-                <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mb-8">Choose Your Platform</h1>
-                <p className="text-2xl text-gradz-charcoal/70 leading-relaxed max-w-3xl mx-auto">
+        <div className="max-w-4xl w-full">
+            <div className="text-center mb-16 animate-fade-in-up pt-20">
+                <h1 className="text-5xl md:text-7xl font-serif text-gradz-green mb-8">Choose Your Platform</h1>
+                <p className="text-xl text-gradz-charcoal/70 leading-relaxed max-w-2xl mx-auto">
                     How would you like to experience Gradz?
                 </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6">
                 {/* Mobile Option */}
                 <div
                     onClick={() => onNavigate('mobile-download')}
-                    className="group bg-white p-12 rounded-[3rem] shadow-xl border-2 border-gradz-stone hover:border-gradz-green hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                    className="group bg-white p-8 rounded-[2.5rem] shadow-xl border-2 border-gradz-stone hover:border-gradz-green hover:-translate-y-2 transition-all duration-300 cursor-pointer"
                 >
                     <div className="flex flex-col items-center text-center">
-                        <div className="w-24 h-24 bg-gradz-matcha/20 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <svg className="w-12 h-12 text-gradz-green" fill="currentColor" viewBox="0 0 24 24">
+                        <div className="w-20 h-20 bg-gradz-matcha/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg className="w-10 h-10 text-gradz-green" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
                             </svg>
                         </div>
-                        <h2 className="text-4xl font-serif text-gradz-green mb-4">Mobile App</h2>
-                        <p className="text-xl text-gradz-charcoal/80 mb-6 leading-relaxed">
+                        <h2 className="text-3xl font-serif text-gradz-green mb-3">Mobile App</h2>
+                        <p className="text-lg text-gradz-charcoal/80 mb-5 leading-relaxed">
                             Download the native app for Android and iOS. Perfect for daily practice on the go.
                         </p>
                         <div className="flex items-center gap-2 text-gradz-green font-bold">
@@ -1280,16 +1280,16 @@ const ViewGetStarted = ({ onNavigate }: { onNavigate: (view: View) => void }) =>
                 {/* Web Option */}
                 <div
                     onClick={() => onNavigate('web-auth')}
-                    className="group bg-white p-12 rounded-[3rem] shadow-xl border-2 border-gradz-stone hover:border-gradz-blue hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                    className="group bg-white p-8 rounded-[2.5rem] shadow-xl border-2 border-gradz-stone hover:border-gradz-blue hover:-translate-y-2 transition-all duration-300 cursor-pointer"
                 >
                     <div className="flex flex-col items-center text-center">
-                        <div className="w-24 h-24 bg-gradz-blue/20 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                            <svg className="w-12 h-12 text-gradz-blue" fill="currentColor" viewBox="0 0 24 24">
+                        <div className="w-20 h-20 bg-gradz-blue/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg className="w-10 h-10 text-gradz-blue" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/>
                             </svg>
                         </div>
-                        <h2 className="text-4xl font-serif text-gradz-green mb-4">Web Platform</h2>
-                        <p className="text-xl text-gradz-charcoal/80 mb-6 leading-relaxed">
+                        <h2 className="text-3xl font-serif text-gradz-green mb-3">Web Platform</h2>
+                        <p className="text-lg text-gradz-charcoal/80 mb-5 leading-relaxed">
                             Access Gradz from any browser. Great for desktop users and seamless sync across devices.
                         </p>
                         <div className="flex items-center gap-2 text-gradz-blue font-bold">
@@ -1312,6 +1312,26 @@ const ViewMobileDownload = ({ onNavigate }: { onNavigate: (view: View) => void }
                 <p className="text-xl md:text-2xl text-gradz-charcoal/70 leading-relaxed max-w-3xl mx-auto">
                     Get the native mobile app and start your kindness practice today.
                 </p>
+            </div>
+
+            <div className="text-center mb-12">
+                <h2 className="text-3xl font-serif text-gradz-green mb-8">Available Now</h2>
+                <div className="max-w-md mx-auto">
+                    <a
+                        href="https://ukxandpzgxeebhkhpkow.supabase.co/storage/v1/object/public/apk-files/gradz%20VERSION%200.apk"
+                        download="gradz-VERSION-0.apk"
+                        className="group bg-gradz-green p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer flex flex-col items-center text-center block"
+                    >
+                        <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                            <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-2">APK Download</h3>
+                        <p className="text-white/80 text-sm mb-4">Direct Install • Android Only</p>
+                        <p className="text-white/60 text-xs max-w-xs">For advanced users. Install APK files manually on Android devices.</p>
+                    </a>
+                </div>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 mb-16">
@@ -1342,102 +1362,23 @@ const ViewMobileDownload = ({ onNavigate }: { onNavigate: (view: View) => void }
                 </div>
             </div>
 
-            <div className="text-center mb-12">
-                <h2 className="text-3xl font-serif text-gradz-green mb-8">Available Now</h2>
-                <div className="max-w-md mx-auto">
-                    <a
-                        href="https://ukxandpzgxeebhkhpkow.supabase.co/storage/v1/object/public/apk-files/gradz%20VERSION%200.apk"
-                        download="gradz-VERSION-0.apk"
-                        className="group bg-gradz-green p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer flex flex-col items-center text-center block"
-                    >
-                        <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
-                            <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                            </svg>
-                        </div>
-                        <h3 className="text-2xl font-bold text-white mb-2">APK Download</h3>
-                        <p className="text-white/80 text-sm mb-4">Direct Install • Android Only</p>
-                        <p className="text-white/60 text-xs max-w-xs">For advanced users. Install APK files manually on Android devices.</p>
-                    </a>
-                </div>
-            </div>
-
             <div className="bg-gradz-blue/10 border border-gradz-blue/30 p-8 rounded-3xl text-center">
                 <p className="text-gradz-charcoal/80 mb-4">Prefer to use Gradz on the web?</p>
-                <Button onClick={() => onNavigate('web-auth')} variant="primary">
-                    Try Web Version
-                </Button>
+                <div className="flex justify-center">
+                    <Button onClick={() => onNavigate('web-auth')} variant="primary">
+                        Try Web Version
+                    </Button>
+                </div>
             </div>
         </div>
     </div>
 );
 
-const ViewWebAuth = ({ onNavigate }: { onNavigate: (view: View) => void }) => {
-    const [isLoading, setIsLoading] = React.useState(true);
-
-    React.useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
-        return () => clearTimeout(timer);
-    }, []);
-
-    if (isLoading) {
-        return (
-            <div className="min-h-screen bg-gradz-cream flex items-center justify-center">
-                <div className="text-center animate-fade-in-up">
-                    <img src="/logo_gradz.png" alt="Gradz" className="h-24 mx-auto mb-8 animate-pulse" />
-                    <div className="flex items-center justify-center gap-3">
-                        <div className="w-3 h-3 bg-gradz-green rounded-full animate-bounce" style={{animationDelay: '0s'}}></div>
-                        <div className="w-3 h-3 bg-gradz-peach rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
-                        <div className="w-3 h-3 bg-gradz-matcha rounded-full animate-bounce" style={{animationDelay: '0.4s'}}></div>
-                    </div>
-                    <p className="text-xl text-gradz-charcoal/70 mt-8">Loading web platform...</p>
-                </div>
-            </div>
-        );
-    }
-
-    return (
-        <div className="min-h-screen bg-gradz-cream flex items-center justify-center py-20 px-4">
-            <div className="max-w-3xl w-full text-center">
-                <div className="animate-fade-in-up">
-                    <div className="inline-flex items-center justify-center w-32 h-32 bg-gradz-green/10 rounded-full mb-8 p-4">
-                        <svg className="w-20 h-20 text-gradz-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                        </svg>
-                    </div>
-                    <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mb-8">Being Built</h1>
-                    <p className="text-2xl md:text-3xl text-gradz-charcoal/80 leading-relaxed max-w-2xl mx-auto mb-12">
-                        The web version of Gradz is currently under construction. We're crafting something beautiful for you.
-                    </p>
-
-                    <div className="bg-white p-10 rounded-[3rem] shadow-xl border border-gradz-stone max-w-xl mx-auto mb-12">
-                        <h2 className="text-2xl font-serif text-gradz-green mb-4">Get Notified</h2>
-                        <p className="text-gradz-charcoal/70 mb-6">Want to be the first to know when we launch?</p>
-                        <form className="flex gap-3">
-                            <input
-                                type="email"
-                                placeholder="your@email.com"
-                                className="flex-1 px-6 py-4 rounded-2xl border-2 border-gradz-stone focus:border-gradz-green outline-none transition-colors text-gradz-charcoal"
-                            />
-                            <Button variant="primary" className="!px-8">
-                                Notify Me
-                            </Button>
-                        </form>
-                    </div>
-
-                    <div className="space-y-4">
-                        <p className="text-gradz-charcoal/70">In the meantime, try our mobile app:</p>
-                        <Button onClick={() => onNavigate('mobile-download')} variant="primary" className="!px-12 !py-4 !text-lg">
-                            Download Mobile App
-                        </Button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
+const ViewWebAuth = () => (
+    <div className="min-h-screen bg-white flex items-center justify-center">
+        <p className="text-gradz-charcoal text-lg">web</p>
+    </div>
+);
 
 function App() {
   const [activeView, setActiveView] = useState<View>('home');
@@ -1677,7 +1618,7 @@ function App() {
         {activeView === 'cookies' && <ViewCookies />}
         {activeView === 'get-started' && <ViewGetStarted onNavigate={navigateTo} />}
         {activeView === 'mobile-download' && <ViewMobileDownload onNavigate={navigateTo} />}
-        {activeView === 'web-auth' && <ViewWebAuth onNavigate={navigateTo} />}
+        {activeView === 'web-auth' && <ViewWebAuth />}
 
       </main>
 
