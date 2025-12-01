@@ -12,7 +12,7 @@ import { subscribeToNewsletter } from './services/supabaseClient';
 // Register GSAP Plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-type View = 'home' | 'mission' | 'stories' | 'community' | 'join-club' | 'newsletter-confirm';
+type View = 'home' | 'mission' | 'stories' | 'community' | 'join-club' | 'newsletter-confirm' | 'wisdom-quotes' | 'kindness-challenges' | 'mindful-lectures' | 'streak-system' | 'privacy' | 'terms' | 'cookies';
 
 // --- Happy Decorations Component (Global Left Side Only) ---
 const HappyDecorations = () => (
@@ -741,6 +741,501 @@ const ViewNewsletterConfirm = () => (
     </div>
 );
 
+const ViewWisdomQuotes = () => (
+    <div className="container mx-auto px-6 pt-40 pb-20">
+        <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16 animate-fade-in-up">
+                <Badge text="Feature" color="matcha" />
+                <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mt-6 mb-8">Daily Wisdom Quotes</h1>
+                <p className="text-xl md:text-2xl text-gradz-charcoal/70 leading-relaxed max-w-3xl mx-auto">
+                    Start each day with profound insights from philosophers, thought leaders, and wisdom traditions. Not generic posters—meaningful reflections designed to shift perspective.
+                </p>
+            </div>
+
+            <div className="grid gap-8 mb-16">
+                {[
+                    { quote: "Be kind, for everyone you meet is fighting a harder battle.", author: "Plato", category: "Philosophy" },
+                    { quote: "No act of kindness, no matter how small, is ever wasted.", author: "Aesop", category: "Wisdom" },
+                    { quote: "Carry out a random act of kindness, with no expectation of reward, safe in the knowledge that one day someone might do the same for you.", author: "Princess Diana", category: "Action" },
+                    { quote: "Kindness is a language which the deaf can hear and the blind can see.", author: "Mark Twain", category: "Empathy" },
+                    { quote: "The simplest acts of kindness are by far more powerful than a thousand heads bowing in prayer.", author: "Mahatma Gandhi", category: "Spirituality" },
+                    { quote: "Wherever there is a human being, there is an opportunity for kindness.", author: "Seneca", category: "Stoicism" },
+                    { quote: "Unexpected kindness is the most powerful, least costly, and most underrated agent of human change.", author: "Bob Kerrey", category: "Impact" },
+                    { quote: "Be the reason someone believes in the goodness of people.", author: "Karen Salmansohn", category: "Inspiration" }
+                ].map((item, i) => (
+                    <div key={i} className="bg-white p-10 rounded-[2rem] shadow-lg border border-gradz-stone hover:-translate-y-2 transition-transform duration-300">
+                        <div className="flex items-start gap-4 mb-6">
+                            <QuoteIcon className="w-12 h-12 text-gradz-peach flex-shrink-0" />
+                            <p className="text-2xl md:text-3xl font-serif text-gradz-green leading-relaxed italic">"{item.quote}"</p>
+                        </div>
+                        <div className="flex items-center justify-between">
+                            <p className="text-lg font-bold text-gradz-charcoal">— {item.author}</p>
+                            <span className="text-xs font-bold uppercase tracking-wider text-gradz-matcha bg-gradz-matcha/10 px-4 py-2 rounded-full">{item.category}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className="bg-gradz-green text-gradz-cream p-12 rounded-[3rem] text-center">
+                <h2 className="text-3xl md:text-4xl font-serif mb-4">Ready to start your daily practice?</h2>
+                <p className="text-xl opacity-90 mb-8">Download Gradz and receive a new wisdom quote every morning.</p>
+                <Button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} variant="white" className="!text-gradz-green">
+                    Get Started
+                </Button>
+            </div>
+        </div>
+    </div>
+);
+
+const ViewKindnessChallenges = () => (
+    <div className="container mx-auto px-6 pt-40 pb-20">
+        <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16 animate-fade-in-up">
+                <Badge text="Feature" color="peach" />
+                <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mt-6 mb-8">50+ Kindness Challenges</h1>
+                <p className="text-xl md:text-2xl text-gradz-charcoal/70 leading-relaxed max-w-3xl mx-auto">
+                    From simple acts like smiling at strangers to meaningful commitments like volunteering. Each challenge includes clear instructions and difficulty levels.
+                </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                    { title: "Smile at 5 Strangers", difficulty: "Easy", duration: "10 min", description: "Make eye contact and genuinely smile at 5 people you don't know today." },
+                    { title: "Pay for Someone's Coffee", difficulty: "Easy", duration: "5 min", description: "Buy coffee for the person behind you in line. No explanation needed." },
+                    { title: "Leave a Generous Tip", difficulty: "Easy", duration: "5 min", description: "Tip 50% or more on your next meal. Watch their reaction." },
+                    { title: "Compliment 3 People", difficulty: "Easy", duration: "15 min", description: "Give genuine, specific compliments to three different people." },
+                    { title: "Help Someone Carry Groceries", difficulty: "Medium", duration: "15 min", description: "Offer to help someone load their car or carry bags to their door." },
+                    { title: "Write Thank You Notes", difficulty: "Medium", duration: "30 min", description: "Write handwritten thank you notes to 3 people who've impacted your life." },
+                    { title: "Volunteer for 2 Hours", difficulty: "Medium", duration: "2 hours", description: "Find a local charity or community organization and volunteer your time." },
+                    { title: "Random Acts of Kindness Day", difficulty: "Hard", duration: "All day", description: "Commit to doing 10 random acts of kindness in one day." },
+                    { title: "Mentor Someone", difficulty: "Hard", duration: "Ongoing", description: "Offer to mentor someone in your field or share your expertise for free." },
+                    { title: "Organize a Community Event", difficulty: "Hard", duration: "1 week", description: "Plan and execute a community cleanup, food drive, or social gathering." },
+                    { title: "Give Blood", difficulty: "Medium", duration: "1 hour", description: "Donate blood at your local blood bank. One donation can save three lives." },
+                    { title: "Cook for a Neighbor", difficulty: "Medium", duration: "2 hours", description: "Prepare a home-cooked meal and deliver it to an elderly or busy neighbor." }
+                ].map((challenge, i) => (
+                    <div key={i} className="bg-white p-8 rounded-[2rem] shadow-lg border border-gradz-stone hover:-translate-y-2 transition-transform duration-300">
+                        <div className="flex items-center justify-between mb-4">
+                            <span className={`text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full ${
+                                challenge.difficulty === 'Easy' ? 'bg-gradz-matcha/20 text-gradz-matcha' :
+                                challenge.difficulty === 'Medium' ? 'bg-gradz-peach/20 text-gradz-peach' :
+                                'bg-gradz-orange/20 text-gradz-orange'
+                            }`}>
+                                {challenge.difficulty}
+                            </span>
+                            <span className="text-xs text-gradz-charcoal/50">{challenge.duration}</span>
+                        </div>
+                        <h3 className="text-2xl font-serif text-gradz-green mb-3">{challenge.title}</h3>
+                        <p className="text-gradz-charcoal/80 leading-relaxed">{challenge.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div className="bg-gradz-peach/20 border border-gradz-peach/50 p-12 rounded-[3rem] text-center mt-16">
+                <h2 className="text-3xl md:text-4xl font-serif text-gradz-green mb-4">Challenge yourself daily</h2>
+                <p className="text-xl text-gradz-charcoal/80 mb-8">Track your progress and build a streak with the Gradz app.</p>
+                <Button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} variant="primary">
+                    Download Now
+                </Button>
+            </div>
+        </div>
+    </div>
+);
+
+const ViewMindfulLectures = () => (
+    <div className="container mx-auto px-6 pt-40 pb-20">
+        <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16 animate-fade-in-up">
+                <Badge text="Feature" color="blue" />
+                <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mt-6 mb-8">Mindful Lectures</h1>
+                <p className="text-xl md:text-2xl text-gradz-charcoal/70 leading-relaxed max-w-3xl mx-auto">
+                    Over 50 in-depth articles covering the science of kindness, building self-compassion, creating meaningful connections, and more.
+                </p>
+            </div>
+
+            <div className="grid gap-8">
+                {[
+                    {
+                        title: "The Neuroscience of Kindness",
+                        category: "Science",
+                        readTime: "8 min read",
+                        description: "Discover how acts of kindness release oxytocin, reduce cortisol, and trigger the brain's reward centers. Learn the biological mechanisms that make kindness so powerful for both giver and receiver."
+                    },
+                    {
+                        title: "Building Self-Compassion",
+                        category: "Psychology",
+                        readTime: "10 min read",
+                        description: "Self-compassion isn't self-indulgence—it's a critical foundation for mental health. Explore research-backed techniques to treat yourself with the same kindness you'd offer a good friend."
+                    },
+                    {
+                        title: "The Ripple Effect: How One Act Changes Everything",
+                        category: "Impact",
+                        readTime: "6 min read",
+                        description: "Kindness is contagious. Studies show that witnessing kindness makes us 3x more likely to perform kind acts ourselves. Understand the social dynamics of compassion."
+                    },
+                    {
+                        title: "Gratitude Practices That Actually Work",
+                        category: "Practice",
+                        readTime: "12 min read",
+                        description: "Beyond generic gratitude journals—discover evidence-based gratitude practices that measurably improve sleep quality, reduce anxiety, and increase overall life satisfaction."
+                    },
+                    {
+                        title: "Empathy vs. Sympathy: Understanding the Difference",
+                        category: "Emotional Intelligence",
+                        readTime: "7 min read",
+                        description: "Empathy connects. Sympathy creates distance. Learn to distinguish between these two responses and develop deeper, more meaningful connections with others."
+                    },
+                    {
+                        title: "The Dark Side of Toxic Positivity",
+                        category: "Mental Health",
+                        readTime: "9 min read",
+                        description: "Not all positive thinking is healthy. Understand the difference between genuine optimism and toxic positivity that invalidates real emotions and prevents healing."
+                    },
+                    {
+                        title: "Mindfulness for Beginners",
+                        category: "Meditation",
+                        readTime: "11 min read",
+                        description: "A practical, no-nonsense guide to starting a mindfulness practice. No spiritual jargon—just neuroscience-backed techniques for reducing stress and increasing present-moment awareness."
+                    },
+                    {
+                        title: "Creating Meaningful Connections in a Digital Age",
+                        category: "Relationships",
+                        readTime: "10 min read",
+                        description: "Social media promised connection but often delivers loneliness. Learn strategies to build authentic relationships in an increasingly digital world."
+                    }
+                ].map((lecture, i) => (
+                    <div key={i} className="bg-white p-10 rounded-[2rem] shadow-lg border border-gradz-stone hover:-translate-y-2 transition-transform duration-300">
+                        <div className="flex flex-wrap items-center gap-3 mb-4">
+                            <span className="text-xs font-bold uppercase tracking-wider bg-gradz-blue/20 text-gradz-blue px-4 py-2 rounded-full">
+                                {lecture.category}
+                            </span>
+                            <span className="text-xs text-gradz-charcoal/50">{lecture.readTime}</span>
+                        </div>
+                        <h3 className="text-3xl font-serif text-gradz-green mb-4">{lecture.title}</h3>
+                        <p className="text-lg text-gradz-charcoal/80 leading-relaxed">{lecture.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div className="bg-gradz-blue/20 border border-gradz-blue/30 p-12 rounded-[3rem] text-center mt-16">
+                <h2 className="text-3xl md:text-4xl font-serif text-gradz-green mb-4">Deepen your understanding</h2>
+                <p className="text-xl text-gradz-charcoal/80 mb-8">Access all 50+ lectures in the Gradz app.</p>
+                <Button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} variant="primary">
+                    Get Started
+                </Button>
+            </div>
+        </div>
+    </div>
+);
+
+const ViewStreakSystem = () => (
+    <div className="container mx-auto px-6 pt-40 pb-20">
+        <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16 animate-fade-in-up">
+                <Badge text="Feature" color="orange" />
+                <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mt-6 mb-8">Streak System</h1>
+                <p className="text-xl md:text-2xl text-gradz-charcoal/70 leading-relaxed max-w-3xl mx-auto">
+                    Consistency builds habits. Track your daily engagement and watch your kindness practice grow. Research shows it takes 66 days to form a new habit.
+                </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+                <div className="bg-gradz-matcha/20 p-10 rounded-[3rem] border border-gradz-matcha/30">
+                    <h3 className="text-4xl font-bold text-gradz-green mb-4">Daily Check-ins</h3>
+                    <p className="text-lg text-gradz-charcoal/80 mb-6">
+                        Open the app each day to maintain your streak. Read your wisdom quote, complete a challenge, or browse a lecture—any engagement counts.
+                    </p>
+                    <div className="flex items-center gap-3">
+                        <div className="w-12 h-12 bg-gradz-matcha rounded-full flex items-center justify-center text-white font-bold text-xl">✓</div>
+                        <span className="text-gradz-charcoal/70">Mark your daily visit automatically</span>
+                    </div>
+                </div>
+
+                <div className="bg-gradz-peach/20 p-10 rounded-[3rem] border border-gradz-peach/30">
+                    <h3 className="text-4xl font-bold text-gradz-green mb-4">Milestone Rewards</h3>
+                    <p className="text-lg text-gradz-charcoal/80 mb-6">
+                        Reach key milestones and unlock achievements. Celebrate your commitment to personal growth.
+                    </p>
+                    <div className="space-y-3">
+                        <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 bg-gradz-peach rounded-full flex items-center justify-center text-white text-sm">7</div>
+                            <span className="text-gradz-charcoal/70">1 Week Streak</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 bg-gradz-orange rounded-full flex items-center justify-center text-white text-sm">30</div>
+                            <span className="text-gradz-charcoal/70">1 Month Streak</span>
+                        </div>
+                        <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 bg-gradz-green rounded-full flex items-center justify-center text-white text-sm">100</div>
+                            <span className="text-gradz-charcoal/70">100 Day Streak</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="bg-white p-12 rounded-[3rem] shadow-xl border border-gradz-stone mb-16">
+                <h2 className="text-4xl font-serif text-gradz-green mb-8 text-center">Why Streaks Work</h2>
+                <div className="grid md:grid-cols-3 gap-8">
+                    <div className="text-center">
+                        <div className="text-5xl font-bold text-gradz-matcha mb-4">66</div>
+                        <p className="text-gradz-charcoal/80">Days to form a new habit (University College London study)</p>
+                    </div>
+                    <div className="text-center">
+                        <div className="text-5xl font-bold text-gradz-peach mb-4">2x</div>
+                        <p className="text-gradz-charcoal/80">More likely to stick with goals when tracking progress</p>
+                    </div>
+                    <div className="text-center">
+                        <div className="text-5xl font-bold text-gradz-blue mb-4">92%</div>
+                        <p className="text-gradz-charcoal/80">Of people fail at goals without accountability systems</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="bg-gradz-green text-gradz-cream p-12 rounded-[3rem] text-center">
+                <h2 className="text-3xl md:text-4xl font-serif mb-4">Start your streak today</h2>
+                <p className="text-xl opacity-90 mb-8">Download Gradz and begin building your kindness habit.</p>
+                <Button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} variant="white" className="!text-gradz-green">
+                    Get Started
+                </Button>
+            </div>
+        </div>
+    </div>
+);
+
+const ViewPrivacy = () => (
+    <div className="container mx-auto px-6 pt-40 pb-20">
+        <div className="max-w-4xl mx-auto">
+            <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mb-8">Privacy Policy</h1>
+            <p className="text-lg text-gradz-charcoal/60 mb-12">Last Updated: December 1, 2025</p>
+
+            <div className="prose prose-lg max-w-none space-y-8">
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Introduction</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        At Gradz, we believe privacy is a fundamental human right. This Privacy Policy explains how we collect, use, and protect your personal information when you use our wellness platform. We are committed to transparency and giving you control over your data.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Information We Collect</h2>
+                    <h3 className="text-xl font-bold text-gradz-charcoal mb-3">Account Information</h3>
+                    <p className="text-gradz-charcoal/80 leading-relaxed mb-4">When you create an account, we collect your email address and chosen password (stored securely using industry-standard encryption).</p>
+
+                    <h3 className="text-xl font-bold text-gradz-charcoal mb-3">Usage Data</h3>
+                    <p className="text-gradz-charcoal/80 leading-relaxed mb-4">We collect data about how you interact with Gradz, including which quotes you save, challenges you complete, and lectures you read. This helps us personalize your experience and improve our platform.</p>
+
+                    <h3 className="text-xl font-bold text-gradz-charcoal mb-3">Device Information</h3>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">We automatically collect certain device information such as your IP address, browser type, operating system, and device identifiers. This information is used for security and analytics purposes.</p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">How We Use Your Information</h2>
+                    <ul className="space-y-3 text-gradz-charcoal/80">
+                        <li className="flex items-start gap-3"><span className="text-gradz-matcha font-bold">•</span> To provide and improve our services</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-matcha font-bold">•</span> To personalize your experience based on your preferences</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-matcha font-bold">•</span> To send you important updates about the platform (you can opt out of marketing emails)</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-matcha font-bold">•</span> To ensure platform security and prevent fraud</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-matcha font-bold">•</span> To comply with legal obligations</li>
+                    </ul>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Data Sharing and Third Parties</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed mb-4">
+                        We do not sell your personal data to third parties. Period. We may share your information only in the following limited circumstances:
+                    </p>
+                    <ul className="space-y-3 text-gradz-charcoal/80">
+                        <li className="flex items-start gap-3"><span className="text-gradz-peach font-bold">•</span> With service providers who help us operate the platform (e.g., cloud hosting, analytics)</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-peach font-bold">•</span> When required by law or to protect our legal rights</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-peach font-bold">•</span> In the event of a merger, acquisition, or sale of assets (with notice to you)</li>
+                    </ul>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Your Rights</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed mb-4">You have the following rights regarding your personal data:</p>
+                    <ul className="space-y-3 text-gradz-charcoal/80">
+                        <li className="flex items-start gap-3"><span className="text-gradz-blue font-bold">•</span> <strong>Access:</strong> Request a copy of your personal data</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-blue font-bold">•</span> <strong>Correction:</strong> Request corrections to inaccurate data</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-blue font-bold">•</span> <strong>Deletion:</strong> Request deletion of your account and associated data</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-blue font-bold">•</span> <strong>Portability:</strong> Request your data in a machine-readable format</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-blue font-bold">•</span> <strong>Opt-Out:</strong> Opt out of marketing communications at any time</li>
+                    </ul>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Data Security</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        We implement industry-standard security measures to protect your data, including encryption, secure servers, and regular security audits. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Contact Us</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        If you have questions about this Privacy Policy or wish to exercise your rights, please contact us at: <a href="mailto:privacy@gradz.app" className="text-gradz-green font-bold hover:underline">privacy@gradz.app</a>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+);
+
+const ViewTerms = () => (
+    <div className="container mx-auto px-6 pt-40 pb-20">
+        <div className="max-w-4xl mx-auto">
+            <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mb-8">Terms of Service</h1>
+            <p className="text-lg text-gradz-charcoal/60 mb-12">Last Updated: December 1, 2025</p>
+
+            <div className="prose prose-lg max-w-none space-y-8">
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Agreement to Terms</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        By accessing and using Gradz, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using this platform.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Use License</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed mb-4">
+                        Gradz grants you a personal, non-transferable, non-exclusive license to access and use the platform for personal, non-commercial purposes. You may not:
+                    </p>
+                    <ul className="space-y-3 text-gradz-charcoal/80">
+                        <li className="flex items-start gap-3"><span className="text-gradz-peach font-bold">•</span> Modify, copy, or distribute platform content without permission</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-peach font-bold">•</span> Use the platform for any commercial purpose without authorization</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-peach font-bold">•</span> Attempt to reverse engineer or decompile any part of the platform</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-peach font-bold">•</span> Remove any copyright or proprietary notations</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-peach font-bold">•</span> Transfer or sublicense your account to another person</li>
+                    </ul>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">User Accounts</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account. We reserve the right to suspend or terminate accounts that violate these terms.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Content and Intellectual Property</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        All content on Gradz, including text, graphics, logos, and software, is the property of Gradz or its licensors and is protected by copyright, trademark, and other intellectual property laws. You may not use any content without explicit permission.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Disclaimer</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        Gradz is a wellness platform and is not a substitute for professional medical, psychological, or therapeutic advice. The content provided is for informational and educational purposes only. Always seek the advice of qualified health professionals regarding any mental health concerns.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Limitation of Liability</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        Gradz and its team shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the platform. Our total liability shall not exceed the amount you paid for the service (if applicable).
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Modifications to Terms</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        We reserve the right to modify these Terms of Service at any time. We will notify users of significant changes via email or platform notification. Continued use of Gradz after changes constitutes acceptance of the modified terms.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Contact Information</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        For questions about these Terms of Service, contact us at: <a href="mailto:legal@gradz.app" className="text-gradz-green font-bold hover:underline">legal@gradz.app</a>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+);
+
+const ViewCookies = () => (
+    <div className="container mx-auto px-6 pt-40 pb-20">
+        <div className="max-w-4xl mx-auto">
+            <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mb-8">Cookie Policy</h1>
+            <p className="text-lg text-gradz-charcoal/60 mb-12">Last Updated: December 1, 2025</p>
+
+            <div className="prose prose-lg max-w-none space-y-8">
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">What Are Cookies?</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        Cookies are small text files stored on your device when you visit a website. They help websites remember your preferences and improve your browsing experience. Gradz uses cookies responsibly and transparently.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Types of Cookies We Use</h2>
+
+                    <h3 className="text-xl font-bold text-gradz-charcoal mb-3 mt-6">Essential Cookies</h3>
+                    <p className="text-gradz-charcoal/80 leading-relaxed mb-4">
+                        These cookies are necessary for the platform to function. They enable core functionality like user authentication, security features, and session management. You cannot opt out of essential cookies.
+                    </p>
+
+                    <h3 className="text-xl font-bold text-gradz-charcoal mb-3">Performance Cookies</h3>
+                    <p className="text-gradz-charcoal/80 leading-relaxed mb-4">
+                        These cookies collect anonymous data about how users interact with Gradz. They help us understand which features are most popular, identify technical issues, and improve overall performance.
+                    </p>
+
+                    <h3 className="text-xl font-bold text-gradz-charcoal mb-3">Functional Cookies</h3>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        These cookies remember your preferences (such as language settings, theme choices, or saved quotes) to provide a personalized experience across sessions.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Third-Party Cookies</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed mb-4">
+                        Gradz uses select third-party services that may set their own cookies:
+                    </p>
+                    <ul className="space-y-3 text-gradz-charcoal/80">
+                        <li className="flex items-start gap-3"><span className="text-gradz-matcha font-bold">•</span> <strong>Analytics:</strong> To understand user behavior and improve our platform</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-matcha font-bold">•</span> <strong>Hosting Services:</strong> For secure data storage and platform delivery</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-matcha font-bold">•</span> <strong>Authentication:</strong> For secure login and account management</li>
+                    </ul>
+                    <p className="text-gradz-charcoal/80 leading-relaxed mt-4">
+                        We carefully vet all third-party providers to ensure they meet our privacy and security standards.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Managing Cookies</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed mb-4">
+                        You have control over cookies. Most browsers allow you to:
+                    </p>
+                    <ul className="space-y-3 text-gradz-charcoal/80">
+                        <li className="flex items-start gap-3"><span className="text-gradz-blue font-bold">•</span> View which cookies are stored on your device</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-blue font-bold">•</span> Delete all or specific cookies</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-blue font-bold">•</span> Block third-party cookies</li>
+                        <li className="flex items-start gap-3"><span className="text-gradz-blue font-bold">•</span> Block all cookies (though this may impact functionality)</li>
+                    </ul>
+                    <p className="text-gradz-charcoal/80 leading-relaxed mt-4">
+                        Consult your browser's help documentation for instructions on managing cookies.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Updates to This Policy</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        We may update this Cookie Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of significant changes and update the "Last Updated" date above.
+                    </p>
+                </section>
+
+                <section className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone">
+                    <h2 className="text-3xl font-serif text-gradz-green mb-4">Questions?</h2>
+                    <p className="text-gradz-charcoal/80 leading-relaxed">
+                        If you have questions about our use of cookies, contact us at: <a href="mailto:privacy@gradz.app" className="text-gradz-green font-bold hover:underline">privacy@gradz.app</a>
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+);
+
 function App() {
   const [activeView, setActiveView] = useState<View>('home');
   const [scrolled, setScrolled] = useState(false);
@@ -970,6 +1465,13 @@ function App() {
         {activeView === 'community' && <ViewCommunity />}
         {activeView === 'join-club' && <ViewJoinClub />}
         {activeView === 'newsletter-confirm' && <ViewNewsletterConfirm />}
+        {activeView === 'wisdom-quotes' && <ViewWisdomQuotes />}
+        {activeView === 'kindness-challenges' && <ViewKindnessChallenges />}
+        {activeView === 'mindful-lectures' && <ViewMindfulLectures />}
+        {activeView === 'streak-system' && <ViewStreakSystem />}
+        {activeView === 'privacy' && <ViewPrivacy />}
+        {activeView === 'terms' && <ViewTerms />}
+        {activeView === 'cookies' && <ViewCookies />}
 
       </main>
 
@@ -1032,26 +1534,26 @@ function App() {
                <div className="lg:col-span-2">
                   <h4 className="font-bold text-gradz-peach mb-6 uppercase tracking-widest text-xs">Features</h4>
                   <ul className="space-y-4 opacity-80 text-sm">
-                      <li><a href="#" className="hover:text-white transition-colors">Daily Wisdom Quotes</a></li>
-                      <li><a href="#" className="hover:text-white transition-colors">50+ Kindness Challenges</a></li>
-                      <li><a href="#" className="hover:text-white transition-colors">Mindful Lectures</a></li>
-                      <li><a href="#" className="hover:text-white transition-colors">Streak System</a></li>
+                      <li><button onClick={() => navigateTo('wisdom-quotes')} className="hover:text-white transition-colors">Daily Wisdom Quotes</button></li>
+                      <li><button onClick={() => navigateTo('kindness-challenges')} className="hover:text-white transition-colors">50+ Kindness Challenges</button></li>
+                      <li><button onClick={() => navigateTo('mindful-lectures')} className="hover:text-white transition-colors">Mindful Lectures</button></li>
+                      <li><button onClick={() => navigateTo('streak-system')} className="hover:text-white transition-colors">Streak System</button></li>
                   </ul>
                </div>
 
                <div className="lg:col-span-2">
                   <h4 className="font-bold text-gradz-peach mb-6 uppercase tracking-widest text-xs">Legal</h4>
                   <ul className="space-y-4 opacity-80 text-sm">
-                      <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
-                      <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
-                      <li><a href="#" className="hover:text-white transition-colors">Cookie Policy</a></li>
+                      <li><button onClick={() => navigateTo('privacy')} className="hover:text-white transition-colors">Privacy</button></li>
+                      <li><button onClick={() => navigateTo('terms')} className="hover:text-white transition-colors">Terms</button></li>
+                      <li><button onClick={() => navigateTo('cookies')} className="hover:text-white transition-colors">Cookie Policy</button></li>
                   </ul>
                </div>
             </div>
             
             {/* Bottom Bar */}
             <div className="pt-8 border-t border-white/10 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-xs font-bold tracking-widest opacity-40">
-               <p className="mb-4 md:mb-0">© 2025 GRADZ. VERSION 0.5 (MVP) • 10,000+ USERS WORLDWIDE</p>
+               <p className="mb-4 md:mb-0">© 2025 GRADZ. VERSION 0.5 (MVP)</p>
                <div className="flex gap-6">
                    <span>PRIVACY-FIRST • AD-FREE FOREVER</span>
                </div>
