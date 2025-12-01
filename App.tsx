@@ -1374,11 +1374,37 @@ const ViewMobileDownload = ({ onNavigate }: { onNavigate: (view: View) => void }
     </div>
 );
 
-const ViewWebAuth = () => (
-    <div className="min-h-screen bg-white flex items-center justify-center">
-        <p className="text-gradz-charcoal text-lg">web</p>
-    </div>
-);
+const ViewWebAuth = () => {
+    const [isLoading, setIsLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoading) {
+        return (
+            <div className="min-h-screen bg-gradz-cream flex items-center justify-center">
+                <div className="text-center animate-fade-in-up">
+                    <img src="/logo_gradz.png" alt="Gradz" className="h-24 mx-auto mb-8 animate-pulse" />
+                    <div className="flex items-center justify-center gap-3">
+                        <div className="w-3 h-3 bg-gradz-green rounded-full animate-bounce" style={{animationDelay: '0s'}}></div>
+                        <div className="w-3 h-3 bg-gradz-peach rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                        <div className="w-3 h-3 bg-gradz-matcha rounded-full animate-bounce" style={{animationDelay: '0.4s'}}></div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="min-h-screen bg-white flex items-center justify-center">
+            <p className="text-gradz-charcoal text-lg">web</p>
+        </div>
+    );
+};
 
 function App() {
   const [activeView, setActiveView] = useState<View>('home');
@@ -1449,7 +1475,7 @@ function App() {
       <HappyDecorations />
       
       {/* --- Navigation --- */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-2' : 'py-6'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-2' : 'py-6'} ${activeView === 'web-auth' ? 'opacity-0 -translate-y-full' : 'opacity-100 translate-y-0'}`}>
         <div className="container mx-auto px-2 md:px-6 max-w-7xl">
           <nav className={`relative flex items-center justify-between px-3 md:px-6 py-3 rounded-full transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border border-gradz-stone/50' : 'bg-transparent border border-transparent'}`}>
 
