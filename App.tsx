@@ -8,6 +8,7 @@ import { Button, BigHeading, Sticker, Badge, Tape, Polaroid, PhotoGridItem, Quot
 import { KindnessGenerator } from './components/KindnessGenerator';
 import { FluidBackground } from './components/FluidBackground';
 import { subscribeToNewsletter } from './services/supabaseClient';
+import { WebApp } from './web-app/WebApp';
 
 // Register GSAP Plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -1399,11 +1400,7 @@ const ViewWebAuth = () => {
         );
     }
 
-    return (
-        <div className="min-h-screen bg-white flex items-center justify-center">
-            <p className="text-gradz-charcoal text-lg">web</p>
-        </div>
-    );
+    return <WebApp />;
 };
 
 function App() {
