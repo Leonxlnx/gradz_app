@@ -741,7 +741,7 @@ const ViewNewsletterConfirm = () => (
     </div>
 );
 
-const ViewWisdomQuotes = () => (
+const ViewWisdomQuotes = ({ onNavigate }: { onNavigate: (view: View) => void }) => (
     <div className="container mx-auto px-6 pt-40 pb-20">
         <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16 animate-fade-in-up">
@@ -780,7 +780,7 @@ const ViewWisdomQuotes = () => (
                 <h2 className="text-3xl md:text-4xl font-serif mb-4">Ready to start your daily practice?</h2>
                 <p className="text-xl opacity-90 mb-8">Start your kindness journey today.</p>
                 <div className="flex justify-center">
-                    <Button onClick={() => navigateTo('get-started')} variant="white" className="!text-gradz-green">
+                    <Button onClick={() => onNavigate('get-started')} variant="white" className="!text-gradz-green">
                         Get Started
                     </Button>
                 </div>
@@ -789,7 +789,7 @@ const ViewWisdomQuotes = () => (
     </div>
 );
 
-const ViewKindnessChallenges = () => (
+const ViewKindnessChallenges = ({ onNavigate }: { onNavigate: (view: View) => void }) => (
     <div className="container mx-auto px-6 pt-40 pb-20">
         <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16 animate-fade-in-up">
@@ -836,7 +836,7 @@ const ViewKindnessChallenges = () => (
                 <h2 className="text-3xl md:text-4xl font-serif text-gradz-green mb-4">Challenge yourself daily</h2>
                 <p className="text-xl text-gradz-charcoal/80 mb-8">Track your progress and build a streak with Gradz.</p>
                 <div className="flex justify-center">
-                    <Button onClick={() => navigateTo('get-started')} variant="primary">
+                    <Button onClick={() => onNavigate('get-started')} variant="primary">
                         Get Started
                     </Button>
                 </div>
@@ -845,7 +845,7 @@ const ViewKindnessChallenges = () => (
     </div>
 );
 
-const ViewMindfulLectures = () => (
+const ViewMindfulLectures = ({ onNavigate }: { onNavigate: (view: View) => void }) => (
     <div className="container mx-auto px-6 pt-40 pb-20">
         <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16 animate-fade-in-up">
@@ -924,7 +924,7 @@ const ViewMindfulLectures = () => (
                 <h2 className="text-3xl md:text-4xl font-serif text-gradz-green mb-4">Deepen your understanding</h2>
                 <p className="text-xl text-gradz-charcoal/80 mb-8">Access all 50+ lectures with Gradz.</p>
                 <div className="flex justify-center">
-                    <Button onClick={() => navigateTo('get-started')} variant="primary">
+                    <Button onClick={() => onNavigate('get-started')} variant="primary">
                         Get Started
                     </Button>
                 </div>
@@ -933,7 +933,7 @@ const ViewMindfulLectures = () => (
     </div>
 );
 
-const ViewStreakSystem = () => (
+const ViewStreakSystem = ({ onNavigate }: { onNavigate: (view: View) => void }) => (
     <div className="container mx-auto px-6 pt-40 pb-20">
         <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16 animate-fade-in-up">
@@ -1000,7 +1000,7 @@ const ViewStreakSystem = () => (
                 <h2 className="text-3xl md:text-4xl font-serif mb-4">Start your streak today</h2>
                 <p className="text-xl opacity-90 mb-8">Begin building your kindness habit.</p>
                 <div className="flex justify-center">
-                    <Button onClick={() => navigateTo('get-started')} variant="white" className="!text-gradz-green">
+                    <Button onClick={() => onNavigate('get-started')} variant="white" className="!text-gradz-green">
                         Get Started
                     </Button>
                 </div>
@@ -1373,104 +1373,66 @@ const ViewMobileDownload = ({ onNavigate }: { onNavigate: (view: View) => void }
 );
 
 const ViewWebAuth = ({ onNavigate }: { onNavigate: (view: View) => void }) => {
-    const [authMode, setAuthMode] = React.useState<'login' | 'signup'>('login');
+    const [isLoading, setIsLoading] = React.useState(true);
+
+    React.useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+        return () => clearTimeout(timer);
+    }, []);
+
+    if (isLoading) {
+        return (
+            <div className="min-h-screen bg-gradz-cream flex items-center justify-center">
+                <div className="text-center animate-fade-in-up">
+                    <img src="/logo_gradz.png" alt="Gradz" className="h-24 mx-auto mb-8 animate-pulse" />
+                    <div className="flex items-center justify-center gap-3">
+                        <div className="w-3 h-3 bg-gradz-green rounded-full animate-bounce" style={{animationDelay: '0s'}}></div>
+                        <div className="w-3 h-3 bg-gradz-peach rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+                        <div className="w-3 h-3 bg-gradz-matcha rounded-full animate-bounce" style={{animationDelay: '0.4s'}}></div>
+                    </div>
+                    <p className="text-xl text-gradz-charcoal/70 mt-8">Loading web platform...</p>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-gradz-cream flex items-center justify-center py-20 px-4">
-            <div className="max-w-md w-full">
-                <div className="text-center mb-12 animate-fade-in-up">
-                    <img src="/logo_gradz.png" alt="Gradz" className="h-16 mx-auto mb-8" />
-                    <h1 className="text-5xl md:text-6xl font-serif text-gradz-green mb-4">
-                        {authMode === 'login' ? 'Welcome Back' : 'Join Gradz'}
-                    </h1>
-                    <p className="text-xl text-gradz-charcoal/70">
-                        {authMode === 'login' ? 'Continue your kindness journey' : 'Start your kindness journey today'}
+            <div className="max-w-3xl w-full text-center">
+                <div className="animate-fade-in-up">
+                    <div className="inline-flex items-center justify-center w-32 h-32 bg-gradz-green/10 rounded-full mb-8 p-4">
+                        <svg className="w-20 h-20 text-gradz-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mb-8">Being Built</h1>
+                    <p className="text-2xl md:text-3xl text-gradz-charcoal/80 leading-relaxed max-w-2xl mx-auto mb-12">
+                        The web version of Gradz is currently under construction. We're crafting something beautiful for you.
                     </p>
-                </div>
 
-                <div className="bg-white p-10 rounded-[3rem] shadow-xl border border-gradz-stone">
-                    <form className="space-y-6">
-                        {authMode === 'signup' && (
-                            <div>
-                                <label className="block text-sm font-bold text-gradz-charcoal mb-2">Full Name</label>
-                                <input
-                                    type="text"
-                                    className="w-full px-6 py-4 rounded-2xl border-2 border-gradz-stone focus:border-gradz-green outline-none transition-colors text-gradz-charcoal"
-                                    placeholder="Enter your name"
-                                />
-                            </div>
-                        )}
-
-                        <div>
-                            <label className="block text-sm font-bold text-gradz-charcoal mb-2">Email</label>
+                    <div className="bg-white p-10 rounded-[3rem] shadow-xl border border-gradz-stone max-w-xl mx-auto mb-12">
+                        <h2 className="text-2xl font-serif text-gradz-green mb-4">Get Notified</h2>
+                        <p className="text-gradz-charcoal/70 mb-6">Want to be the first to know when we launch?</p>
+                        <form className="flex gap-3">
                             <input
                                 type="email"
-                                className="w-full px-6 py-4 rounded-2xl border-2 border-gradz-stone focus:border-gradz-green outline-none transition-colors text-gradz-charcoal"
                                 placeholder="your@email.com"
+                                className="flex-1 px-6 py-4 rounded-2xl border-2 border-gradz-stone focus:border-gradz-green outline-none transition-colors text-gradz-charcoal"
                             />
-                        </div>
+                            <Button variant="primary" className="!px-8">
+                                Notify Me
+                            </Button>
+                        </form>
+                    </div>
 
-                        <div>
-                            <label className="block text-sm font-bold text-gradz-charcoal mb-2">Password</label>
-                            <input
-                                type="password"
-                                className="w-full px-6 py-4 rounded-2xl border-2 border-gradz-stone focus:border-gradz-green outline-none transition-colors text-gradz-charcoal"
-                                placeholder="••••••••"
-                            />
-                        </div>
-
-                        {authMode === 'login' && (
-                            <div className="flex justify-end">
-                                <button type="button" className="text-sm text-gradz-green hover:underline">
-                                    Forgot password?
-                                </button>
-                            </div>
-                        )}
-
-                        <Button variant="primary" className="w-full !py-4 !text-lg">
-                            {authMode === 'login' ? 'Sign In' : 'Create Account'}
+                    <div className="space-y-4">
+                        <p className="text-gradz-charcoal/70">In the meantime, try our mobile app:</p>
+                        <Button onClick={() => onNavigate('mobile-download')} variant="primary" className="!px-12 !py-4 !text-lg">
+                            Download Mobile App
                         </Button>
-                    </form>
-
-                    <div className="mt-8 text-center">
-                        <p className="text-gradz-charcoal/70">
-                            {authMode === 'login' ? "Don't have an account? " : "Already have an account? "}
-                            <button
-                                onClick={() => setAuthMode(authMode === 'login' ? 'signup' : 'login')}
-                                className="text-gradz-green font-bold hover:underline"
-                            >
-                                {authMode === 'login' ? 'Sign Up' : 'Sign In'}
-                            </button>
-                        </p>
                     </div>
-
-                    <div className="mt-8 pt-8 border-t border-gradz-stone/30">
-                        <p className="text-sm text-gradz-charcoal/60 text-center mb-4">Or continue with</p>
-                        <div className="grid grid-cols-2 gap-4">
-                            <button className="px-6 py-3 rounded-2xl border-2 border-gradz-stone hover:border-gradz-green transition-colors flex items-center justify-center gap-2 text-gradz-charcoal font-medium">
-                                <svg className="w-5 h-5" viewBox="0 0 24 24">
-                                    <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-                                    <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-                                    <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-                                    <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-                                </svg>
-                                Google
-                            </button>
-                            <button className="px-6 py-3 rounded-2xl border-2 border-gradz-stone hover:border-gradz-green transition-colors flex items-center justify-center gap-2 text-gradz-charcoal font-medium">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-                                </svg>
-                                GitHub
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="mt-8 text-center">
-                    <p className="text-sm text-gradz-charcoal/60 mb-4">Prefer the mobile app?</p>
-                    <Button onClick={() => onNavigate('mobile-download')} variant="white" className="border-2 border-gradz-stone">
-                        Download Mobile App
-                    </Button>
                 </div>
             </div>
         </div>
@@ -1706,10 +1668,10 @@ function App() {
         {activeView === 'community' && <ViewCommunity />}
         {activeView === 'join-club' && <ViewJoinClub />}
         {activeView === 'newsletter-confirm' && <ViewNewsletterConfirm />}
-        {activeView === 'wisdom-quotes' && <ViewWisdomQuotes />}
-        {activeView === 'kindness-challenges' && <ViewKindnessChallenges />}
-        {activeView === 'mindful-lectures' && <ViewMindfulLectures />}
-        {activeView === 'streak-system' && <ViewStreakSystem />}
+        {activeView === 'wisdom-quotes' && <ViewWisdomQuotes onNavigate={navigateTo} />}
+        {activeView === 'kindness-challenges' && <ViewKindnessChallenges onNavigate={navigateTo} />}
+        {activeView === 'mindful-lectures' && <ViewMindfulLectures onNavigate={navigateTo} />}
+        {activeView === 'streak-system' && <ViewStreakSystem onNavigate={navigateTo} />}
         {activeView === 'privacy' && <ViewPrivacy />}
         {activeView === 'terms' && <ViewTerms />}
         {activeView === 'cookies' && <ViewCookies />}
