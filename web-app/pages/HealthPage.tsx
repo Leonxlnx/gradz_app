@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../lib/authContext';
 import { supabase } from '../../services/supabaseClient';
 import type { HealthGoal } from '../types';
+import { HomeIcon, CollectionIcon, HealthIcon, SettingsIcon, TrashIcon, RocketIcon } from '../components/Icons';
 
 interface HealthPageProps {
   onNavigate: (view: string) => void;
@@ -163,7 +164,7 @@ export const HealthPage: React.FC<HealthPageProps> = ({ onNavigate }) => {
                   onClick={() => deleteGoal(goal.id)}
                   className="text-red-500 hover:text-red-700 px-2"
                 >
-                  🗑️
+                  <TrashIcon className="w-5 h-5" />
                 </button>
               </div>
             ))}
@@ -191,12 +192,12 @@ export const HealthPage: React.FC<HealthPageProps> = ({ onNavigate }) => {
         </div>
 
         <div className="bg-gradient-to-r from-[#C9E4CA]/40 to-[#E8A87C]/40 p-8 rounded-3xl shadow-xl text-center">
-          <div className="text-5xl mb-4">🚧</div>
+          <div className="mb-4"><RocketIcon className="w-16 h-16 text-[#143328] mx-auto" /></div>
           <h3 className="text-2xl font-serif text-[#143328] mb-3">Coming Soon</h3>
           <ul className="text-[#143328]/80 space-y-2">
-            <li>🧘 Guided Meditation</li>
-            <li>🌬️ Breathing Exercises</li>
-            <li>💪 Fitness Workouts</li>
+            <li>• Guided Meditation</li>
+            <li>• Breathing Exercises</li>
+            <li>• Fitness Workouts</li>
           </ul>
         </div>
       </div>
@@ -204,19 +205,19 @@ export const HealthPage: React.FC<HealthPageProps> = ({ onNavigate }) => {
       <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-[#143328]/10 py-4 px-6">
         <div className="max-w-4xl mx-auto flex justify-around">
           <button onClick={() => onNavigate('home')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">🏠</span>
+            <HomeIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Home</span>
           </button>
           <button onClick={() => onNavigate('collection')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">📚</span>
+            <CollectionIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Collection</span>
           </button>
           <button onClick={() => onNavigate('health')} className="flex flex-col items-center gap-1 text-[#143328]">
-            <span className="text-2xl">💪</span>
+            <HealthIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Health</span>
           </button>
           <button onClick={() => onNavigate('settings')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">⚙️</span>
+            <SettingsIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Settings</span>
           </button>
         </div>

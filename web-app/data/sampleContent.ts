@@ -57,11 +57,11 @@ export const interests = [
 ];
 
 export const moods = [
-  { emoji: "😊", label: "Great", value: "great" },
-  { emoji: "🙂", label: "Good", value: "good" },
-  { emoji: "😐", label: "Okay", value: "okay" },
-  { emoji: "😔", label: "Not Great", value: "not-great" },
-  { emoji: "😢", label: "Struggling", value: "struggling" }
+  { icon: "smile", label: "Great", value: "great", color: "#4ade80" },
+  { icon: "smile", label: "Good", value: "good", color: "#86efac" },
+  { icon: "meh", label: "Okay", value: "okay", color: "#fbbf24" },
+  { icon: "frown", label: "Not Great", value: "not-great", color: "#fb923c" },
+  { icon: "frown", label: "Struggling", value: "struggling", color: "#f87171" }
 ];
 
 export const testimonials = [

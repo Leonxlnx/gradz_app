@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../lib/authContext';
 import { supabase } from '../../services/supabaseClient';
 import type { Quote, Challenge, Lecture, UserCollection } from '../types';
+import { QuoteIcon, TargetIcon, BookIcon, HomeIcon, CollectionIcon, HealthIcon, SettingsIcon } from '../components/Icons';
 
 interface CollectionPageProps {
   onNavigate: (view: string) => void;
@@ -70,7 +71,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({ onNavigate }) =>
       return (
         <div key={item.id} className={baseClasses}>
           <div className="flex items-start gap-3 mb-3">
-            <span className="text-3xl">💭</span>
+            <QuoteIcon className="w-8 h-8 text-[#143328]" />
             <div className="flex-1">
               <p className="text-lg italic text-[#143328]/80 mb-2">"{quote.text}"</p>
               <p className="font-bold text-[#143328]">— {quote.author}</p>
@@ -88,7 +89,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({ onNavigate }) =>
       return (
         <div key={item.id} className={`${baseClasses} bg-[#C9E4CA]/40`}>
           <div className="flex items-start gap-3 mb-3">
-            <span className="text-3xl">🎯</span>
+            <TargetIcon className="w-8 h-8 text-[#143328]" />
             <div className="flex-1">
               <h3 className="font-bold text-lg text-[#143328] mb-2">{challenge.title}</h3>
               <p className="text-[#143328]/80 mb-2">{challenge.description}</p>
@@ -111,7 +112,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({ onNavigate }) =>
       return (
         <div key={item.id} className={`${baseClasses} bg-[#E8A87C]/40`}>
           <div className="flex items-start gap-3 mb-3">
-            <span className="text-3xl">📚</span>
+            <BookIcon className="w-8 h-8 text-[#143328]" />
             <div className="flex-1">
               <h3 className="font-bold text-lg text-[#143328] mb-2">{lecture.title}</h3>
               <p className="text-sm text-[#143328]/70 mb-2">⏱️ {lecture.read_time} min read</p>
@@ -161,7 +162,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({ onNavigate }) =>
               filter === 'quote' ? 'bg-[#143328] text-white' : 'bg-white/80 text-[#143328]'
             }`}
           >
-            💭 Quotes ({collections.filter((c) => c.item_type === 'quote').length})
+            <span className="flex items-center gap-2"><QuoteIcon className="w-5 h-5" /> Quotes</span> ({collections.filter((c) => c.item_type === 'quote').length})
           </button>
           <button
             onClick={() => setFilter('challenge')}
@@ -169,7 +170,7 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({ onNavigate }) =>
               filter === 'challenge' ? 'bg-[#143328] text-white' : 'bg-white/80 text-[#143328]'
             }`}
           >
-            🎯 Challenges ({collections.filter((c) => c.item_type === 'challenge').length})
+            <span className="flex items-center gap-2"><TargetIcon className="w-5 h-5" /> Challenges</span> ({collections.filter((c) => c.item_type === 'challenge').length})
           </button>
           <button
             onClick={() => setFilter('lecture')}
@@ -177,13 +178,13 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({ onNavigate }) =>
               filter === 'lecture' ? 'bg-[#143328] text-white' : 'bg-white/80 text-[#143328]'
             }`}
           >
-            📚 Lectures ({collections.filter((c) => c.item_type === 'lecture').length})
+            <span className="flex items-center gap-2"><BookIcon className="w-5 h-5" /> Lectures</span> ({collections.filter((c) => c.item_type === 'lecture').length})
           </button>
         </div>
 
         {filteredCollections.length === 0 ? (
           <div className="text-center py-16">
-            <div className="text-6xl mb-4">📭</div>
+            <div className="mb-4"><CollectionIcon className="w-20 h-20 text-[#143328]/30 mx-auto" /></div>
             <h2 className="text-2xl font-serif text-[#143328] mb-2">No items yet</h2>
             <p className="text-[#143328]/70 mb-6">
               Start collecting by opening quotes, accepting challenges, and reading lectures!
@@ -203,19 +204,19 @@ export const CollectionPage: React.FC<CollectionPageProps> = ({ onNavigate }) =>
       <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-[#143328]/10 py-4 px-6">
         <div className="max-w-4xl mx-auto flex justify-around">
           <button onClick={() => onNavigate('home')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">🏠</span>
+            <HomeIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Home</span>
           </button>
           <button onClick={() => onNavigate('collection')} className="flex flex-col items-center gap-1 text-[#143328]">
-            <span className="text-2xl">📚</span>
+            <CollectionIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Collection</span>
           </button>
           <button onClick={() => onNavigate('health')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">💪</span>
+            <HealthIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Health</span>
           </button>
           <button onClick={() => onNavigate('settings')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">⚙️</span>
+            <SettingsIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Settings</span>
           </button>
         </div>

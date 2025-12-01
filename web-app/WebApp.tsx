@@ -89,9 +89,18 @@ const WebAppContent: React.FC = () => {
       case 'mvp-welcome':
         return (
           <MVPWelcome
+            userName={gradzUser?.name || 'there'}
             onContinue={async () => {
-              if (gradzUser) {
-                await updateGradzUser({ onboarding_completed: true });
+              try {
+                if (user && gradzUser) {
+                  await updateGradzUser({ onboarding_completed: true });
+                  setView('home');
+                } else if (user) {
+                  await updateGradzUser({ onboarding_completed: true });
+                  setTimeout(() => setView('home'), 500);
+                }
+              } catch (error) {
+                console.error('Error updating user:', error);
                 setView('home');
               }
             }}

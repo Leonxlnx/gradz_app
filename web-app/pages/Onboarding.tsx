@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { moods, interests, testimonials } from '../data/sampleContent';
 import type { OnboardingStep } from '../types';
+import {
+  PhoneIcon, NewsIcon, ChatIcon, QuoteIcon, TargetIcon, BookIcon, FireIcon,
+  SmileIcon, MehIcon, FrownIcon, HeartIcon, SparklesIcon, StarIcon
+} from '../components/Icons';
 
 interface OnboardingProps {
   onComplete: (data: OnboardingData) => void;
@@ -103,17 +107,17 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
             </h1>
             <div className="space-y-6 mb-12">
               <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg">
-                <div className="text-4xl mb-3">📱</div>
+                <div className="flex justify-center mb-3"><PhoneIcon className="w-12 h-12 text-[#143328]" /></div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Endless Scrolling</h3>
                 <p className="text-[#143328]/70">We spend hours on social media without real fulfillment.</p>
               </div>
               <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg">
-                <div className="text-4xl mb-3">📰</div>
+                <div className="flex justify-center mb-3"><NewsIcon className="w-12 h-12 text-[#143328]" /></div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Negative News</h3>
                 <p className="text-[#143328]/70">Constant consumption of negative news burdens our psyche.</p>
               </div>
               <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg">
-                <div className="text-4xl mb-3">💬</div>
+                <div className="flex justify-center mb-3"><ChatIcon className="w-12 h-12 text-[#143328]" /></div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Online Hate</h3>
                 <p className="text-[#143328]/70">Toxic comments and arguments dominate the internet.</p>
               </div>
@@ -135,22 +139,22 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
             </h1>
             <div className="grid md:grid-cols-2 gap-6 mb-12">
               <div className="bg-[#C9E4CA]/40 p-8 rounded-2xl shadow-lg">
-                <div className="text-5xl mb-4">💭</div>
+                <div className="flex justify-center mb-4"><QuoteIcon className="w-16 h-16 text-[#143328]" /></div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Daily Quotes</h3>
                 <p className="text-[#143328]/70">Inspiring quotes for every day</p>
               </div>
               <div className="bg-[#E8A87C]/40 p-8 rounded-2xl shadow-lg">
-                <div className="text-5xl mb-4">🎯</div>
+                <div className="flex justify-center mb-4"><TargetIcon className="w-16 h-16 text-[#143328]" /></div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Challenges</h3>
                 <p className="text-[#143328]/70">Small tasks, big impact</p>
               </div>
               <div className="bg-[#F5F5DC]/60 p-8 rounded-2xl shadow-lg">
-                <div className="text-5xl mb-4">📚</div>
+                <div className="flex justify-center mb-4"><BookIcon className="w-16 h-16 text-[#143328]" /></div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Lectures</h3>
                 <p className="text-[#143328]/70">Knowledge about mindfulness & positivity</p>
               </div>
               <div className="bg-[#E8A87C]/30 p-8 rounded-2xl shadow-lg">
-                <div className="text-5xl mb-4">🔥</div>
+                <div className="flex justify-center mb-4"><FireIcon className="w-16 h-16 text-[#E8A87C]" /></div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Streaks</h3>
                 <p className="text-[#143328]/70">Stay consistent and build habits</p>
               </div>
@@ -175,7 +179,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                 <div key={i} className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl">
                   <div className="flex items-center gap-2 mb-4 justify-center">
                     {[...Array(t.rating)].map((_, i) => (
-                      <span key={i} className="text-2xl">⭐</span>
+                      <StarIcon key={i} className="w-6 h-6 text-[#fbbf24]" />
                     ))}
                   </div>
                   <p className="text-lg text-[#143328]/80 italic mb-4">"{t.text}"</p>
@@ -255,23 +259,26 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
               Choose your current mood
             </p>
             <div className="space-y-4 mb-12">
-              {moods.map((mood) => (
-                <button
-                  key={mood.value}
-                  onClick={() => {
-                    setData({ ...data, mood: mood.value });
-                    setTimeout(next, 300);
-                  }}
-                  className={`w-full p-6 rounded-2xl font-bold text-xl transition-all duration-300 hover:scale-105 ${
-                    data.mood === mood.value
-                      ? 'bg-[#143328] text-white shadow-2xl'
-                      : 'bg-white/80 text-[#143328] hover:bg-white shadow-lg'
-                  }`}
-                >
-                  <span className="text-4xl mr-4">{mood.emoji}</span>
-                  {mood.label}
-                </button>
-              ))}
+              {moods.map((mood) => {
+                const IconComponent = mood.icon === 'smile' ? SmileIcon : mood.icon === 'meh' ? MehIcon : FrownIcon;
+                return (
+                  <button
+                    key={mood.value}
+                    onClick={() => {
+                      setData({ ...data, mood: mood.value });
+                      setTimeout(next, 300);
+                    }}
+                    className={`w-full p-6 rounded-2xl font-bold text-xl transition-all duration-300 hover:scale-105 flex items-center justify-center gap-4 ${
+                      data.mood === mood.value
+                        ? 'bg-[#143328] text-white shadow-2xl'
+                        : 'bg-white/80 text-[#143328] hover:bg-white shadow-lg'
+                    }`}
+                  >
+                    <IconComponent className="w-10 h-10" />
+                    {mood.label}
+                  </button>
+                );
+              })}
             </div>
           </div>
         );
@@ -328,7 +335,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                 }}
                 className="w-full bg-white/80 hover:bg-white text-[#143328] p-8 rounded-2xl font-bold text-xl hover:scale-105 transition-all duration-300 shadow-xl"
               >
-                <div className="text-5xl mb-3">📚</div>
+                <div className="flex justify-center mb-3"><BookIcon className="w-16 h-16 text-[#143328]" /></div>
                 <div className="text-2xl mb-2">Learn Kindness</div>
                 <div className="text-base font-normal text-[#143328]/70">I want to learn more about kindness</div>
               </button>
@@ -339,7 +346,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                 }}
                 className="w-full bg-white/80 hover:bg-white text-[#143328] p-8 rounded-2xl font-bold text-xl hover:scale-105 transition-all duration-300 shadow-xl"
               >
-                <div className="text-5xl mb-3">❤️</div>
+                <div className="flex justify-center mb-3"><HeartIcon className="w-16 h-16 text-[#E8A87C]" /></div>
                 <div className="text-2xl mb-2">Give Kindness</div>
                 <div className="text-base font-normal text-[#143328]/70">I want to actively spread kindness</div>
               </button>
@@ -350,7 +357,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                 }}
                 className="w-full bg-white/80 hover:bg-white text-[#143328] p-8 rounded-2xl font-bold text-xl hover:scale-105 transition-all duration-300 shadow-xl"
               >
-                <div className="text-5xl mb-3">✨</div>
+                <div className="flex justify-center mb-3"><SparklesIcon className="w-16 h-16 text-[#143328]" /></div>
                 <div className="text-2xl mb-2">Both</div>
                 <div className="text-base font-normal text-[#143328]/70">I want to combine both</div>
               </button>

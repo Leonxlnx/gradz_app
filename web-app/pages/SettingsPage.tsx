@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../lib/authContext';
+import { HomeIcon, CollectionIcon, HealthIcon, SettingsIcon, FireIcon, GlobeIcon } from '../components/Icons';
 
 interface SettingsPageProps {
   onNavigate: (view: string) => void;
@@ -104,7 +105,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onNavigate }) => {
             <div>
               <label className="block text-sm font-bold text-[#143328] mb-2">Current Streak</label>
               <div className="p-4 bg-gradient-to-r from-[#E8A87C]/30 to-[#C9E4CA]/30 rounded-xl flex items-center gap-3">
-                <span className="text-3xl">🔥</span>
+                <FireIcon className="w-10 h-10 text-[#E8A87C]" />
                 <span className="text-2xl font-bold text-[#143328]">{gradzUser?.streak || 0} days</span>
               </div>
             </div>
@@ -155,7 +156,7 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onNavigate }) => {
               >
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-[#143328]">Visit Website</span>
-                  <span className="text-2xl">🌐</span>
+                  <GlobeIcon className="w-6 h-6" />
                 </div>
               </a>
 
@@ -182,19 +183,19 @@ export const SettingsPage: React.FC<SettingsPageProps> = ({ onNavigate }) => {
       <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-[#143328]/10 py-4 px-6">
         <div className="max-w-4xl mx-auto flex justify-around">
           <button onClick={() => onNavigate('home')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">🏠</span>
+            <HomeIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Home</span>
           </button>
           <button onClick={() => onNavigate('collection')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">📚</span>
+            <CollectionIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Collection</span>
           </button>
           <button onClick={() => onNavigate('health')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">💪</span>
+            <HealthIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Health</span>
           </button>
           <button onClick={() => onNavigate('settings')} className="flex flex-col items-center gap-1 text-[#143328]">
-            <span className="text-2xl">⚙️</span>
+            <SettingsIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Settings</span>
           </button>
         </div>

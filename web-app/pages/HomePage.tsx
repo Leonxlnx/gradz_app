@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../lib/authContext';
 import { supabase } from '../../services/supabaseClient';
 import type { Quote, Challenge, Lecture, DailyContent } from '../types';
+import { FireIcon, HomeIcon, CollectionIcon, HealthIcon, SettingsIcon, QuoteIcon, TargetIcon, BookIcon } from '../components/Icons';
 
 interface HomePageProps {
   onNavigate: (view: string) => void;
@@ -168,7 +169,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </h1>
             {gradzUser && gradzUser.streak > 0 && (
               <div className="bg-[#E8A87C] text-white px-4 py-2 rounded-full font-bold flex items-center gap-2">
-                <span className="text-2xl">🔥</span>
+                <FireIcon className="w-6 h-6" />
                 <span>{gradzUser.streak} days</span>
               </div>
             )}
@@ -177,7 +178,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </header>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-serif text-[#143328] mb-4">💭 Daily Quote</h2>
+          <h2 className="text-2xl font-serif text-[#143328] mb-4 flex items-center gap-2"><QuoteIcon className="w-7 h-7" /> Daily Quote</h2>
           <div
             onClick={() => !quoteExpanded && handleQuoteOpen()}
             className={`bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl cursor-pointer hover:scale-102 transition-all duration-300 ${
@@ -212,7 +213,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               className="bg-[#C9E4CA]/40 backdrop-blur-sm p-6 rounded-3xl shadow-xl cursor-pointer hover:scale-102 transition-all duration-300"
             >
               <div className="flex items-start justify-between mb-3">
-                <h3 className="text-xl font-bold text-[#143328]">🎯 Challenge</h3>
+                <h3 className="text-xl font-bold text-[#143328] flex items-center gap-2"><TargetIcon className="w-6 h-6" /> Challenge</h3>
                 {dailyContent?.challenge_accepted && (
                   <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">Accepted ✓</span>
                 )}
@@ -250,7 +251,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               className="bg-[#E8A87C]/40 backdrop-blur-sm p-6 rounded-3xl shadow-xl cursor-pointer hover:scale-102 transition-all duration-300"
             >
               <div className="flex items-start justify-between mb-3">
-                <h3 className="text-xl font-bold text-[#143328]">📚 Lecture</h3>
+                <h3 className="text-xl font-bold text-[#143328] flex items-center gap-2"><BookIcon className="w-6 h-6" /> Lecture</h3>
                 {dailyContent?.lecture_read && (
                   <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-bold">Read ✓</span>
                 )}
@@ -292,19 +293,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <nav className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-lg border-t border-[#143328]/10 py-4 px-6">
         <div className="max-w-4xl mx-auto flex justify-around">
           <button onClick={() => onNavigate('home')} className="flex flex-col items-center gap-1 text-[#143328]">
-            <span className="text-2xl">🏠</span>
+            <HomeIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Home</span>
           </button>
           <button onClick={() => onNavigate('collection')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">📚</span>
+            <CollectionIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Collection</span>
           </button>
           <button onClick={() => onNavigate('health')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">💪</span>
+            <HealthIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Health</span>
           </button>
           <button onClick={() => onNavigate('settings')} className="flex flex-col items-center gap-1 text-[#143328]/50">
-            <span className="text-2xl">⚙️</span>
+            <SettingsIcon className="w-6 h-6" />
             <span className="text-xs font-bold">Settings</span>
           </button>
         </div>

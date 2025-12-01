@@ -65,6 +65,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       password,
       options: {
         emailRedirectTo: window.location.origin,
+        data: {
+          name: name,
+        },
       },
     });
 
@@ -84,6 +87,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       if (insertError) {
         console.error('Error creating user profile:', insertError);
+      } else {
+        await fetchGradzUser(data.user.id);
       }
     }
   };
