@@ -30,6 +30,64 @@ const HappyDecorations = () => (
     </div>
 );
 
+// --- Scroll Reveal Text Component with GSAP ---
+const ScrollRevealText: React.FC = () => {
+  const textRef = useRef<HTMLDivElement>(null);
+  const wordsRef = useRef<HTMLSpanElement[]>([]);
+
+  useGSAP(() => {
+    if (!textRef.current) return;
+
+    const words = wordsRef.current.filter(Boolean);
+
+    gsap.fromTo(
+      words,
+      {
+        opacity: 0.2,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.05,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: textRef.current,
+          start: 'top 80%',
+          end: 'bottom 60%',
+          scrub: 1,
+        },
+      }
+    );
+  }, { scope: textRef });
+
+  const text = "A premium wellness platform designed to cultivate kindness, positivity, and mental well-being through daily micro-practices.";
+  const words = text.split(' ');
+
+  return (
+    <section className="py-20 md:py-32 bg-gradz-cream relative overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
+        <div ref={textRef} className="max-w-4xl mx-auto text-center">
+          <p className="text-2xl md:text-4xl lg:text-5xl text-gradz-charcoal leading-relaxed font-medium">
+            {words.map((word, index) => (
+              <span
+                key={index}
+                ref={(el) => {
+                  if (el) wordsRef.current[index] = el;
+                }}
+                className="inline-block mr-2 md:mr-3"
+              >
+                {word}
+              </span>
+            ))}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 // --- NEW: Dual Kinetic Marquee ---
 const CreativeMarquee = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -753,17 +811,15 @@ function App() {
       
       {/* --- Navigation --- */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-2' : 'py-6'}`}>
-        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-          <nav className={`relative flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border border-gradz-stone/50' : 'bg-transparent border border-transparent'}`}>
-            
+        <div className="container mx-auto px-2 md:px-6 max-w-7xl">
+          <nav className={`relative flex items-center justify-between px-3 md:px-6 py-3 rounded-full transition-all duration-500 ${scrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border border-gradz-stone/50' : 'bg-transparent border border-transparent'}`}>
+
             {/* Logo Section */}
-            {/* Wrapper-Breite angepasst auf 150px/180px */}
-            <div onClick={() => navigateTo('home')} className="relative z-50 cursor-pointer group w-[150px] md:w-[180px] flex items-center h-10">
+            <div onClick={() => navigateTo('home')} className="relative z-50 cursor-pointer group w-[120px] md:w-[180px] flex items-center h-10">
               <img
                 src="/logo_gradz.png"
                 alt="Gradz"
-                // Neue Maße: w-[150px] h-[60px] (Mobil) und w-[180px] h-[75px] (Desktop)
-                className="absolute top-1/2 left-0 -translate-y-1/2 w-[150px] h-[60px] md:w-[180px] md:h-[75px] object-contain transition-transform duration-500 group-hover:scale-110 origin-left"
+                className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-110"
               />
             </div>
           
@@ -853,19 +909,19 @@ function App() {
               <div className="container mx-auto relative z-10 flex flex-col items-center text-center">
                 
                 {/* Giant Typography */}
-                <div className="relative z-20 leading-[0.85] mb-12 select-none mt-10">
+                <div className="relative z-20 leading-[0.85] mb-12 select-none mt-10 px-4">
                     <div className="hero-float relative">
-                        <h1 className="text-[8vw] md:text-[5.5rem] font-serif font-bold tracking-tighter text-gradz-green drop-shadow-md animate-fade-in-up">
+                        <h1 className="text-[12vw] md:text-[5.5rem] font-serif font-bold tracking-tighter text-gradz-green drop-shadow-md animate-fade-in-up">
                             Spread Kindness.
                         </h1>
                     </div>
-                    <div className="hero-float relative z-10 -mt-2 md:-mt-6">
-                        <h1 className="text-[8vw] md:text-[6rem] font-hand text-gradz-peach transform -rotate-3 drop-shadow-md animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                    <div className="hero-float relative z-10 -mt-3 md:-mt-6">
+                        <h1 className="text-[13vw] md:text-[6rem] font-hand text-gradz-peach transform -rotate-3 drop-shadow-md animate-fade-in-up" style={{animationDelay: '0.2s'}}>
                             Feel
                         </h1>
                     </div>
-                    <div className="hero-float relative -mt-2 md:-mt-6">
-                        <h1 className="text-[8vw] md:text-[5.5rem] font-serif font-bold tracking-tighter text-gradz-green drop-shadow-md animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+                    <div className="hero-float relative -mt-3 md:-mt-6">
+                        <h1 className="text-[12vw] md:text-[5.5rem] font-serif font-bold tracking-tighter text-gradz-green drop-shadow-md animate-fade-in-up" style={{animationDelay: '0.4s'}}>
                             The Difference.
                         </h1>
                     </div>
@@ -888,16 +944,8 @@ function App() {
             {/* NEW: Dual Animated Marquee */}
             <CreativeMarquee />
 
-            {/* REVEAL SECTION - Description */}
-            <section className="py-20 bg-gradz-cream relative overflow-hidden">
-               <div className="container mx-auto px-4 relative z-10">
-                  <div className="max-w-3xl mx-auto text-center opacity-0 animate-fade-in-up" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
-                     <p className="text-2xl md:text-3xl text-gradz-charcoal/80 leading-relaxed font-medium">
-                        A premium wellness platform designed to cultivate kindness, positivity, and mental well-being through daily micro-practices.
-                     </p>
-                  </div>
-               </div>
-            </section>
+            {/* REVEAL SECTION - Description with Scroll Animation */}
+            <ScrollRevealText />
 
             {/* ENGINE SECTION */}
             <section id="engine" className="py-32 bg-gradz-cream relative overflow-hidden">
