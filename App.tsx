@@ -1498,14 +1498,14 @@ function App() {
                 ))}
             </div>
           
-            <button 
-                className="md:hidden z-50 w-10 h-10 flex items-center justify-center bg-gradz-stone/50 rounded-full ml-auto"
+            <button
+                className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center bg-gradz-stone/50 rounded-full ml-auto"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-                <div className="space-y-1.5">
-                    <span className={`block w-6 h-0.5 bg-gradz-charcoal transition-transform ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-                    <span className={`block w-6 h-0.5 bg-gradz-charcoal transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`}></span>
-                    <span className={`block w-6 h-0.5 bg-gradz-charcoal transition-transform ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+                <div className="relative w-6 h-5 flex flex-col justify-center">
+                    <span className={`absolute w-6 h-0.5 bg-gradz-charcoal transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'rotate-45 top-1/2 -translate-y-1/2' : 'top-0'}`}></span>
+                    <span className={`absolute w-6 h-0.5 bg-gradz-charcoal transition-all duration-300 ease-in-out top-1/2 -translate-y-1/2 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                    <span className={`absolute w-6 h-0.5 bg-gradz-charcoal transition-all duration-300 ease-in-out ${mobileMenuOpen ? '-rotate-45 top-1/2 -translate-y-1/2' : 'bottom-0'}`}></span>
                 </div>
             </button>
           
@@ -1518,19 +1518,24 @@ function App() {
         </div>
 
         {/* Mobile Menu Overlay */}
-        <div className={`fixed inset-0 bg-gradz-cream z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-            {['home', 'mission', 'stories', 'community'].map((view) => (
-                <button
-                    key={view}
-                    onClick={() => navigateTo(view as View)}
-                    className="text-5xl font-serif font-bold text-gradz-green hover:text-gradz-peach capitalize"
-                >
-                    {view}
-                </button>
-            ))}
-            <Button onClick={() => navigateTo('get-started')} variant="black" className="!text-2xl !px-10 !py-4">
-                Get Started
-            </Button>
+        <div className={`fixed inset-0 bg-gradient-to-br from-gradz-cream via-gradz-matcha to-gradz-cream z-40 flex flex-col items-center justify-center gap-6 transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+            <div className="flex flex-col items-center gap-6 w-full px-8">
+                {['home', 'mission', 'stories', 'community'].map((view, index) => (
+                    <button
+                        key={view}
+                        onClick={() => navigateTo(view as View)}
+                        className={`text-4xl md:text-5xl font-serif font-bold text-gradz-green hover:text-gradz-peach capitalize transition-all duration-300 hover:scale-110 ${mobileMenuOpen ? 'animate-fade-in-up' : ''}`}
+                        style={{ animationDelay: `${index * 50}ms` }}
+                    >
+                        {view}
+                    </button>
+                ))}
+                <div className="mt-4">
+                    <Button onClick={() => navigateTo('get-started')} variant="black" className="!text-xl !px-12 !py-4 hover:scale-105 transition-transform">
+                        Get Started
+                    </Button>
+                </div>
+            </div>
         </div>
       </header>
 
