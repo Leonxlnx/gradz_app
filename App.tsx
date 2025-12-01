@@ -1517,30 +1517,20 @@ function App() {
           </nav>
         </div>
 
-        {/* Mobile Menu Overlay */}
-        <div className={`fixed inset-0 bg-white z-40 flex flex-col items-center justify-center transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-            <button
-                className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center z-50"
-                onClick={() => setMobileMenuOpen(false)}
-            >
-                <div className="relative w-8 h-8">
-                    <span className="absolute w-8 h-0.5 bg-gradz-charcoal rotate-45 top-1/2 -translate-y-1/2"></span>
-                    <span className="absolute w-8 h-0.5 bg-gradz-charcoal -rotate-45 top-1/2 -translate-y-1/2"></span>
-                </div>
-            </button>
-
-            <div className="flex flex-col items-center gap-8 w-full px-8">
+        {/* Mobile Menu Dropdown */}
+        <div className={`md:hidden fixed top-0 left-0 right-0 bg-white shadow-xl transition-all duration-500 ease-in-out overflow-hidden ${mobileMenuOpen ? 'max-h-screen opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-4'}`} style={{ zIndex: 45 }}>
+            <div className="flex flex-col items-center py-24 px-8 gap-6">
                 {['home', 'mission', 'stories', 'community'].map((view) => (
                     <button
                         key={view}
                         onClick={() => navigateTo(view as View)}
-                        className="text-5xl font-serif font-bold text-gradz-charcoal hover:text-gradz-green capitalize transition-all duration-300"
+                        className="text-4xl font-serif font-bold text-gradz-charcoal hover:text-gradz-green capitalize transition-colors duration-300 w-full text-center py-2"
                     >
                         {view}
                     </button>
                 ))}
-                <div className="mt-6">
-                    <Button onClick={() => navigateTo('get-started')} variant="black" className="!text-2xl !px-14 !py-5">
+                <div className="mt-4">
+                    <Button onClick={() => navigateTo('get-started')} variant="black" className="!text-xl !px-12 !py-4">
                         Get Started
                     </Button>
                 </div>
