@@ -690,8 +690,8 @@ const ViewJoinClub = () => (
                 <h2 className="text-3xl font-serif text-gradz-green mb-8">Or Try It Now</h2>
                 <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                     <a
-                        href="https://ukxandpzgxeebhkhpkow.supabase.co/storage/v1/object/public/apk-files/gradz%20VERSION%200.apk"
-                        download="gradz-VERSION-0.apk"
+                        href="https://github.com/Leonxlnx/gradz_app/releases/download/v0.5/gradzmobile.apk"
+                        download="gradzmobile.apk"
                         className="group bg-gradz-green p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer relative"
                     >
                         <div className="absolute top-4 right-4 bg-gradz-matcha text-gradz-green text-xs px-3 py-1 rounded-full font-bold">Available Now</div>
@@ -1319,8 +1319,8 @@ const ViewMobileDownload = ({ onNavigate }: { onNavigate: (view: View) => void }
                 <h2 className="text-3xl font-serif text-gradz-green mb-8">Available Now</h2>
                 <div className="max-w-md mx-auto">
                     <a
-                        href="https://ukxandpzgxeebhkhpkow.supabase.co/storage/v1/object/public/apk-files/gradz%20VERSION%200.apk"
-                        download="gradz-VERSION-0.apk"
+                        href="https://github.com/Leonxlnx/gradz_app/releases/download/v0.5/gradzmobile.apk"
+                        download="gradzmobile.apk"
                         className="group bg-gradz-green p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer flex flex-col items-center text-center block"
                     >
                         <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-6">
