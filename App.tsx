@@ -855,25 +855,21 @@ function App() {
                 {/* Giant Typography */}
                 <div className="relative z-20 leading-[0.85] mb-12 select-none mt-10">
                     <div className="hero-float relative">
-                        <h1 className="text-[16vw] md:text-[11rem] font-serif font-bold tracking-tighter text-gradz-green drop-shadow-md">
+                        <h1 className="text-[8vw] md:text-[5.5rem] font-serif font-bold tracking-tighter text-gradz-green drop-shadow-md animate-fade-in-up">
                             Spread Kindness.
                         </h1>
                     </div>
-                    <div className="hero-float relative z-10 -mt-4 md:-mt-12">
-                        <h1 className="text-[16vw] md:text-[12rem] font-hand text-gradz-peach transform -rotate-3 drop-shadow-md">
+                    <div className="hero-float relative z-10 -mt-2 md:-mt-6">
+                        <h1 className="text-[8vw] md:text-[6rem] font-hand text-gradz-peach transform -rotate-3 drop-shadow-md animate-fade-in-up" style={{animationDelay: '0.2s'}}>
                             Feel
                         </h1>
                     </div>
-                    <div className="hero-float relative -mt-4 md:-mt-12">
-                        <h1 className="text-[16vw] md:text-[11rem] font-serif font-bold tracking-tighter text-gradz-green drop-shadow-md">
+                    <div className="hero-float relative -mt-2 md:-mt-6">
+                        <h1 className="text-[8vw] md:text-[5.5rem] font-serif font-bold tracking-tighter text-gradz-green drop-shadow-md animate-fade-in-up" style={{animationDelay: '0.4s'}}>
                             The Difference.
                         </h1>
                     </div>
                 </div>
-
-                <p className="relative z-40 text-xl md:text-2xl text-gradz-charcoal/80 max-w-2xl mx-auto mb-8 px-4 font-medium">
-                    A premium wellness platform designed to cultivate kindness, positivity, and mental well-being through daily micro-practices.
-                </p>
 
 
 
@@ -891,6 +887,17 @@ function App() {
 
             {/* NEW: Dual Animated Marquee */}
             <CreativeMarquee />
+
+            {/* REVEAL SECTION - Description */}
+            <section className="py-20 bg-gradz-cream relative overflow-hidden">
+               <div className="container mx-auto px-4 relative z-10">
+                  <div className="max-w-3xl mx-auto text-center opacity-0 animate-fade-in-up" style={{animationDelay: '0.2s', animationFillMode: 'forwards'}}>
+                     <p className="text-2xl md:text-3xl text-gradz-charcoal/80 leading-relaxed font-medium">
+                        A premium wellness platform designed to cultivate kindness, positivity, and mental well-being through daily micro-practices.
+                     </p>
+                  </div>
+               </div>
+            </section>
 
             {/* ENGINE SECTION */}
             <section id="engine" className="py-32 bg-gradz-cream relative overflow-hidden">
