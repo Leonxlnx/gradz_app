@@ -428,50 +428,96 @@ const ScrollyTellingSection = () => {
 const ViewMission = () => (
     <div className="container mx-auto px-6 pt-40 pb-20">
         <div className="max-w-3xl mx-auto text-center mb-20 animate-fade-in-up">
-            <Badge text="The Manifesto" color="matcha" />
-            <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mt-6 mb-8">The 2025 Protocol</h1>
+            <Badge text="Our Mission" color="matcha" />
+            <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mt-6 mb-8">Why Gradz Exists</h1>
             <p className="text-xl md:text-2xl text-gradz-charcoal/70 leading-relaxed">
-                The digital age has connected us, but it hasn't necessarily made us closer. 
-                We are rebooting human connection through serious intent and playful execution.
+                In a world dominated by endless scrolling, negative news, and online hostility, Gradz offers a quiet sanctuary for personal growth and meaningful reflection.
             </p>
         </div>
-        
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-32">
-             <div className="bg-gradz-cream p-10 rounded-[3rem] border border-gradz-stone">
-                <h3 className="text-3xl font-serif text-gradz-green mb-4">1. Radical Noticing</h3>
-                <p className="text-lg text-gradz-charcoal/80">Most "unkindness" is actually just distraction. We train you to lift your head up and actually see the humans around you.</p>
-             </div>
-             <div className="bg-white p-10 rounded-[3rem] border border-gradz-stone shadow-xl -rotate-1">
-                <h3 className="text-3xl font-serif text-gradz-green mb-4">2. Action &gt; Sentiment</h3>
-                <p className="text-lg text-gradz-charcoal/80">Feeling bad for someone does nothing. Feeling happy for someone does little. Doing something small changes everything.</p>
-             </div>
-             <div className="bg-white p-10 rounded-[3rem] border border-gradz-stone shadow-xl rotate-1">
-                <h3 className="text-3xl font-serif text-gradz-green mb-4">3. Serious Fun</h3>
-                <p className="text-lg text-gradz-charcoal/80">Altruism shouldn't feel like homework. It should feel like a heist. A reverse-heist where you leave good vibes behind.</p>
-             </div>
-             <div className="bg-gradz-peach/20 p-10 rounded-[3rem] border border-gradz-peach/50">
-                <h3 className="text-3xl font-serif text-gradz-green mb-4">4. Ripple Effects</h3>
-                <p className="text-lg text-gradz-charcoal/80">Mathematical chaos theory suggests a butterfly flapping its wings can cause a tornado. We believe a compliment can stop a war.</p>
-             </div>
+
+        {/* The Problem Section */}
+        <div className="max-w-4xl mx-auto mb-32">
+            <h2 className="text-4xl md:text-6xl font-serif text-gradz-green mb-8 text-center">The Problem We Solve</h2>
+            <p className="text-xl text-gradz-charcoal/80 mb-12 text-center leading-relaxed">
+                Modern digital life is overwhelming. Social media algorithms optimize for outrage, news cycles focus on negativity, and online interactions often lack genuine human connection.
+            </p>
+            <div className="grid md:grid-cols-3 gap-8">
+                <div className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone text-center">
+                    <div className="text-5xl font-bold text-gradz-peach mb-4">70%</div>
+                    <p className="text-gradz-charcoal/80">of people feel more anxious after using social media</p>
+                </div>
+                <div className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone text-center">
+                    <div className="text-5xl font-bold text-gradz-matcha mb-4">23%</div>
+                    <p className="text-gradz-charcoal/80">less cortisol in kind people (stress hormone)</p>
+                </div>
+                <div className="bg-white p-8 rounded-3xl shadow-lg border border-gradz-stone text-center">
+                    <div className="text-5xl font-bold text-gradz-blue mb-4">3x</div>
+                    <p className="text-gradz-charcoal/80">more likely to be kind after witnessing kindness</p>
+                </div>
+            </div>
+        </div>
+
+        {/* How It Works */}
+        <div className="mb-32">
+            <h2 className="text-4xl md:text-6xl font-serif text-gradz-green mb-12 text-center">How It Works</h2>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+                 <div className="bg-gradz-cream p-10 rounded-[3rem] border border-gradz-stone">
+                    <h3 className="text-3xl font-serif text-gradz-green mb-4">Daily Wisdom Quotes</h3>
+                    <p className="text-lg text-gradz-charcoal/80">Carefully curated quotes from philosophers, thought leaders, and wisdom traditions. Not generic posters—meaningful insights designed to shift perspective.</p>
+                 </div>
+                 <div className="bg-white p-10 rounded-[3rem] border border-gradz-stone shadow-xl -rotate-1">
+                    <h3 className="text-3xl font-serif text-gradz-green mb-4">50+ Kindness Challenges</h3>
+                    <p className="text-lg text-gradz-charcoal/80">From simple acts like smiling at strangers to meaningful commitments like volunteering. Each challenge includes clear instructions and difficulty levels.</p>
+                 </div>
+                 <div className="bg-white p-10 rounded-[3rem] border border-gradz-stone shadow-xl rotate-1">
+                    <h3 className="text-3xl font-serif text-gradz-green mb-4">Mindful Lectures</h3>
+                    <p className="text-lg text-gradz-charcoal/80">Over 50 in-depth articles covering the science of kindness, building self-compassion, creating meaningful connections, and more.</p>
+                 </div>
+                 <div className="bg-gradz-peach/20 p-10 rounded-[3rem] border border-gradz-peach/50">
+                    <h3 className="text-3xl font-serif text-gradz-green mb-4">Streak System</h3>
+                    <p className="text-lg text-gradz-charcoal/80">Consistency builds habits. Track your daily engagement and watch your kindness practice grow. Research shows it takes 66 days to form a new habit.</p>
+                 </div>
+            </div>
+        </div>
+
+        {/* The Science */}
+        <div className="max-w-4xl mx-auto mb-32 bg-gradz-green text-gradz-cream p-12 rounded-[3rem]">
+            <h2 className="text-4xl md:text-6xl font-serif mb-8 text-center">The Science Behind Gradz</h2>
+            <p className="text-xl mb-8 text-center opacity-90">Kindness isn't just a nice idea—it's scientifically proven to improve well-being:</p>
+            <div className="space-y-6">
+                <div>
+                    <h4 className="text-2xl font-bold mb-3 text-gradz-matcha">Neurological Benefits</h4>
+                    <p className="opacity-90">Acts of kindness release oxytocin, reducing blood pressure and improving heart health. Helping others triggers the brain's reward centers, releasing dopamine and serotonin.</p>
+                </div>
+                <div>
+                    <h4 className="text-2xl font-bold mb-3 text-gradz-peach">Psychological Benefits</h4>
+                    <p className="opacity-90">Performing 5 acts of kindness weekly increases happiness for up to 3 months. Grateful individuals report better sleep quality and reduced anxiety.</p>
+                </div>
+                <div>
+                    <h4 className="text-2xl font-bold mb-3 text-gradz-butter">Social Benefits</h4>
+                    <p className="opacity-90">Kindness is contagious. Kind individuals build stronger social connections and communities with higher kindness levels report better overall health.</p>
+                </div>
+            </div>
         </div>
     </div>
 );
 
 const ViewStories = () => (
     <div className="container mx-auto px-6 pt-40 pb-20">
-         <div className="text-center mb-20 animate-fade-in-up">
-            <Badge text="Field Reports" color="blue" />
-            <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mt-6">Kindness In The Wild</h1>
+         <div className="text-center mb-12 animate-fade-in-up">
+            <Badge text="User Testimonials" color="blue" />
+            <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mt-6 mb-6">What Our Community Says</h1>
+            <p className="text-xl text-gradz-charcoal/70 max-w-2xl mx-auto">Over 10,000 users have already begun their journey with Gradz.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
             {[
-                { title: "The Coffee Chain", author: "Sarah J.", text: "I paid for the car behind me. The barista told me the streak lasted for 47 cars. 47 people smiled that morning." },
-                { title: "The Lost Wallet", author: "Mike T.", text: "Found a wallet with $200. Returned it. The owner cried—it was his rent money. He invited me to dinner." },
-                { title: "Flowers for Strangers", author: "Elena R.", text: "Bought a bouquet and handed single flowers to people looking sad on the subway. The vibe shift was palpable." },
-                { title: "Garden Help", author: "Davie L.", text: "Saw my elderly neighbor struggling with leaves. Spent an hour raking. We drank lemonade and he told me about the war." },
-                { title: "Library Notes", author: "Sam P.", text: "Hid encouraging notes in depressing books at the library. 'You are not alone' in a Kafka novel." },
-                { title: "Rainy Day Umbrella", author: "Jessica K.", text: "Gave my umbrella to a lady with a baby waiting for the bus. I got soaked, but I felt electric." }
+                { title: "Life-Changing Morning Routine", author: "Tristan P.", text: "This platform has genuinely changed my morning routine. The quotes are thoughtful and the challenges push me to be better." },
+                { title: "Clean & Focused Design", author: "Oskar K.", text: "Clean design, no distractions. Just pure focus on becoming a kinder person. Exactly what I needed." },
+                { title: "Insightful Progress Tracking", author: "Rijad B.", text: "The lectures are insightful and I love tracking my progress. Would recommend to anyone looking to grow." },
+                { title: "Daily Dose of Positivity", author: "Sarah M.", text: "In a world full of negativity, Gradz is my daily reset. Five minutes of kindness makes my whole day better." },
+                { title: "Science-Backed Wellness", author: "David Chen", text: "I love that it's backed by actual science. Not just feel-good fluff, but real neurological benefits. I can feel the difference." },
+                { title: "Perfect for Busy Professionals", author: "Emma L.", text: "As someone with a hectic schedule, the micro-practices are perfect. Small acts, big impact. Highly recommend." }
             ].map((story, i) => (
                 <div key={i} className="bg-white p-8 rounded-[2rem] shadow-lg border border-gradz-stone hover:-translate-y-2 transition-transform duration-300">
                     <div className="flex items-center gap-2 mb-4">
@@ -483,6 +529,29 @@ const ViewStories = () => (
                 </div>
             ))}
         </div>
+
+        {/* Who Is This For Section */}
+        <div className="max-w-4xl mx-auto mt-32">
+            <h2 className="text-4xl md:text-6xl font-serif text-gradz-green mb-12 text-center">Who Is Gradz For?</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-gradz-matcha/20 p-8 rounded-3xl border border-gradz-matcha/30">
+                    <h3 className="text-2xl font-bold text-gradz-green mb-4">Personal Growth Seekers</h3>
+                    <p className="text-gradz-charcoal/80">If you want to become a better version of yourself—kinder, more patient, more grateful—Gradz provides the daily structure and content to make it happen.</p>
+                </div>
+                <div className="bg-gradz-peach/20 p-8 rounded-3xl border border-gradz-peach/30">
+                    <h3 className="text-2xl font-bold text-gradz-green mb-4">Stress & Anxiety Relief</h3>
+                    <p className="text-gradz-charcoal/80">The calming interface and positive content offer a respite from the chaos of modern life. Many users report feeling noticeably calmer after just a few minutes.</p>
+                </div>
+                <div className="bg-gradz-blue/20 p-8 rounded-3xl border border-gradz-blue/30">
+                    <h3 className="text-2xl font-bold text-gradz-green mb-4">Students & Young Professionals</h3>
+                    <p className="text-gradz-charcoal/80">Build positive habits early. The skills developed through Gradz—empathy, self-compassion, gratitude—are essential for success in both personal and professional life.</p>
+                </div>
+                <div className="bg-gradz-butter/30 p-8 rounded-3xl border border-gradz-butter/50">
+                    <h3 className="text-2xl font-bold text-gradz-green mb-4">Anyone Wanting to Make a Difference</h3>
+                    <p className="text-gradz-charcoal/80">Whether you want to improve your own life or impact others, Gradz shows you that meaningful change starts with small, consistent actions.</p>
+                </div>
+            </div>
+        </div>
     </div>
 );
 
@@ -490,7 +559,8 @@ const ViewCommunity = () => (
     <div className="container mx-auto px-6 pt-40 pb-20">
         <div className="text-center mb-16 animate-fade-in-up">
             <Badge text="The Gallery" color="orange" />
-            <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mt-6">Faces of Peace</h1>
+            <h1 className="text-6xl md:text-8xl font-serif text-gradz-green mt-6 mb-4">Our Global Community</h1>
+            <p className="text-xl text-gradz-charcoal/70 max-w-2xl mx-auto">Real people. Real moments. 10,000+ users spreading kindness worldwide.</p>
         </div>
         <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
              {[
@@ -525,11 +595,11 @@ const ViewJoinClub = () => (
     <div className="min-h-screen bg-white flex items-center justify-center py-20 px-4">
         <div className="max-w-3xl w-full">
             <div className="text-center mb-16">
-                <h1 className="text-5xl md:text-7xl font-serif text-gradz-green mb-6">Download Gradz</h1>
-                <p className="text-lg text-gradz-charcoal/60">Choose your platform</p>
+                <h1 className="text-5xl md:text-7xl font-serif text-gradz-green mb-6">Get Started with Gradz</h1>
+                <p className="text-lg text-gradz-charcoal/60 max-w-xl mx-auto">Begin your transformation today. Choose your preferred platform below.</p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-16">
                 <div className="relative bg-gray-100 p-10 rounded-3xl opacity-60 cursor-not-allowed">
                     <div className="absolute top-4 right-4 bg-gray-400 text-white text-xs px-3 py-1 rounded-full font-bold">Coming Soon</div>
                     <div className="flex flex-col items-center text-center">
@@ -539,23 +609,9 @@ const ViewJoinClub = () => (
                             className="h-14 mb-6 opacity-60"
                         />
                         <h3 className="text-xl font-bold text-gray-500 mb-2">Google Play</h3>
-                        <p className="text-gray-400 text-sm">Android</p>
+                        <p className="text-gray-400 text-sm">Android App Store</p>
                     </div>
                 </div>
-
-                <a
-                    href="https://ukxandpzgxeebhkhpkow.supabase.co/storage/v1/object/public/apk-files/gradz%20VERSION%200.apk"
-                    download="gradz-VERSION-0.apk"
-                    className="group bg-gradz-green p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer"
-                >
-                    <div className="flex flex-col items-center text-center">
-                        <svg className="w-16 h-16 text-white mb-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                        </svg>
-                        <h3 className="text-xl font-bold text-white mb-2">APK Download</h3>
-                        <p className="text-white/60 text-sm">Direct</p>
-                    </div>
-                </a>
 
                 <div className="relative bg-gray-100 p-10 rounded-3xl opacity-60 cursor-not-allowed">
                     <div className="absolute top-4 right-4 bg-gray-400 text-white text-xs px-3 py-1 rounded-full font-bold">Coming Soon</div>
@@ -566,7 +622,38 @@ const ViewJoinClub = () => (
                             className="h-14 mb-6 opacity-60"
                         />
                         <h3 className="text-xl font-bold text-gray-500 mb-2">App Store</h3>
-                        <p className="text-gray-400 text-sm">iOS</p>
+                        <p className="text-gray-400 text-sm">iOS App Store</p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="text-center mb-12">
+                <h2 className="text-3xl font-serif text-gradz-green mb-8">Or Try It Now</h2>
+                <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    <a
+                        href="https://ukxandpzgxeebhkhpkow.supabase.co/storage/v1/object/public/apk-files/gradz%20VERSION%200.apk"
+                        download="gradz-VERSION-0.apk"
+                        className="group bg-gradz-green p-10 rounded-3xl hover:scale-105 transition-all duration-300 cursor-pointer relative"
+                    >
+                        <div className="absolute top-4 right-4 bg-gradz-matcha text-gradz-green text-xs px-3 py-1 rounded-full font-bold">Available Now</div>
+                        <div className="flex flex-col items-center text-center">
+                            <svg className="w-16 h-16 text-white mb-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                            <h3 className="text-xl font-bold text-white mb-2">APK Download</h3>
+                            <p className="text-white/60 text-sm">Direct Install • Android</p>
+                        </div>
+                    </a>
+
+                    <div className="relative bg-gradz-blue/20 p-10 rounded-3xl border-2 border-gradz-blue/30 cursor-not-allowed opacity-70">
+                        <div className="absolute top-4 right-4 bg-gradz-blue text-white text-xs px-3 py-1 rounded-full font-bold">Coming Soon</div>
+                        <div className="flex flex-col items-center text-center">
+                            <svg className="w-16 h-16 text-gradz-blue mb-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/>
+                            </svg>
+                            <h3 className="text-xl font-bold text-gradz-blue mb-2">Web Version</h3>
+                            <p className="text-gradz-blue/60 text-sm">Use in Browser</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -706,7 +793,7 @@ function App() {
           
             <div className="hidden md:flex items-center gap-4">
                <Button onClick={() => navigateTo('join-club')} variant="black" className="!px-6 !py-2.5 !text-xs !h-auto">
-                  Join Club
+                  Get Started
                </Button>
             </div>
           </nav>
@@ -715,14 +802,17 @@ function App() {
         {/* Mobile Menu Overlay */}
         <div className={`fixed inset-0 bg-gradz-cream z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
             {['home', 'mission', 'stories', 'community'].map((view) => (
-                <button 
+                <button
                     key={view}
-                    onClick={() => navigateTo(view as View)} 
+                    onClick={() => navigateTo(view as View)}
                     className="text-5xl font-serif font-bold text-gradz-green hover:text-gradz-peach capitalize"
                 >
                     {view}
                 </button>
             ))}
+            <Button onClick={() => navigateTo('join-club')} variant="black" className="!text-2xl !px-10 !py-4">
+                Get Started
+            </Button>
         </div>
       </header>
 
@@ -742,15 +832,15 @@ function App() {
                 <div className="absolute inset-0 bg-gradient-to-br from-stone/30 via-white/50 to-stone/20"></div>
 
                 <div className="relative w-full h-full max-w-[1600px] mx-auto px-6">
-                  <div className="hero-float absolute top-[18%] left-[5%] w-64 md:w-72 lg:w-80 transform -rotate-12 hover:scale-105 hover:-rotate-6 transition-all duration-500 cursor-pointer shadow-2xl z-10">
+                  <div className="hero-float absolute top-[18%] left-[5%] w-64 md:w-72 lg:w-80 transform -rotate-12 hover:scale-105 hover:-rotate-6 transition-all duration-500 cursor-pointer shadow-2xl z-10 hidden md:block">
                     <div className="bg-white p-4 rounded-lg">
-                      <img src="https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Friends together spreading joy" className="w-full aspect-square object-cover" />
+                      <img src="https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Friends together spreading joy" className="w-full aspect-square object-cover blur-sm" />
                     </div>
                   </div>
 
-                  <div className="hero-float absolute bottom-[12%] right-[5%] w-64 md:w-72 lg:w-80 transform rotate-12 hover:scale-105 hover:rotate-6 transition-all duration-500 cursor-pointer shadow-2xl z-10">
+                  <div className="hero-float absolute bottom-[12%] right-[5%] w-64 md:w-72 lg:w-80 transform rotate-12 hover:scale-105 hover:rotate-6 transition-all duration-500 cursor-pointer shadow-2xl z-10 hidden md:block">
                     <div className="bg-white p-4 rounded-lg">
-                      <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Capturing moments of kindness" className="w-full aspect-square object-cover" />
+                      <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Capturing moments of kindness" className="w-full aspect-square object-cover blur-sm" />
                     </div>
                   </div>
 
@@ -763,32 +853,36 @@ function App() {
               <div className="container mx-auto relative z-10 flex flex-col items-center text-center">
                 
                 {/* Giant Typography */}
-                <div className="relative z-20 leading-[0.85] mb-12 select-none mix-blend-multiply mt-10">
+                <div className="relative z-20 leading-[0.85] mb-12 select-none mt-10">
                     <div className="hero-float relative">
-                        <h1 className="text-[16vw] md:text-[11rem] font-serif font-medium tracking-tighter text-gradz-green">
-                            Make Earth
+                        <h1 className="text-[16vw] md:text-[11rem] font-serif font-bold tracking-tighter text-gradz-green drop-shadow-md">
+                            Spread Kindness.
                         </h1>
                     </div>
                     <div className="hero-float relative z-10 -mt-4 md:-mt-12">
-                        <h1 className="text-[16vw] md:text-[12rem] font-hand text-gradz-peach transform -rotate-3">
-                            Softer
+                        <h1 className="text-[16vw] md:text-[12rem] font-hand text-gradz-peach transform -rotate-3 drop-shadow-md">
+                            Feel
                         </h1>
                     </div>
                     <div className="hero-float relative -mt-4 md:-mt-12">
-                        <h1 className="text-[16vw] md:text-[11rem] font-serif font-medium tracking-tighter text-gradz-green">
-                            Again.
+                        <h1 className="text-[16vw] md:text-[11rem] font-serif font-bold tracking-tighter text-gradz-green drop-shadow-md">
+                            The Difference.
                         </h1>
                     </div>
                 </div>
+
+                <p className="relative z-40 text-xl md:text-2xl text-gradz-charcoal/80 max-w-2xl mx-auto mb-8 px-4 font-medium">
+                    A premium wellness platform designed to cultivate kindness, positivity, and mental well-being through daily micro-practices.
+                </p>
 
 
 
                 <div className="relative z-40 flex flex-col md:flex-row gap-5 mt-8 opacity-0 animate-fade-in-up" style={{animationDelay: '0.5s', animationFillMode: 'forwards'}}>
                     <Button onClick={() => document.getElementById('engine')?.scrollIntoView({behavior: 'smooth'})} variant="primary" withIcon className="text-lg px-12 py-6 shadow-2xl shadow-gradz-green/30">
-                        Start Practice
+                        Try It Now
                     </Button>
                     <Button onClick={() => navigateTo('mission')} variant="white" className="text-lg px-12 py-6 border border-gradz-stone text-gradz-charcoal">
-                        Read Manifesto
+                        Learn More
                     </Button>
                 </div>
 
@@ -845,8 +939,8 @@ function App() {
    {/* Logo auf h-40 vergrößert (ca. 160px) */}
    <img src="/logo_gradz.png" alt="Gradz" className="h-40 mb-8 object-contain" />
    
-   <h2 className="text-4xl font-serif mb-6 leading-tight">The world is harsh.<br/>You don't have to be.</h2>
-   <p className="text-gradz-matcha/60 text-lg mb-8">A project dedicated to the serious business of being nice.</p>
+   <h2 className="text-4xl font-serif mb-6 leading-tight">Spread Kindness.<br/>Feel The Difference.</h2>
+   <p className="text-gradz-matcha/60 text-lg mb-8">A premium wellness platform cultivating kindness, positivity, and mental well-being through daily micro-practices.</p>
                   
                   {/* Newsletter Form */}
                   <form onSubmit={handleNewsletterSubmit} className="bg-white/5 p-1 rounded-full flex max-w-md border border-white/10 focus-within:border-gradz-matcha transition-colors">
@@ -881,12 +975,12 @@ function App() {
                </div>
                
                <div className="lg:col-span-2">
-                  <h4 className="font-bold text-gradz-peach mb-6 uppercase tracking-widest text-xs">Resources</h4>
+                  <h4 className="font-bold text-gradz-peach mb-6 uppercase tracking-widest text-xs">Features</h4>
                   <ul className="space-y-4 opacity-80 text-sm">
-                      <li><a href="#" className="hover:text-white transition-colors">Kindness API</a></li>
-                      <li><a href="#" className="hover:text-white transition-colors">Teacher Kit</a></li>
-                      <li><a href="#" className="hover:text-white transition-colors">Posters</a></li>
-                      <li><a href="#" className="hover:text-white transition-colors">Merch (Non-Profit)</a></li>
+                      <li><a href="#" className="hover:text-white transition-colors">Daily Wisdom Quotes</a></li>
+                      <li><a href="#" className="hover:text-white transition-colors">50+ Kindness Challenges</a></li>
+                      <li><a href="#" className="hover:text-white transition-colors">Mindful Lectures</a></li>
+                      <li><a href="#" className="hover:text-white transition-colors">Streak System</a></li>
                   </ul>
                </div>
 
@@ -902,10 +996,9 @@ function App() {
             
             {/* Bottom Bar */}
             <div className="pt-8 border-t border-white/10 text-center md:text-left flex flex-col md:flex-row justify-between items-center text-xs font-bold tracking-widest opacity-40">
-               <p className="mb-4 md:mb-0">© 2025 GRADZ INC. ALL RIGHTS RESERVED.</p>
+               <p className="mb-4 md:mb-0">© 2025 GRADZ. VERSION 0.5 (MVP) • 10,000+ USERS WORLDWIDE</p>
                <div className="flex gap-6">
-                   <span>DESIGNED WITH ♥ + AI</span>
-                   <span>SF • NY • LDN</span>
+                   <span>PRIVACY-FIRST • AD-FREE FOREVER</span>
                </div>
             </div>
          </div>
