@@ -1646,6 +1646,7 @@ function App() {
       </main>
 
       {/* --- PROFESSIONAL FOOTER --- */}
+      {activeView !== 'web-auth' && (
       <footer id="footer" className="bg-gradz-green pt-24 text-gradz-cream relative overflow-hidden mt-auto">
          {/* Top Curve */}
          <div className="absolute top-0 left-0 w-full h-12 bg-gradz-cream rounded-b-[3rem] z-10"></div>
@@ -1730,6 +1731,7 @@ function App() {
             </div>
          </div>
       </footer>
+      )}
 
     </div>
   );

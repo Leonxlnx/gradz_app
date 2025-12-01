@@ -79,20 +79,18 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
       case 'welcome':
         return (
           <div className="text-center max-w-2xl mx-auto">
-            <div className="w-24 h-24 bg-white rounded-full shadow-xl mx-auto mb-8 p-4">
-              <img src="/logo_gradz.png" alt="Gradz" className="w-full h-full object-contain" />
-            </div>
+            <img src="/logo_gradz.png" alt="Gradz" className="h-24 mx-auto mb-8" />
             <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-6">
-              Mit Gradz fühlst du dich in 10 Tagen positiver
+              Feel More Positive in 10 Days with Gradz
             </h1>
             <p className="text-xl text-[#143328]/70 mb-12 leading-relaxed">
-              Eine bewährte Methode für mehr Freundlichkeit, Positivität und mentales Wohlbefinden.
+              A proven method for more kindness, positivity, and mental wellbeing.
             </p>
             <button
               onClick={next}
               className="bg-[#143328] text-white py-4 px-12 rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl"
             >
-              Los geht's
+              Let's Go
             </button>
           </div>
         );
@@ -101,30 +99,30 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         return (
           <div className="text-center max-w-2xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
-              Die Welt ist laut & hart
+              The World is Loud & Hard
             </h1>
             <div className="space-y-6 mb-12">
               <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg">
                 <div className="text-4xl mb-3">📱</div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Endless Scrolling</h3>
-                <p className="text-[#143328]/70">Wir verbringen Stunden in sozialen Medien ohne echte Erfüllung.</p>
+                <p className="text-[#143328]/70">We spend hours on social media without real fulfillment.</p>
               </div>
               <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg">
                 <div className="text-4xl mb-3">📰</div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Negative News</h3>
-                <p className="text-[#143328]/70">Ständiger Konsum negativer Nachrichten belastet unsere Psyche.</p>
+                <p className="text-[#143328]/70">Constant consumption of negative news burdens our psyche.</p>
               </div>
               <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl shadow-lg">
                 <div className="text-4xl mb-3">💬</div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Online Hate</h3>
-                <p className="text-[#143328]/70">Toxische Kommentare und Streit prägen das Internet.</p>
+                <p className="text-[#143328]/70">Toxic comments and arguments dominate the internet.</p>
               </div>
             </div>
             <button
               onClick={next}
               className="bg-[#143328] text-white py-4 px-12 rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl"
             >
-              Weiter
+              Continue
             </button>
           </div>
         );
@@ -133,35 +131,35 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         return (
           <div className="text-center max-w-2xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
-              Gradz ist anders
+              Gradz is Different
             </h1>
             <div className="grid md:grid-cols-2 gap-6 mb-12">
               <div className="bg-[#C9E4CA]/40 p-8 rounded-2xl shadow-lg">
                 <div className="text-5xl mb-4">💭</div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Daily Quotes</h3>
-                <p className="text-[#143328]/70">Inspirierende Zitate für jeden Tag</p>
+                <p className="text-[#143328]/70">Inspiring quotes for every day</p>
               </div>
               <div className="bg-[#E8A87C]/40 p-8 rounded-2xl shadow-lg">
                 <div className="text-5xl mb-4">🎯</div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Challenges</h3>
-                <p className="text-[#143328]/70">Kleine Aufgaben, große Wirkung</p>
+                <p className="text-[#143328]/70">Small tasks, big impact</p>
               </div>
               <div className="bg-[#F5F5DC]/60 p-8 rounded-2xl shadow-lg">
                 <div className="text-5xl mb-4">📚</div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Lectures</h3>
-                <p className="text-[#143328]/70">Wissen über Achtsamkeit & Positivität</p>
+                <p className="text-[#143328]/70">Knowledge about mindfulness & positivity</p>
               </div>
               <div className="bg-[#E8A87C]/30 p-8 rounded-2xl shadow-lg">
                 <div className="text-5xl mb-4">🔥</div>
                 <h3 className="font-bold text-xl mb-2 text-[#143328]">Streaks</h3>
-                <p className="text-[#143328]/70">Bleib dran und bau Gewohnheiten auf</p>
+                <p className="text-[#143328]/70">Stay consistent and build habits</p>
               </div>
             </div>
             <button
               onClick={next}
               className="bg-[#143328] text-white py-4 px-12 rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl"
             >
-              Weiter
+              Continue
             </button>
           </div>
         );
@@ -170,7 +168,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         return (
           <div className="text-center max-w-2xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-12">
-              Was andere sagen
+              What Others Say
             </h1>
             <div className="space-y-6 mb-12">
               {testimonials.map((t, i) => (
@@ -189,7 +187,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
               onClick={next}
               className="bg-[#143328] text-white py-4 px-12 rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl"
             >
-              Weiter
+              Continue
             </button>
           </div>
         );
@@ -198,7 +196,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         return (
           <div className="text-center max-w-2xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-12">
-              So funktioniert's
+              How It Works
             </h1>
             <div className="space-y-8 mb-12 text-left">
               <div className="flex gap-6">
@@ -206,8 +204,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                   1
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2 text-[#143328]">Öffne die App täglich</h3>
-                  <p className="text-[#143328]/70">Nur 10 Minuten am Tag reichen aus.</p>
+                  <h3 className="font-bold text-xl mb-2 text-[#143328]">Open the App Daily</h3>
+                  <p className="text-[#143328]/70">Just 10 minutes a day is enough.</p>
                 </div>
               </div>
               <div className="flex gap-6">
@@ -215,8 +213,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                   2
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2 text-[#143328]">Lese dein Daily Quote</h3>
-                  <p className="text-[#143328]/70">Lass dich von inspirierenden Worten leiten.</p>
+                  <h3 className="font-bold text-xl mb-2 text-[#143328]">Read Your Daily Quote</h3>
+                  <p className="text-[#143328]/70">Let inspiring words guide you.</p>
                 </div>
               </div>
               <div className="flex gap-6">
@@ -224,8 +222,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                   3
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2 text-[#143328]">Nimm eine Challenge an</h3>
-                  <p className="text-[#143328]/70">Kleine Taten mit großer Wirkung.</p>
+                  <h3 className="font-bold text-xl mb-2 text-[#143328]">Accept a Challenge</h3>
+                  <p className="text-[#143328]/70">Small actions with big impact.</p>
                 </div>
               </div>
               <div className="flex gap-6">
@@ -233,8 +231,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                   4
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2 text-[#143328]">Lerne etwas Neues</h3>
-                  <p className="text-[#143328]/70">Erweitere dein Wissen über Achtsamkeit.</p>
+                  <h3 className="font-bold text-xl mb-2 text-[#143328]">Learn Something New</h3>
+                  <p className="text-[#143328]/70">Expand your knowledge about mindfulness.</p>
                 </div>
               </div>
             </div>
@@ -242,7 +240,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
               onClick={next}
               className="bg-[#143328] text-white py-4 px-12 rounded-2xl font-bold text-lg hover:scale-105 transition-all duration-300 shadow-xl"
             >
-              Verstanden!
+              Got It!
             </button>
           </div>
         );
@@ -251,10 +249,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         return (
           <div className="text-center max-w-2xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
-              Wie fühlst du dich heute?
+              How Are You Feeling Today?
             </h1>
             <p className="text-xl text-[#143328]/70 mb-12">
-              Wähle deine aktuelle Stimmung
+              Choose your current mood
             </p>
             <div className="space-y-4 mb-12">
               {moods.map((mood) => (
@@ -282,10 +280,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         return (
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
-              Was interessiert dich?
+              What Interests You?
             </h1>
             <p className="text-xl text-[#143328]/70 mb-12">
-              Wähle mindestens 3 Themen
+              Choose at least 3 topics
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
               {interests.map((interest) => (
@@ -311,7 +309,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
               }`}
             >
-              Weiter ({data.interests.length}/3)
+              Continue ({data.interests.length}/3)
             </button>
           </div>
         );
@@ -320,7 +318,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         return (
           <div className="text-center max-w-2xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
-              Was ist dein Ziel?
+              What's Your Goal?
             </h1>
             <div className="space-y-4 mb-12">
               <button
@@ -332,7 +330,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
               >
                 <div className="text-5xl mb-3">📚</div>
                 <div className="text-2xl mb-2">Learn Kindness</div>
-                <div className="text-base font-normal text-[#143328]/70">Ich möchte mehr über Freundlichkeit lernen</div>
+                <div className="text-base font-normal text-[#143328]/70">I want to learn more about kindness</div>
               </button>
               <button
                 onClick={() => {
@@ -343,7 +341,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
               >
                 <div className="text-5xl mb-3">❤️</div>
                 <div className="text-2xl mb-2">Give Kindness</div>
-                <div className="text-base font-normal text-[#143328]/70">Ich möchte aktiv Freundlichkeit weitergeben</div>
+                <div className="text-base font-normal text-[#143328]/70">I want to actively spread kindness</div>
               </button>
               <button
                 onClick={() => {
@@ -354,7 +352,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
               >
                 <div className="text-5xl mb-3">✨</div>
                 <div className="text-2xl mb-2">Both</div>
-                <div className="text-base font-normal text-[#143328]/70">Ich möchte beides kombinieren</div>
+                <div className="text-base font-normal text-[#143328]/70">I want to combine both</div>
               </button>
             </div>
           </div>
@@ -364,13 +362,13 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         return (
           <div className="text-center max-w-xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
-              Wie sollen wir dich nennen?
+              What Should We Call You?
             </h1>
             <input
               type="text"
               value={data.name}
               onChange={(e) => setData({ ...data, name: e.target.value })}
-              placeholder="Dein Name"
+              placeholder="Your Name"
               className="w-full p-6 rounded-2xl text-xl text-center border-2 border-[#143328]/20 focus:border-[#143328] outline-none mb-8 shadow-lg"
               autoFocus
             />
@@ -383,7 +381,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
               }`}
             >
-              Weiter
+              Continue
             </button>
           </div>
         );
@@ -392,10 +390,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         return (
           <div className="text-center max-w-xl mx-auto">
             <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
-              Bist du bereit, {data.name}?
+              Are You Ready, {data.name}?
             </h1>
             <p className="text-xl text-[#143328]/70 mb-12 leading-relaxed">
-              Halte den Button gedrückt, um dein Versprechen für mehr Freundlichkeit und Positivität abzugeben.
+              Hold the button to commit to more kindness and positivity.
             </p>
             <div className="relative">
               <button
@@ -408,7 +406,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
                   style={{ width: `${holdProgress}%` }}
                 />
                 <span className="relative z-10">
-                  {holdProgress === 0 ? 'Halten zum Bestätigen' : holdProgress < 100 ? 'Weiter halten...' : 'Fertig! ✨'}
+                  {holdProgress === 0 ? 'Hold to Confirm' : holdProgress < 100 ? 'Keep Holding...' : 'Done! ✨'}
                 </span>
               </button>
               {holdProgress > 0 && holdProgress < 100 && (
@@ -436,7 +434,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
             />
           </div>
           <div className="text-center mt-4 text-sm text-[#143328]/60">
-            Schritt {step + 1} von {steps.length}
+            Step {step + 1} of {steps.length}
           </div>
         </div>
         <div className="animate-fade-in-up">

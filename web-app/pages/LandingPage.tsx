@@ -10,9 +10,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onGetStarted, onLogin 
     <div className="min-h-screen bg-gradient-to-br from-[#E8A87C]/20 via-white to-[#C9E4CA]/20 flex items-center justify-center p-6">
       <div className="max-w-md w-full text-center">
         <div className="mb-12 animate-fade-in-up">
-          <div className="inline-flex items-center justify-center w-32 h-32 bg-white rounded-full shadow-2xl mb-8 p-4">
-            <img src="/logo_gradz.png" alt="Gradz" className="w-full h-full object-contain" />
-          </div>
+          <img src="/logo_gradz.png" alt="Gradz" className="h-32 mx-auto mb-8" />
           <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-4">
             Welcome to Gradz
           </h1>

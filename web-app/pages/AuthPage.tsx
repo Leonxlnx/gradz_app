@@ -46,9 +46,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({ mode, onSuccess, onSwitchMod
     <div className="min-h-screen bg-gradient-to-br from-[#E8A87C]/20 via-white to-[#C9E4CA]/20 flex items-center justify-center p-6">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-white rounded-full shadow-xl mx-auto mb-6 p-3">
-            <img src="/logo_gradz.png" alt="Gradz" className="w-full h-full object-contain" />
-          </div>
+          <img src="/logo_gradz.png" alt="Gradz" className="h-20 mx-auto mb-6" />
           <h1 className="text-4xl md:text-5xl font-serif text-[#143328] mb-3">
             {mode === 'login' ? 'Welcome Back' : 'Create Account'}
           </h1>

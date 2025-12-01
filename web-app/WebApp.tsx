@@ -33,9 +33,7 @@ const WebAppContent: React.FC = () => {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#E8A87C]/20 via-white to-[#C9E4CA]/20 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-20 h-20 bg-white rounded-full shadow-xl mx-auto mb-6 p-4">
-            <img src="/logo_gradz.png" alt="Gradz" className="w-full h-full object-contain animate-pulse" />
-          </div>
+          <img src="/logo_gradz.png" alt="Gradz" className="h-24 mx-auto mb-8 animate-pulse" />
           <div className="w-16 h-16 border-4 border-[#143328] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-xl text-[#143328]/70">Loading Gradz...</p>
         </div>
@@ -84,7 +82,7 @@ const WebAppContent: React.FC = () => {
                 setView('mvp-welcome');
               }
             }}
-            onSwitchMode={() => setView('onboarding')}
+            onSwitchMode={() => setView('signup')}
           />
         );
 
