@@ -11,7 +11,7 @@ import { SettingsPage } from './pages/SettingsPage';
 import type { WebAppView } from './types';
 
 const WebAppContent: React.FC = () => {
-  const { user, gradzUser, loading } = useAuth();
+  const { user, gradzUser, loading, updateGradzUser } = useAuth();
   const [view, setView] = useState<WebAppView>('landing');
   const [onboardingData, setOnboardingData] = useState<OnboardingData | null>(null);
 
@@ -91,7 +91,6 @@ const WebAppContent: React.FC = () => {
           <MVPWelcome
             onContinue={async () => {
               if (gradzUser) {
-                const { updateGradzUser } = useAuth();
                 await updateGradzUser({ onboarding_completed: true });
                 setView('home');
               }

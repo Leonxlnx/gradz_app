@@ -63,12 +63,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        emailRedirectTo: window.location.origin,
+      },
     });
 
     if (error) throw error;
 
     if (data.user) {
-      await supabase.from('gradz_users').insert({
+      const { error: insertError } = await supabase.from('gradz_users').insert({
         id: data.user.id,
         email,
         name,
@@ -78,6 +81,10 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         push_notifications: true,
         reminder_time: '09:00:00',
       });
+
+      if (insertError) {
+        console.error('Error creating user profile:', insertError);
+      }
     }
   };
 
