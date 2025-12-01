@@ -1546,7 +1546,7 @@ function App() {
             </button>
           
             <div className="hidden md:flex items-center gap-4">
-               <Button onClick={() => navigateTo('join-club')} variant="black" className="!px-6 !py-2.5 !text-xs !h-auto">
+               <Button onClick={() => navigateTo('get-started')} variant="black" className="!px-6 !py-2.5 !text-xs !h-auto">
                   Get Started
                </Button>
             </div>
@@ -1564,7 +1564,7 @@ function App() {
                     {view}
                 </button>
             ))}
-            <Button onClick={() => navigateTo('join-club')} variant="black" className="!text-2xl !px-10 !py-4">
+            <Button onClick={() => navigateTo('get-started')} variant="black" className="!text-2xl !px-10 !py-4">
                 Get Started
             </Button>
         </div>
