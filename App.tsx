@@ -1518,20 +1518,29 @@ function App() {
         </div>
 
         {/* Mobile Menu Overlay */}
-        <div className={`fixed inset-0 bg-gradient-to-br from-gradz-cream via-gradz-matcha to-gradz-cream z-40 flex flex-col items-center justify-center gap-6 transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-            <div className="flex flex-col items-center gap-6 w-full px-8">
-                {['home', 'mission', 'stories', 'community'].map((view, index) => (
+        <div className={`fixed inset-0 bg-white z-40 flex flex-col items-center justify-center transition-all duration-300 ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+            <button
+                className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center z-50"
+                onClick={() => setMobileMenuOpen(false)}
+            >
+                <div className="relative w-8 h-8">
+                    <span className="absolute w-8 h-0.5 bg-gradz-charcoal rotate-45 top-1/2 -translate-y-1/2"></span>
+                    <span className="absolute w-8 h-0.5 bg-gradz-charcoal -rotate-45 top-1/2 -translate-y-1/2"></span>
+                </div>
+            </button>
+
+            <div className="flex flex-col items-center gap-8 w-full px-8">
+                {['home', 'mission', 'stories', 'community'].map((view) => (
                     <button
                         key={view}
                         onClick={() => navigateTo(view as View)}
-                        className={`text-4xl md:text-5xl font-serif font-bold text-gradz-green hover:text-gradz-peach capitalize transition-all duration-300 hover:scale-110 ${mobileMenuOpen ? 'animate-fade-in-up' : ''}`}
-                        style={{ animationDelay: `${index * 50}ms` }}
+                        className="text-5xl font-serif font-bold text-gradz-charcoal hover:text-gradz-green capitalize transition-all duration-300"
                     >
                         {view}
                     </button>
                 ))}
-                <div className="mt-4">
-                    <Button onClick={() => navigateTo('get-started')} variant="black" className="!text-xl !px-12 !py-4 hover:scale-105 transition-transform">
+                <div className="mt-6">
+                    <Button onClick={() => navigateTo('get-started')} variant="black" className="!text-2xl !px-14 !py-5">
                         Get Started
                     </Button>
                 </div>
