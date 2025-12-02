@@ -24,7 +24,7 @@ const WebAppContent: React.FC = () => {
           setView('home');
         }
       } else {
-        setView('landing');
+        setView('login');
       }
     }
   }, [user, gradzUser, loading]);
@@ -46,7 +46,7 @@ const WebAppContent: React.FC = () => {
       case 'landing':
         return (
           <LandingPage
-            onGetStarted={() => setView('login')}
+            onGetStarted={() => setView('signup')}
             onLogin={() => setView('login')}
           />
         );
@@ -74,7 +74,7 @@ const WebAppContent: React.FC = () => {
           <AuthPage
             mode="signup"
             onboardingData={onboardingData || undefined}
-            onSuccess={() => setView('onboarding')}
+            onSuccess={() => setView('landing')}
             onSwitchMode={() => setView('login')}
           />
         );
@@ -83,11 +83,21 @@ const WebAppContent: React.FC = () => {
         return (
           <AuthPage
             mode="login"
-            onSuccess={() => {
-              if (gradzUser?.onboarding_completed) {
-                setView('home');
+            onSuccess={async () => {
+              if (user && gradzUser) {
+                if (gradzUser.onboarding_completed) {
+                  setView('home');
+                } else {
+                  setView('landing');
+                }
               } else {
-                setView('onboarding');
+                setTimeout(() => {
+                  if (gradzUser?.onboarding_completed) {
+                    setView('home');
+                  } else {
+                    setView('landing');
+                  }
+                }, 300);
               }
             }}
             onSwitchMode={() => setView('signup')}
