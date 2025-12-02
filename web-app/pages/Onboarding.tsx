@@ -158,7 +158,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
         return (
           <div className="text-center space-y-3">
             <h1 className="text-xl md:text-3xl font-serif text-[#143328]">
-              Loved by Thousands
+              What our daily users say
             </h1>
             <div className="space-y-2">
               {testimonials.slice(0, 2).map((t, i) => (
