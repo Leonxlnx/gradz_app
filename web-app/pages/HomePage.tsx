@@ -178,13 +178,22 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </header>
 
         <section className="mb-6 md:mb-8 animate-slide-in-up">
-          <h2 className="text-xl md:text-2xl font-serif text-[#143328] mb-3 md:mb-4 flex items-center gap-2 hover:gap-3 transition-all duration-300"><QuoteIcon className="w-6 h-6 md:w-7 md:h-7" /> Daily Quote</h2>
+          <div className="flex items-center justify-between mb-3 md:mb-4">
+            <h2 className="text-xl md:text-2xl font-serif text-[#143328] flex items-center gap-2 hover:gap-3 transition-all duration-300">
+              <div className="bg-gradient-to-br from-[#C9E4CA] to-[#87C38F] p-2 rounded-xl shadow-md">
+                <QuoteIcon className="w-5 h-5 md:w-6 md:h-6 text-[#143328]" />
+              </div>
+              Daily Quote
+            </h2>
+          </div>
           <div
             onClick={() => !quoteExpanded && handleQuoteOpen()}
-            className={`bg-white/70 backdrop-blur-xl p-5 md:p-6 rounded-3xl shadow-2xl cursor-pointer hover:scale-[1.02] hover:bg-white/90 transition-all duration-500 border-2 border-white/50 hover:border-[#143328]/20 ${
-              quoteExpanded ? 'ring-4 ring-[#143328]/20 scale-[1.02]' : ''
+            className={`group relative bg-gradient-to-br from-white/80 to-white/60 backdrop-blur-2xl p-5 md:p-6 rounded-3xl shadow-2xl cursor-pointer hover:scale-[1.02] hover:shadow-[#C9E4CA]/30 transition-all duration-500 border-2 border-white/60 hover:border-[#C9E4CA]/40 overflow-hidden ${
+              quoteExpanded ? 'ring-4 ring-[#C9E4CA]/30 scale-[1.02] border-[#C9E4CA]/50' : ''
             }`}
           >
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-[#C9E4CA]/20 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+            <div className="relative">
             {dailyQuote ? (
               <>
                 <p className={`text-lg italic text-[#143328]/80 mb-4 ${quoteExpanded ? '' : 'line-clamp-2'}`}>
@@ -195,23 +204,36 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                   <p className="text-sm text-[#143328]/50 mt-4">Tap to expand & save to collection</p>
                 )}
                 {quoteExpanded && (
-                  <div className="mt-4 text-sm text-green-600 font-bold">✓ Added to your collection</div>
+                  <div className="mt-4 text-sm text-green-600 font-bold flex items-center gap-2">
+                    <span className="inline-block w-5 h-5 bg-green-500 rounded-full flex items-center justify-center text-white text-xs">✓</span>
+                    Added to your collection
+                  </div>
                 )}
               </>
             ) : (
               <p className="text-[#143328]/50">No quote available today</p>
             )}
+            </div>
           </div>
         </section>
 
         <section className="mb-6 md:mb-8 animate-slide-in-up" style={{ animationDelay: '0.1s' }}>
-          <h2 className="text-xl md:text-2xl font-serif text-[#143328] mb-3 md:mb-4 hover:gap-3 transition-all duration-300">Practice Kindness</h2>
+          <div className="flex items-center justify-between mb-3 md:mb-4">
+            <h2 className="text-xl md:text-2xl font-serif text-[#143328] flex items-center gap-2">
+              <div className="bg-gradient-to-br from-[#E8A87C] to-[#E89F71] p-2 rounded-xl shadow-md">
+                <HeartIcon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              </div>
+              Practice Kindness
+            </h2>
+          </div>
 
-          <div className="space-y-4 md:space-y-6">
+          <div className="space-y-3 md:space-y-4">
             <div
               onClick={() => setChallengeExpanded(!challengeExpanded)}
-              className="bg-gradient-to-br from-[#C9E4CA]/50 to-[#C9E4CA]/30 backdrop-blur-xl p-5 md:p-6 rounded-3xl shadow-2xl cursor-pointer hover:scale-[1.02] hover:shadow-[#C9E4CA]/40 transition-all duration-500 border-2 border-white/50 hover:border-[#C9E4CA]/50"
+              className="group relative bg-gradient-to-br from-[#C9E4CA]/70 to-[#C9E4CA]/40 backdrop-blur-2xl p-5 md:p-6 rounded-3xl shadow-2xl cursor-pointer hover:scale-[1.02] hover:shadow-[#C9E4CA]/50 transition-all duration-500 border-2 border-white/60 hover:border-[#C9E4CA]/60 overflow-hidden"
             >
+              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-gradient-to-br from-[#C9E4CA]/30 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="relative">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="text-xl font-bold text-[#143328] flex items-center gap-2"><TargetIcon className="w-6 h-6" /> Challenge</h3>
                 {dailyContent?.challenge_accepted && (
@@ -244,12 +266,15 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               ) : (
                 <p className="text-[#143328]/50">No challenge available today</p>
               )}
+              </div>
             </div>
 
             <div
               onClick={() => setLectureExpanded(!lectureExpanded)}
-              className="bg-gradient-to-br from-[#E8A87C]/50 to-[#E8A87C]/30 backdrop-blur-xl p-5 md:p-6 rounded-3xl shadow-2xl cursor-pointer hover:scale-[1.02] hover:shadow-[#E8A87C]/40 transition-all duration-500 border-2 border-white/50 hover:border-[#E8A87C]/50"
+              className="group relative bg-gradient-to-br from-[#E8A87C]/70 to-[#E8A87C]/40 backdrop-blur-2xl p-5 md:p-6 rounded-3xl shadow-2xl cursor-pointer hover:scale-[1.02] hover:shadow-[#E8A87C]/50 transition-all duration-500 border-2 border-white/60 hover:border-[#E8A87C]/60 overflow-hidden"
             >
+              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-[#E8A87C]/30 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+              <div className="relative">
               <div className="flex items-start justify-between mb-3">
                 <h3 className="text-xl font-bold text-[#143328] flex items-center gap-2"><BookIcon className="w-6 h-6" /> Lecture</h3>
                 {dailyContent?.lecture_read && (
@@ -285,6 +310,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
               ) : (
                 <p className="text-[#143328]/50">No lecture available today</p>
               )}
+              </div>
             </div>
           </div>
         </section>

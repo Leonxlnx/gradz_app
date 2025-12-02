@@ -58,6 +58,7 @@ const WebAppContent: React.FC = () => {
               setOnboardingData(data);
               if (user && gradzUser) {
                 await updateGradzUser({
+                  name: data.name,
                   interests: data.interests,
                   onboarding_completed: true,
                 });

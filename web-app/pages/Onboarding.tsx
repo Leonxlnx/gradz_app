@@ -28,6 +28,9 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
 
   const steps: OnboardingStep[] = [
     'welcome',
+    'problem',
+    'solution',
+    'testimonials',
     'mood-check',
     'interests',
     'goal',
@@ -54,21 +57,131 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
     switch (steps[step]) {
       case 'welcome':
         return (
-          <div className="text-center space-y-4">
+          <div className="text-center space-y-3">
             <div className="animate-bounce-slow">
-              <img src="/logo_gradz.png" alt="Gradz" className="h-16 md:h-20 mx-auto" />
+              <img src="/logo_gradz.png" alt="Gradz" className="h-14 md:h-16 mx-auto" />
             </div>
-            <h1 className="text-3xl md:text-5xl font-serif text-[#143328] animate-fade-in">
+            <h1 className="text-2xl md:text-4xl font-serif text-[#143328] animate-fade-in">
               Feel More Positive in 10 Days
             </h1>
-            <p className="text-base md:text-lg text-[#143328]/70 max-w-md mx-auto animate-fade-in-delay">
-              A proven method for more kindness & wellbeing.
+            <p className="text-sm md:text-base text-[#143328]/70 max-w-md mx-auto animate-fade-in-delay">
+              Join thousands transforming their lives through kindness
             </p>
             <button
               onClick={next}
-              className="mt-6 bg-[#143328] text-white py-3 px-10 rounded-2xl font-bold hover:scale-105 transition-all duration-300 shadow-xl animate-fade-in-delay-2"
+              className="mt-4 bg-[#143328] text-white py-3 px-10 rounded-2xl font-bold hover:scale-105 transition-all duration-300 shadow-xl animate-fade-in-delay-2"
             >
-              Let's Go
+              Start Journey
+            </button>
+          </div>
+        );
+
+      case 'problem':
+        return (
+          <div className="text-center space-y-3">
+            <h1 className="text-xl md:text-3xl font-serif text-[#143328]">
+              The World Feels Overwhelming
+            </h1>
+            <div className="space-y-2">
+              {[
+                { icon: PhoneIcon, title: 'Endless Scrolling', desc: 'Social media without fulfillment' },
+                { icon: NewsIcon, title: 'Negative News', desc: 'Constant negativity drains us' },
+                { icon: ChatIcon, title: 'Online Toxicity', desc: 'Hate dominates the internet' }
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.title}
+                    className="bg-white/70 backdrop-blur-sm p-3 md:p-4 rounded-2xl shadow-lg flex items-center gap-3"
+                    style={{ animation: `slideInRight 0.5s ease-out ${0.1 * i}s both` }}
+                  >
+                    <Icon className="w-8 h-8 md:w-10 md:h-10 text-[#143328] flex-shrink-0" />
+                    <div className="text-left">
+                      <h3 className="font-bold text-sm md:text-base text-[#143328]">{item.title}</h3>
+                      <p className="text-xs md:text-sm text-[#143328]/70">{item.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <button
+              onClick={next}
+              className="mt-4 bg-[#143328] text-white py-2.5 px-8 rounded-2xl font-bold hover:scale-105 transition-all duration-300 shadow-xl"
+            >
+              Continue
+            </button>
+          </div>
+        );
+
+      case 'solution':
+        return (
+          <div className="text-center space-y-3">
+            <h1 className="text-xl md:text-3xl font-serif text-[#143328]">
+              Gradz is Your Daily Dose of Good
+            </h1>
+            <p className="text-xs md:text-sm text-[#143328]/70">
+              Science-backed methods for lasting positivity
+            </p>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { icon: QuoteIcon, title: 'Daily Quotes', color: 'C9E4CA' },
+                { icon: TargetIcon, title: 'Challenges', color: 'E8A87C' },
+                { icon: BookIcon, title: 'Lectures', color: 'F4E8C1' },
+                { icon: FireIcon, title: 'Streaks', color: 'E89F71' }
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.title}
+                    className="bg-white/70 backdrop-blur-sm p-3 md:p-4 rounded-2xl shadow-lg hover:scale-105 transition-all duration-300"
+                    style={{
+                      animation: `popIn 0.5s ease-out ${0.1 * i}s both`,
+                      backgroundColor: `#${item.color}40`
+                    }}
+                  >
+                    <Icon className="w-8 h-8 md:w-10 md:h-10 mx-auto mb-2" style={{ color: '#143328' }} />
+                    <h3 className="font-bold text-xs md:text-sm text-[#143328]">{item.title}</h3>
+                  </div>
+                );
+              })}
+            </div>
+            <button
+              onClick={next}
+              className="mt-4 bg-[#143328] text-white py-2.5 px-8 rounded-2xl font-bold hover:scale-105 transition-all duration-300 shadow-xl"
+            >
+              Continue
+            </button>
+          </div>
+        );
+
+      case 'testimonials':
+        return (
+          <div className="text-center space-y-3">
+            <h1 className="text-xl md:text-3xl font-serif text-[#143328]">
+              Loved by Thousands
+            </h1>
+            <div className="space-y-2">
+              {testimonials.slice(0, 2).map((t, i) => (
+                <div
+                  key={i}
+                  className="bg-white/70 backdrop-blur-sm p-3 md:p-4 rounded-2xl shadow-lg text-left"
+                  style={{ animation: `slideInLeft 0.5s ease-out ${0.15 * i}s both` }}
+                >
+                  <div className="flex gap-1 mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <StarIcon key={i} className="w-3 h-3 md:w-4 md:h-4 text-yellow-500" />
+                    ))}
+                  </div>
+                  <p className="text-xs md:text-sm text-[#143328]/80 mb-2 line-clamp-2">"{t.text}"</p>
+                  <p className="text-xs font-bold text-[#143328]">— {t.name}</p>
+                </div>
+              ))}
+            </div>
+            <button
+              onClick={next}
+              className="mt-4 bg-[#143328] text-white py-2.5 px-8 rounded-2xl font-bold hover:scale-105 transition-all duration-300 shadow-xl"
+            >
+              I'm Ready
             </button>
           </div>
         );
