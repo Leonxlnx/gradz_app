@@ -1252,34 +1252,35 @@ const ViewCookies = () => (
 );
 
 const ViewGetStarted = ({ onNavigate }: { onNavigate: (view: View) => void }) => (
-    <div className="min-h-screen bg-gradz-cream flex items-center justify-center py-20 px-4">
-        <div className="max-w-4xl w-full">
-            <div className="text-center mb-16 animate-fade-in-up pt-20">
-                <h1 className="text-5xl md:text-7xl font-serif text-gradz-green mb-8">Choose Your Platform</h1>
-                <p className="text-xl text-gradz-charcoal/70 leading-relaxed max-w-2xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gradz-cream via-white to-gradz-matcha/10 flex items-center justify-center py-12 px-4">
+        <div className="max-w-6xl w-full">
+            <div className="text-center mb-8 md:mb-12 animate-fade-in-up pt-20">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-gradz-green mb-4 md:mb-6">Choose Your Platform</h1>
+                <p className="text-base md:text-xl text-gradz-charcoal/70 leading-relaxed max-w-2xl mx-auto px-4">
                     How would you like to experience Gradz?
                 </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 px-4">
                 {/* Mobile Option */}
                 <div
                     onClick={() => onNavigate('mobile-download')}
-                    className="group bg-white p-8 rounded-[2.5rem] shadow-xl border-2 border-gradz-stone hover:border-gradz-green hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                    className="group relative bg-white/80 backdrop-blur-xl p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] shadow-2xl border-2 border-white hover:border-gradz-green/50 hover:-translate-y-3 hover:shadow-gradz-green/20 transition-all duration-500 cursor-pointer overflow-hidden"
                 >
-                    <div className="flex flex-col items-center text-center">
-                        <div className="w-20 h-20 bg-gradz-matcha/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <svg className="w-10 h-10 text-gradz-green" fill="currentColor" viewBox="0 0 24 24">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gradz-matcha/5 via-transparent to-gradz-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative flex flex-col items-center text-center">
+                        <div className="w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-gradz-matcha/30 to-gradz-green/20 rounded-3xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                            <svg className="w-8 h-8 md:w-12 md:h-12 text-gradz-green" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
                             </svg>
                         </div>
-                        <h2 className="text-3xl font-serif text-gradz-green mb-3">Mobile App</h2>
-                        <p className="text-lg text-gradz-charcoal/80 mb-5 leading-relaxed">
-                            Download the native app for Android and iOS. Perfect for daily practice on the go.
+                        <h2 className="text-2xl md:text-4xl font-serif text-gradz-green mb-2 md:mb-3 group-hover:scale-105 transition-transform duration-300">Mobile App</h2>
+                        <p className="text-sm md:text-lg text-gradz-charcoal/70 mb-4 md:mb-6 leading-relaxed">
+                            Native app for Android & iOS. Perfect for daily practice on the go.
                         </p>
-                        <div className="flex items-center gap-2 text-gradz-green font-bold">
-                            <span>Continue</span>
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                        <div className="flex items-center gap-2 text-gradz-green font-bold group-hover:gap-4 transition-all duration-300">
+                            <span className="text-sm md:text-base">Continue</span>
+                            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform duration-300" />
                         </div>
                     </div>
                 </div>
@@ -1287,21 +1288,22 @@ const ViewGetStarted = ({ onNavigate }: { onNavigate: (view: View) => void }) =>
                 {/* Web Option */}
                 <div
                     onClick={() => onNavigate('web-auth')}
-                    className="group bg-white p-8 rounded-[2.5rem] shadow-xl border-2 border-gradz-stone hover:border-gradz-blue hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                    className="group relative bg-white/80 backdrop-blur-xl p-6 md:p-10 rounded-3xl md:rounded-[2.5rem] shadow-2xl border-2 border-white hover:border-gradz-blue/50 hover:-translate-y-3 hover:shadow-gradz-blue/20 transition-all duration-500 cursor-pointer overflow-hidden"
                 >
-                    <div className="flex flex-col items-center text-center">
-                        <div className="w-20 h-20 bg-gradz-blue/20 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                            <svg className="w-10 h-10 text-gradz-blue" fill="currentColor" viewBox="0 0 24 24">
+                    <div className="absolute inset-0 bg-gradient-to-br from-gradz-blue/5 via-transparent to-gradz-peach/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative flex flex-col items-center text-center">
+                        <div className="w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-gradz-blue/30 to-gradz-peach/20 rounded-3xl flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                            <svg className="w-8 h-8 md:w-12 md:h-12 text-gradz-blue" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z"/>
                             </svg>
                         </div>
-                        <h2 className="text-3xl font-serif text-gradz-green mb-3">Web Platform</h2>
-                        <p className="text-lg text-gradz-charcoal/80 mb-5 leading-relaxed">
-                            Access Gradz from any browser. Great for desktop users and seamless sync across devices.
+                        <h2 className="text-2xl md:text-4xl font-serif text-gradz-green mb-2 md:mb-3 group-hover:scale-105 transition-transform duration-300">Web Platform</h2>
+                        <p className="text-sm md:text-lg text-gradz-charcoal/70 mb-4 md:mb-6 leading-relaxed">
+                            Access from any browser. Great for desktop & seamless sync across devices.
                         </p>
-                        <div className="flex items-center gap-2 text-gradz-blue font-bold">
-                            <span>Continue</span>
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                        <div className="flex items-center gap-2 text-gradz-blue font-bold group-hover:gap-4 transition-all duration-300">
+                            <span className="text-sm md:text-base">Continue</span>
+                            <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform duration-300" />
                         </div>
                     </div>
                 </div>
@@ -1506,13 +1508,13 @@ function App() {
             </div>
           
             <button
-                className="md:hidden relative z-50 w-10 h-10 flex items-center justify-center bg-gradz-stone/50 rounded-full ml-auto"
+                className="md:hidden relative z-50 w-12 h-12 flex items-center justify-center bg-white/80 backdrop-blur-lg rounded-2xl ml-auto shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gradz-green/20"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-                <div className="relative w-6 h-5 flex flex-col justify-center">
-                    <span className={`absolute w-6 h-0.5 bg-gradz-charcoal transition-all duration-300 ease-in-out ${mobileMenuOpen ? 'rotate-45 top-1/2 -translate-y-1/2' : 'top-0'}`}></span>
-                    <span className={`absolute w-6 h-0.5 bg-gradz-charcoal transition-all duration-300 ease-in-out top-1/2 -translate-y-1/2 ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-                    <span className={`absolute w-6 h-0.5 bg-gradz-charcoal transition-all duration-300 ease-in-out ${mobileMenuOpen ? '-rotate-45 top-1/2 -translate-y-1/2' : 'bottom-0'}`}></span>
+                <div className="relative w-5 h-5 flex flex-col justify-center">
+                    <span className={`absolute w-5 h-0.5 rounded-full bg-gradient-to-r from-gradz-green to-gradz-peach transition-all duration-500 ease-out ${mobileMenuOpen ? 'rotate-45 top-1/2 -translate-y-1/2' : 'top-0'}`}></span>
+                    <span className={`absolute w-5 h-0.5 rounded-full bg-gradient-to-r from-gradz-green to-gradz-peach transition-all duration-500 ease-out top-1/2 -translate-y-1/2 ${mobileMenuOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}`}></span>
+                    <span className={`absolute w-5 h-0.5 rounded-full bg-gradient-to-r from-gradz-green to-gradz-peach transition-all duration-500 ease-out ${mobileMenuOpen ? '-rotate-45 top-1/2 -translate-y-1/2' : 'bottom-0'}`}></span>
                 </div>
             </button>
           
@@ -1525,19 +1527,22 @@ function App() {
         </div>
 
         {/* Mobile Menu Dropdown */}
-        <div className={`md:hidden fixed top-0 left-0 right-0 bg-white shadow-xl transition-all duration-500 ease-in-out overflow-hidden ${mobileMenuOpen ? 'max-h-screen opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-4'}`} style={{ zIndex: 45 }}>
-            <div className="flex flex-col items-center py-24 px-8 gap-6">
-                {['home', 'mission', 'stories', 'community'].map((view) => (
+        <div className={`md:hidden fixed top-0 left-0 right-0 bg-gradient-to-br from-white/95 via-gradz-cream/95 to-white/95 backdrop-blur-2xl shadow-2xl transition-all duration-700 ease-out overflow-hidden border-b-4 border-gradz-green/20 ${mobileMenuOpen ? 'max-h-screen opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-8'}`} style={{ zIndex: 45 }}>
+            <div className="flex flex-col items-center py-24 px-8 gap-3 w-full">
+                {['home', 'mission', 'stories', 'community'].map((view, i) => (
                     <button
                         key={view}
                         onClick={() => navigateTo(view as View)}
-                        className="text-4xl font-serif font-bold text-gradz-charcoal hover:text-gradz-green capitalize transition-colors duration-300 w-full text-center py-2"
+                        className="w-full bg-white/60 backdrop-blur-sm hover:bg-white text-gradz-charcoal hover:text-gradz-green capitalize transition-all duration-500 py-4 rounded-2xl font-serif font-bold text-2xl border-2 border-transparent hover:border-gradz-green/30 hover:scale-105 hover:shadow-xl"
+                        style={{
+                          animation: `fadeInUp 0.5s ease-out ${0.1 * i}s both`
+                        }}
                     >
                         {view}
                     </button>
                 ))}
-                <div className="mt-4">
-                    <Button onClick={() => navigateTo('get-started')} variant="black" className="!text-xl !px-12 !py-4">
+                <div className="mt-4 w-full" style={{ animation: 'fadeInUp 0.5s ease-out 0.4s both' }}>
+                    <Button onClick={() => navigateTo('get-started')} variant="black" className="!text-lg !px-12 !py-5 !w-full !rounded-2xl">
                         Get Started
                     </Button>
                 </div>

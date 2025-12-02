@@ -161,28 +161,28 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#E8A87C]/20 via-white to-[#C9E4CA]/20 pb-24">
-      <div className="max-w-4xl mx-auto p-6">
-        <header className="mb-8 text-center">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <h1 className="text-4xl md:text-5xl font-serif text-[#143328]">
+      <div className="max-w-4xl mx-auto p-4 md:p-6">
+        <header className="mb-6 md:mb-8 text-center animate-fade-in">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-4 mb-3 md:mb-4">
+            <h1 className="text-3xl md:text-5xl font-serif text-[#143328] hover:scale-105 transition-transform duration-300">
               Hi, {gradzUser?.name}!
             </h1>
             {gradzUser && gradzUser.streak > 0 && (
-              <div className="bg-[#E8A87C] text-white px-4 py-2 rounded-full font-bold flex items-center gap-2">
+              <div className="bg-gradient-to-r from-[#E8A87C] to-[#E89F71] text-white px-5 py-2.5 rounded-full font-bold flex items-center gap-2 shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 animate-pulse-slow">
                 <FireIcon className="w-6 h-6" />
                 <span>{gradzUser.streak} days</span>
               </div>
             )}
           </div>
-          <p className="text-lg text-[#143328]/70">Your daily dose of kindness & positivity</p>
+          <p className="text-base md:text-lg text-[#143328]/70">Your daily dose of kindness & positivity</p>
         </header>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-serif text-[#143328] mb-4 flex items-center gap-2"><QuoteIcon className="w-7 h-7" /> Daily Quote</h2>
+        <section className="mb-6 md:mb-8 animate-slide-in-up">
+          <h2 className="text-xl md:text-2xl font-serif text-[#143328] mb-3 md:mb-4 flex items-center gap-2 hover:gap-3 transition-all duration-300"><QuoteIcon className="w-6 h-6 md:w-7 md:h-7" /> Daily Quote</h2>
           <div
             onClick={() => !quoteExpanded && handleQuoteOpen()}
-            className={`bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-xl cursor-pointer hover:scale-102 transition-all duration-300 ${
-              quoteExpanded ? 'ring-4 ring-[#143328]/20' : ''
+            className={`bg-white/70 backdrop-blur-xl p-5 md:p-6 rounded-3xl shadow-2xl cursor-pointer hover:scale-[1.02] hover:bg-white/90 transition-all duration-500 border-2 border-white/50 hover:border-[#143328]/20 ${
+              quoteExpanded ? 'ring-4 ring-[#143328]/20 scale-[1.02]' : ''
             }`}
           >
             {dailyQuote ? (
@@ -204,13 +204,13 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           </div>
         </section>
 
-        <section className="mb-8">
-          <h2 className="text-2xl font-serif text-[#143328] mb-4">Practice Kindness</h2>
+        <section className="mb-6 md:mb-8 animate-slide-in-up" style={{ animationDelay: '0.1s' }}>
+          <h2 className="text-xl md:text-2xl font-serif text-[#143328] mb-3 md:mb-4 hover:gap-3 transition-all duration-300">Practice Kindness</h2>
 
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div
               onClick={() => setChallengeExpanded(!challengeExpanded)}
-              className="bg-[#C9E4CA]/40 backdrop-blur-sm p-6 rounded-3xl shadow-xl cursor-pointer hover:scale-102 transition-all duration-300"
+              className="bg-gradient-to-br from-[#C9E4CA]/50 to-[#C9E4CA]/30 backdrop-blur-xl p-5 md:p-6 rounded-3xl shadow-2xl cursor-pointer hover:scale-[1.02] hover:shadow-[#C9E4CA]/40 transition-all duration-500 border-2 border-white/50 hover:border-[#C9E4CA]/50"
             >
               <div className="flex items-start justify-between mb-3">
                 <h3 className="text-xl font-bold text-[#143328] flex items-center gap-2"><TargetIcon className="w-6 h-6" /> Challenge</h3>
@@ -248,7 +248,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
             <div
               onClick={() => setLectureExpanded(!lectureExpanded)}
-              className="bg-[#E8A87C]/40 backdrop-blur-sm p-6 rounded-3xl shadow-xl cursor-pointer hover:scale-102 transition-all duration-300"
+              className="bg-gradient-to-br from-[#E8A87C]/50 to-[#E8A87C]/30 backdrop-blur-xl p-5 md:p-6 rounded-3xl shadow-2xl cursor-pointer hover:scale-[1.02] hover:shadow-[#E8A87C]/40 transition-all duration-500 border-2 border-white/50 hover:border-[#E8A87C]/50"
             >
               <div className="flex items-start justify-between mb-3">
                 <h3 className="text-xl font-bold text-[#143328] flex items-center gap-2"><BookIcon className="w-6 h-6" /> Lecture</h3>
@@ -290,26 +290,80 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
         </section>
       </div>
 
-      <nav className="fixed bottom-6 left-6 right-6 z-50">
-        <div className="max-w-md mx-auto bg-white/70 backdrop-blur-xl border border-white/40 rounded-full shadow-2xl px-6 py-4">
+      <nav className="fixed bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6 z-50 animate-slide-up">
+        <div className="max-w-md mx-auto bg-white/80 backdrop-blur-2xl border-2 border-white/60 rounded-3xl shadow-2xl px-4 md:px-8 py-3 md:py-4 hover:shadow-[#143328]/20 transition-all duration-500">
           <div className="flex justify-around items-center">
-            <button onClick={() => onNavigate('home')} className="flex flex-col items-center gap-1 text-[#143328] transition-all duration-300 scale-110">
-              <div className="bg-[#143328] p-3 rounded-full">
-                <HomeIcon className="w-6 h-6 text-white" />
+            <button onClick={() => onNavigate('home')} className="flex flex-col items-center gap-1 text-[#143328] transition-all duration-300 relative">
+              <div className="bg-gradient-to-br from-[#143328] to-[#1a4d3d] p-3 rounded-2xl shadow-lg scale-110 hover:scale-125 transition-transform duration-300">
+                <HomeIcon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              </div>
+              <div className="absolute -bottom-1 w-1 h-1 bg-[#143328] rounded-full"></div>
+            </button>
+            <button onClick={() => onNavigate('collection')} className="flex flex-col items-center gap-1 text-[#143328]/50 hover:text-[#143328] transition-all duration-300 hover:scale-110 active:scale-95">
+              <div className="p-3 hover:bg-[#143328]/10 rounded-2xl transition-colors duration-300">
+                <CollectionIcon className="w-5 h-5 md:w-6 md:h-6" />
               </div>
             </button>
-            <button onClick={() => onNavigate('collection')} className="flex flex-col items-center gap-1 text-[#143328]/50 hover:text-[#143328] transition-all duration-300 hover:scale-110">
-              <CollectionIcon className="w-6 h-6" />
+            <button onClick={() => onNavigate('health')} className="flex flex-col items-center gap-1 text-[#143328]/50 hover:text-[#143328] transition-all duration-300 hover:scale-110 active:scale-95">
+              <div className="p-3 hover:bg-[#143328]/10 rounded-2xl transition-colors duration-300">
+                <HealthIcon className="w-5 h-5 md:w-6 md:h-6" />
+              </div>
             </button>
-            <button onClick={() => onNavigate('health')} className="flex flex-col items-center gap-1 text-[#143328]/50 hover:text-[#143328] transition-all duration-300 hover:scale-110">
-              <HealthIcon className="w-6 h-6" />
-            </button>
-            <button onClick={() => onNavigate('settings')} className="flex flex-col items-center gap-1 text-[#143328]/50 hover:text-[#143328] transition-all duration-300 hover:scale-110">
-              <SettingsIcon className="w-6 h-6" />
+            <button onClick={() => onNavigate('settings')} className="flex flex-col items-center gap-1 text-[#143328]/50 hover:text-[#143328] transition-all duration-300 hover:scale-110 active:scale-95">
+              <div className="p-3 hover:bg-[#143328]/10 rounded-2xl transition-colors duration-300">
+                <SettingsIcon className="w-5 h-5 md:w-6 md:h-6" />
+              </div>
             </button>
           </div>
         </div>
       </nav>
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes slideInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in {
+          animation: fadeIn 0.6s ease-out;
+        }
+        .animate-slide-in-up {
+          animation: slideInUp 0.6s ease-out both;
+        }
+        .animate-slide-up {
+          animation: slideUp 0.8s ease-out 0.3s both;
+        }
+        .animate-pulse-slow {
+          animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.8;
+          }
+        }
+      `}</style>
     </div>
   );
 };
