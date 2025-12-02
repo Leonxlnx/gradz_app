@@ -19,7 +19,7 @@ const WebAppContent: React.FC = () => {
     if (!loading) {
       if (user && gradzUser) {
         if (!gradzUser.onboarding_completed) {
-          setView('mvp-welcome');
+          setView('onboarding');
         } else {
           setView('home');
         }
@@ -46,7 +46,7 @@ const WebAppContent: React.FC = () => {
       case 'landing':
         return (
           <LandingPage
-            onGetStarted={() => setView('onboarding')}
+            onGetStarted={() => setView('login')}
             onLogin={() => setView('login')}
           />
         );
@@ -54,9 +54,17 @@ const WebAppContent: React.FC = () => {
       case 'onboarding':
         return (
           <Onboarding
-            onComplete={(data) => {
+            onComplete={async (data) => {
               setOnboardingData(data);
-              setView('signup');
+              if (user && gradzUser) {
+                await updateGradzUser({
+                  interests: data.interests,
+                  onboarding_completed: true,
+                });
+                setView('home');
+              } else {
+                setView('mvp-welcome');
+              }
             }}
           />
         );
@@ -66,7 +74,7 @@ const WebAppContent: React.FC = () => {
           <AuthPage
             mode="signup"
             onboardingData={onboardingData || undefined}
-            onSuccess={() => setView('mvp-welcome')}
+            onSuccess={() => setView('onboarding')}
             onSwitchMode={() => setView('login')}
           />
         );
@@ -79,7 +87,7 @@ const WebAppContent: React.FC = () => {
               if (gradzUser?.onboarding_completed) {
                 setView('home');
               } else {
-                setView('mvp-welcome');
+                setView('onboarding');
               }
             }}
             onSwitchMode={() => setView('signup')}

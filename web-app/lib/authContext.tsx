@@ -85,11 +85,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         reminder_time: '09:00:00',
       });
 
-      if (insertError) {
+      if (insertError && insertError.code !== '23505') {
         console.error('Error creating user profile:', insertError);
-      } else {
-        await fetchGradzUser(data.user.id);
+        throw insertError;
       }
+
+      await fetchGradzUser(data.user.id);
     }
   };
 

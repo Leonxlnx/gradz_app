@@ -27,16 +27,29 @@ export const AuthPage: React.FC<AuthPageProps> = ({ mode, onSuccess, onSwitchMod
 
     try {
       if (mode === 'signup') {
-        if (!onboardingData?.name) {
-          throw new Error('Name is required');
-        }
-        await signUp(email, password, onboardingData.name);
+        const name = email.split('@')[0];
+        await signUp(email, password, name);
+        onSuccess();
       } else {
         await signIn(email, password);
+        onSuccess();
       }
-      onSuccess();
     } catch (err: any) {
-      setError(err.message || 'An error occurred');
+      let errorMessage = 'An error occurred';
+
+      if (err.message.includes('Invalid login credentials')) {
+        errorMessage = 'Incorrect email or password';
+      } else if (err.message.includes('Email not confirmed')) {
+        errorMessage = 'Please verify your email address';
+      } else if (err.message.includes('User already registered')) {
+        errorMessage = 'This email is already registered';
+      } else if (err.message.includes('Password should be')) {
+        errorMessage = 'Password must be at least 6 characters';
+      } else if (err.message) {
+        errorMessage = err.message;
+      }
+
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }
@@ -56,13 +69,6 @@ export const AuthPage: React.FC<AuthPageProps> = ({ mode, onSuccess, onSwitchMod
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-xl">
-          {onboardingData && (
-            <div className="mb-6 p-4 bg-[#C9E4CA]/30 rounded-2xl">
-              <p className="text-sm text-[#143328]/70 text-center">
-                Creating account for <span className="font-bold">{onboardingData.name}</span>
-              </p>
-            </div>
-          )}
 
           <div className="space-y-4 mb-6">
             <div>

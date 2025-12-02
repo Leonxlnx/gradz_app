@@ -7,6 +7,7 @@ import { Logo, Sunburst, Sparkle, Flower, Squiggle, ArrowRight, Peace, ScribbleU
 import { Button, BigHeading, Sticker, Badge, Tape, Polaroid, PhotoGridItem, QuoteCard, StickyNote } from './components/UI';
 import { KindnessGenerator } from './components/KindnessGenerator';
 import { FluidBackground } from './components/FluidBackground';
+import { Confetti } from './components/Confetti';
 import { subscribeToNewsletter } from './services/supabaseClient';
 import { WebApp } from './web-app/WebApp';
 
@@ -100,23 +101,23 @@ const CreativeMarquee = () => {
     const row1 = row1Ref.current;
     if (row1) {
         const content = row1.innerHTML;
-        row1.innerHTML = content + content + content + content; 
+        row1.innerHTML = content + content + content + content;
         gsap.to(row1, {
-            xPercent: -25, // Adjusted for 4 copies
-            duration: 30,
+            xPercent: -25,
+            duration: window.innerWidth < 768 ? 15 : 30,
             ease: "none",
             repeat: -1
         });
     }
 
-    // Row 2: Right movement 
+    // Row 2: Right movement
     const row2 = row2Ref.current;
     if (row2) {
         const content = row2.innerHTML;
         row2.innerHTML = content + content + content + content;
-        gsap.fromTo(row2, 
+        gsap.fromTo(row2,
             { xPercent: -25 },
-            { xPercent: 0, duration: 35, ease: "none", repeat: -1 }
+            { xPercent: 0, duration: window.innerWidth < 768 ? 18 : 35, ease: "none", repeat: -1 }
         );
     }
 
@@ -132,27 +133,27 @@ const CreativeMarquee = () => {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="py-20 bg-gradz-charcoal text-gradz-cream relative z-20 -mt-24 mb-10 transform -rotate-3 origin-center border-y-4 border-gradz-cream shadow-2xl overflow-hidden w-[150%] -ml-[25%]">
+    <div ref={containerRef} className="py-12 md:py-20 bg-gradz-charcoal text-gradz-cream relative z-20 -mt-24 mb-10 transform -rotate-2 md:-rotate-3 origin-center border-y-4 border-gradz-cream shadow-2xl overflow-hidden w-[150%] -ml-[25%]">
         {/* Row 1 */}
-        <div ref={row1Ref} className="flex items-center whitespace-nowrap mb-6 opacity-90">
-             <div className="flex items-center gap-20 px-4 text-7xl md:text-9xl font-serif italic">
+        <div ref={row1Ref} className="flex items-center whitespace-nowrap mb-4 md:mb-6 opacity-90">
+             <div className="flex items-center gap-8 md:gap-20 px-4 text-4xl md:text-7xl lg:text-9xl font-serif italic">
                  <span>Radical Empathy</span>
-                 <Star className="w-20 h-20 text-gradz-matcha" />
+                 <Star className="w-12 h-12 md:w-20 md:h-20 text-gradz-matcha" />
                  <span className="font-sans font-bold text-stroke text-transparent stroke-white">SERIOUS FUN</span>
-                 <Smiley className="w-20 h-20 text-gradz-peach" />
+                 <Smiley className="w-12 h-12 md:w-20 md:h-20 text-gradz-peach" />
                  <span>Kindness is Cool</span>
-                 <Sun className="w-20 h-20 text-gradz-butter" />
+                 <Sun className="w-12 h-12 md:w-20 md:h-20 text-gradz-butter" />
              </div>
         </div>
         {/* Row 2 */}
         <div ref={row2Ref} className="flex items-center whitespace-nowrap opacity-70">
-             <div className="flex items-center gap-20 px-4 text-6xl md:text-8xl font-sans font-bold uppercase tracking-tighter text-gradz-blue">
+             <div className="flex items-center gap-8 md:gap-20 px-4 text-3xl md:text-6xl lg:text-8xl font-sans font-bold uppercase tracking-tighter text-gradz-blue">
                  <span>Don't Be Boring</span>
-                 <Flower className="w-16 h-16 text-gradz-lilac" />
+                 <Flower className="w-10 h-10 md:w-16 md:h-16 text-gradz-lilac" />
                  <span className="font-serif italic text-gradz-cream normal-case font-light">Make someone smile</span>
-                 <Spiral className="w-16 h-16 text-gradz-orange" />
+                 <Spiral className="w-10 h-10 md:w-16 md:h-16 text-gradz-orange" />
                  <span>Change the World</span>
-                 <Heart className="w-16 h-16 text-gradz-matcha" />
+                 <Heart className="w-10 h-10 md:w-16 md:h-16 text-gradz-matcha" />
              </div>
         </div>
     </div>
@@ -295,18 +296,22 @@ const ParallaxCommunity = () => {
     const col3Ref = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1
-            }
-        });
+        const isMobile = window.innerWidth < 768;
 
-        tl.to(col1Ref.current, { y: -300, ease: "none" }, 0);
-        tl.to(col2Ref.current, { y: 200, ease: "none" }, 0);
-        tl.to(col3Ref.current, { y: -300, ease: "none" }, 0);
+        if (!isMobile) {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+
+            tl.to(col1Ref.current, { y: -300, ease: "none" }, 0);
+            tl.to(col2Ref.current, { y: 200, ease: "none" }, 0);
+            tl.to(col3Ref.current, { y: -300, ease: "none" }, 0);
+        }
 
     }, { scope: containerRef });
 
@@ -319,39 +324,38 @@ const ParallaxCommunity = () => {
             </div>
 
             {/* Parallax Grid */}
-            <div className="container mx-auto px-4 h-[120vh] overflow-hidden relative">
-                <div className="grid grid-cols-3 gap-4 md:gap-8 -mt-20">
-                    
-                    {/* Column 1 - Moves UP */}
-                    <div ref={col1Ref} className="flex flex-col gap-8">
-                        <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Happy person" /></div>
-                        <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Friendship" /></div>
-                        <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Smiling woman" /></div>
-                    </div>
+            <div className="container mx-auto px-4 overflow-hidden relative">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8 md:-mt-20">
 
-                    {/* Column 2 - Moves DOWN */}
-                    <div ref={col2Ref} className="flex flex-col gap-8 -mt-32">
-                        <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Group hug" /></div>
-                        <div className="aspect-[3/4] bg-gradz-matcha rounded-3xl flex items-center justify-center p-8 text-center">
-                             <div className="space-y-4">
-                                <Smiley className="w-16 h-16 text-gradz-green mx-auto" />
-                                <h3 className="font-serif text-4xl text-gradz-green">1M+ <br/>Acts Generated</h3>
+                    {/* Column 1 - Moves UP on desktop */}
+                    <div ref={col1Ref} className="flex flex-col gap-3 md:gap-8">
+                        <div className="aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Happy person" /></div>
+                        <div className="aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Friendship" /></div>
+                        <div className="aspect-[3/4] bg-gradz-peach rounded-2xl md:rounded-3xl flex items-center justify-center p-4 md:p-8 text-center">
+                             <div className="space-y-2 md:space-y-4">
+                                <Peace className="w-10 h-10 md:w-16 md:h-16 text-gradz-charcoal mx-auto" />
+                                <h3 className="font-serif text-2xl md:text-4xl text-gradz-charcoal">Global <br/>Movement</h3>
                              </div>
                         </div>
-                        <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Connection" /></div>
-                         <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Workplace kindness" /></div>
                     </div>
 
-                    {/* Column 3 - Moves UP */}
-                    <div ref={col3Ref} className="flex flex-col gap-8">
+                    {/* Column 2 - Moves DOWN on desktop */}
+                    <div ref={col2Ref} className="flex flex-col gap-3 md:gap-8 md:-mt-32">
+                        <div className="aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Group hug" /></div>
+                        <div className="aspect-[3/4] bg-gradz-matcha rounded-2xl md:rounded-3xl flex items-center justify-center p-4 md:p-8 text-center">
+                             <div className="space-y-2 md:space-y-4">
+                                <Smiley className="w-10 h-10 md:w-16 md:h-16 text-gradz-green mx-auto" />
+                                <h3 className="font-serif text-2xl md:text-4xl text-gradz-green">100+ <br/>Acts Generated</h3>
+                             </div>
+                        </div>
+                        <div className="aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Connection" /></div>
+                    </div>
+
+                    {/* Column 3 - Moves UP on desktop, hidden on mobile to make 2-column grid */}
+                    <div ref={col3Ref} className="hidden md:flex flex-col gap-8">
                         <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1489710437720-ebb67ec84dd2?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Happy child" /></div>
                         <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Joy" /></div>
-                        <div className="aspect-[3/4] bg-gradz-peach rounded-3xl flex items-center justify-center p-8 text-center">
-                             <div className="space-y-4">
-                                <Peace className="w-16 h-16 text-gradz-charcoal mx-auto" />
-                                <h3 className="font-serif text-4xl text-gradz-charcoal">Global <br/>Movement</h3>
-                             </div>
-                        </div>
+                        <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-lg"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&q=80" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" alt="Smiling woman" /></div>
                     </div>
 
                 </div>
@@ -1552,6 +1556,9 @@ function App() {
               {/* THREE.JS FLUID BACKGROUND */}
               <FluidBackground />
 
+              {/* CONFETTI ANIMATION */}
+              <Confetti />
+
               {/* POLAROID HERO */}
               <div className="absolute inset-0 w-full h-screen flex items-center justify-center z-0 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-stone/30 via-white/50 to-stone/20"></div>
@@ -1569,9 +1576,6 @@ function App() {
                     </div>
                   </div>
 
-                  <div className="hero-float absolute bottom-[18%] right-[28%] px-8 py-3 rounded-full shadow-xl rotate-6 hover:rotate-0 hover:scale-110 transition-all duration-300 cursor-pointer z-30" style={{ backgroundColor: '#E89F71' }}>
-                    <span className="font-hand text-lg md:text-xl font-bold whitespace-nowrap" style={{ color: '#143328' }}>GOOD VIBES ONLY</span>
-                  </div>
                 </div>
               </div>
 

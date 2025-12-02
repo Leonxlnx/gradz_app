@@ -251,14 +251,14 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
 
       case 'mood-check':
         return (
-          <div className="text-center max-w-2xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
+          <div className="text-center max-w-2xl mx-auto px-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#143328] mb-4 md:mb-8">
               How Are You Feeling Today?
             </h1>
-            <p className="text-xl text-[#143328]/70 mb-12">
+            <p className="text-base md:text-xl text-[#143328]/70 mb-6 md:mb-12">
               Choose your current mood
             </p>
-            <div className="space-y-4 mb-12">
+            <div className="space-y-3 md:space-y-4 mb-6 md:mb-12">
               {moods.map((mood) => {
                 const IconComponent = mood.icon === 'smile' ? SmileIcon : mood.icon === 'meh' ? MehIcon : FrownIcon;
                 return (
@@ -285,14 +285,14 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
 
       case 'interests':
         return (
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
+          <div className="text-center max-w-3xl mx-auto px-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#143328] mb-4 md:mb-8">
               What Interests You?
             </h1>
-            <p className="text-xl text-[#143328]/70 mb-12">
+            <p className="text-base md:text-xl text-[#143328]/70 mb-6 md:mb-12">
               Choose at least 3 topics
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-12">
               {interests.map((interest) => (
                 <button
                   key={interest}
@@ -323,11 +323,11 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
 
       case 'goal':
         return (
-          <div className="text-center max-w-2xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
+          <div className="text-center max-w-2xl mx-auto px-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#143328] mb-4 md:mb-8">
               What's Your Goal?
             </h1>
-            <div className="space-y-4 mb-12">
+            <div className="space-y-3 md:space-y-4 mb-6 md:mb-12">
               <button
                 onClick={() => {
                   setData({ ...data, goal: 'learn' });
@@ -367,8 +367,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
 
       case 'name':
         return (
-          <div className="text-center max-w-xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
+          <div className="text-center max-w-xl mx-auto px-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#143328] mb-4 md:mb-8">
               What Should We Call You?
             </h1>
             <input
@@ -395,8 +395,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
 
       case 'commit':
         return (
-          <div className="text-center max-w-xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-serif text-[#143328] mb-8">
+          <div className="text-center max-w-xl mx-auto px-4">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif text-[#143328] mb-4 md:mb-8">
               Are You Ready, {data.name}?
             </h1>
             <p className="text-xl text-[#143328]/70 mb-12 leading-relaxed">
@@ -431,20 +431,20 @@ export const Onboarding: React.FC<OnboardingProps> = ({ onComplete }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#E8A87C]/20 via-white to-[#C9E4CA]/20 flex items-center justify-center p-6">
-      <div className="w-full max-w-4xl">
-        <div className="mb-8">
-          <div className="h-2 bg-white/50 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-[#143328] transition-all duration-500"
-              style={{ width: `${((step + 1) / steps.length) * 100}%` }}
-            />
-          </div>
-          <div className="text-center mt-4 text-sm text-[#143328]/60">
-            Step {step + 1} of {steps.length}
-          </div>
+    <div className="h-screen overflow-hidden bg-gradient-to-br from-[#E8A87C]/20 via-white to-[#C9E4CA]/20 flex flex-col p-4 md:p-6">
+      <div className="mb-4 md:mb-8 flex-shrink-0">
+        <div className="h-2 bg-white/50 rounded-full overflow-hidden max-w-4xl mx-auto">
+          <div
+            className="h-full bg-[#143328] transition-all duration-500"
+            style={{ width: `${((step + 1) / steps.length) * 100}%` }}
+          />
         </div>
-        <div className="animate-fade-in-up">
+        <div className="text-center mt-2 md:mt-4 text-xs md:text-sm text-[#143328]/60">
+          Step {step + 1} of {steps.length}
+        </div>
+      </div>
+      <div className="flex-1 flex items-center justify-center overflow-y-auto">
+        <div className="w-full max-w-4xl animate-fade-in-up py-4">
           {renderStep()}
         </div>
       </div>
