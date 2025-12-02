@@ -12,7 +12,7 @@ import type { WebAppView } from './types';
 
 const WebAppContent: React.FC = () => {
   const { user, gradzUser, loading, updateGradzUser } = useAuth();
-  const [view, setView] = useState<WebAppView>('landing');
+  const [view, setView] = useState<WebAppView | null>(null);
   const [onboardingData, setOnboardingData] = useState<OnboardingData | null>(null);
 
   useEffect(() => {
@@ -23,13 +23,15 @@ const WebAppContent: React.FC = () => {
         } else {
           setView('home');
         }
+      } else if (user && !gradzUser) {
+        setView('landing');
       } else {
-        setView('login');
+        setView('landing');
       }
     }
   }, [user, gradzUser, loading]);
 
-  if (loading) {
+  if (loading || view === null) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#E8A87C]/20 via-white to-[#C9E4CA]/20 flex items-center justify-center">
         <div className="text-center">
@@ -85,21 +87,7 @@ const WebAppContent: React.FC = () => {
           <AuthPage
             mode="login"
             onSuccess={async () => {
-              if (user && gradzUser) {
-                if (gradzUser.onboarding_completed) {
-                  setView('home');
-                } else {
-                  setView('landing');
-                }
-              } else {
-                setTimeout(() => {
-                  if (gradzUser?.onboarding_completed) {
-                    setView('home');
-                  } else {
-                    setView('landing');
-                  }
-                }, 300);
-              }
+              // Let the useEffect handle navigation based on auth state
             }}
             onSwitchMode={() => setView('signup')}
           />

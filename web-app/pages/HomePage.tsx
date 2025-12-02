@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../lib/authContext';
 import { supabase } from '../../services/supabaseClient';
 import type { Quote, Challenge, Lecture, DailyContent } from '../types';
-import { FireIcon, HomeIcon, CollectionIcon, HealthIcon, SettingsIcon, QuoteIcon, TargetIcon, BookIcon } from '../components/Icons';
+import { FireIcon, HomeIcon, CollectionIcon, HealthIcon, SettingsIcon, QuoteIcon, TargetIcon, BookIcon, HeartIcon } from '../components/Icons';
 
 interface HomePageProps {
   onNavigate: (view: string) => void;
@@ -147,6 +147,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
     setDailyContent({ ...dailyContent, lecture_read: true });
   };
+
+  if (!gradzUser) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-[#E8A87C]/20 via-white to-[#C9E4CA]/20 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-[#143328] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-[#143328]/70">Loading your profile...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
