@@ -1571,7 +1571,7 @@ function App() {
                 <div className="relative w-full h-full max-w-[1600px] mx-auto px-6">
                   <div className="hero-float absolute top-[18%] left-[5%] w-64 md:w-72 lg:w-80 transform -rotate-12 hover:scale-105 hover:-rotate-6 transition-all duration-500 cursor-pointer shadow-2xl z-10 hidden md:block">
                     <div className="bg-white p-4 rounded-lg">
-                      <img src="https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Friends together spreading joy" className="w-full aspect-square object-cover blur-sm" />
+                      <img src="https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Friends together spreading joy" className="w-full aspect-square object-cover blur-sm rotate-180" />
                     </div>
                   </div>
 
